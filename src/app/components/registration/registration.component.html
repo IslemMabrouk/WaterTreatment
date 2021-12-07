@@ -1,0 +1,143 @@
+<div class="row" style="margin: 150px 0px 150px 0px ;">
+    <div class="col-md-6 mx-auto p-0">
+        <div class="card">
+            <div class="login-box" >
+                <div class="login-snip" style="margin-top:-40px;"  ><input id="tab-1" type="radio" name="tab" class="sign-in text-uppercase fs-0 fs-md-1" checked><label for="tab-1" class="tab" style=" margin-right: 40px;"> <h4 style="font-size: 19px; margin-bottom: 20px; margin-bottom: 5px;">Se Connecter</h4> </label> <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab"> <h4 style="font-size: 20px; margin-bottom: 5px;">S'inscrire</h4> </label>
+                    <div class="login-space" >
+                        <div class="login" >
+                            <div class="col-12" style="margin-top: 30px;">
+                                <div class="input-group">
+                                    <div class="input-group-addon background-11 fs-2"><span
+                                            class="ion-ios-person-outline color-warning" ></span></div><input
+                                        class="form-control" type="text" style="margin-left: 10px;" placeholder="E-mail *"
+                                        aria-label="Text input with dropdown button" />
+                                </div>
+                            </div>
+                            <div class="col-12 mt-2 mt-sm-4" >
+                                <div class="input-group">
+                                    <div class="input-group-addon background-11 fs-2"><span
+                                            class="ion-ios-locked-outline color-warning"></span></div><input
+                                        class="form-control" type="Password" style="margin-left: 10px;"   placeholder="Mot de passe *"
+                                        aria-label="Text input with dropdown button" />
+                                </div>
+                            </div>
+                            <div class="row align-items-center mt-3">
+                                <div class="col-6"><label class="form-check-label"><input class="form-check-input "
+                                            type="checkbox" /><span class="color-7">Rester Connecté</span></label></div>
+                                <div class="col-6 mt-2 mt-sm-3"><button class="btn btn-primary btn-block" type="submit">Se Connecter</button></div>
+                            </div>
+                        </div>
+                        <div class="sign-up-form" style="margin-top: 30px;">
+                            <form [formGroup]="signupForm" >
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" id="" placeholder="Prénom *" formControlName="firstName" >
+                                </div>
+
+                                <!-- Control Input First Name -->
+                            <div *ngIf="signupForm.controls['firstName'].invalid && ( signupForm.controls['firstName'].dirty || signupForm.controls['firstName'].touched )">
+                                <div *ngIf="signupForm.controls['firstName'].errors.required" class="text-danger" style="font-size: 14px;">
+                                    Prénom est obligatoir
+                                </div>
+
+                                <div *ngIf="signupForm.controls['firstName'].errors.minlength" class="text-danger">
+                                    First Name must have at least 3 characters
+                                </div>
+                            </div>
+
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" id="" placeholder="Nom de famille *" formControlName="lastName" >
+                                </div>
+
+                                 <!-- Control Input Last Name -->
+                            <div *ngIf="signupForm.controls['lastName'].invalid && ( signupForm.controls['lastName'].dirty || signupForm.controls['lastName'].touched )">
+                                <div *ngIf="signupForm.controls['lastName'].errors.required" class="text-danger">
+                                    First Name is required
+                                </div>
+
+                                <div *ngIf="signupForm.controls['lastName'].errors.minlength" class="text-danger">
+                                    First Name must have at least 5 characters
+                                </div>
+                            </div>
+                                
+                            </div>
+                                    <div class="input-group">
+                                       <input class="form-control" type="email" placeholder="E-mail *" aria-label="Text input with dropdown button" formControlName="email" />
+                                    </div>
+
+                                     <!-- Control Input Email -->
+                            <div *ngIf="signupForm.controls['email'].invalid && ( signupForm.controls['email'].dirty || signupForm.controls['email'].touched )">
+                                <div *ngIf="signupForm.controls['email'].errors.required" class="text-danger">
+                                    Email Name is required
+                                </div>
+
+                                <div *ngIf="signupForm.controls['email'].errors.email" class="text-danger">
+                                    Invalid Email
+                                </div>
+                            </div>
+
+
+                                    <div class="form-row" style="margin-top:15px;">
+                                        <div class="form-group col-md-6">
+                                            <input type="password" class="form-control" id="" placeholder="Mot de passe *" formControlName="password">
+                                        </div>
+
+                                          <!-- Control Input Password -->
+                            <div *ngIf="signupForm.controls['password'].invalid && ( signupForm.controls['password'].dirty || signupForm.controls['password'].touched )">
+                                <div *ngIf="signupForm.controls['password'].errors.required" class="text-danger">
+                                    Password is required
+                                </div>
+
+                                <div *ngIf="signupForm.controls['password'].errors.minlength" class="text-danger">
+                                    Password must have at least 8 characters
+                                </div>
+                            </div>
+        
+                                        <div class="form-group col-md-6">
+                                            <input type="password" class="form-control" id="" placeholder="Confirmer mot de passe *"  formControlName="confirmPassword">
+                                        </div>
+                                        
+                                         <!-- Control Input Confirm Password -->
+                            <div *ngIf="signupForm.controls['confirmPassword'].invalid && ( signupForm.controls['confirmPassword'].dirty || signupForm.controls['confirmPassword'].touched )">
+                                <div *ngIf="signupForm.controls['confirmPassword'].errors.required" class="text-danger">
+                                    Confirm Password is required
+                                </div>
+                                <div *ngIf="signupForm.controls['confirmPassword'].errors.mustMatch" class="text-danger">
+                                    Confirm Password must match Password
+                                </div>
+                            </div>
+
+
+                                    </div>
+                                <div class="input-group">
+                                   <input class="form-control" type="tel"   placeholder="Numéro de mobile *" aria-label="Text input with dropdown button" formControlName="tel" />
+                                </div>
+
+                                 <!-- Control Input tel -->
+                            <div *ngIf="signupForm.controls['tel'].invalid && ( signupForm.controls['tel'].dirty || signupForm.controls['tel'].touched )">
+                                <div *ngIf="signupForm.controls['tel'].errors.required" class="text-danger">
+                                    Phone Number is required
+                                </div>
+
+                                <div *ngIf="signupForm.controls['tel'].errors.minlength" class="text-danger">
+                                    Phone Number must have at least 8 numbers
+                                </div>
+                                <div *ngIf="signupForm.controls['tel'].errors.maxlength" class="text-danger">
+                                    Phone Number must have maximum 13 numbers
+                                </div>
+                            </div>
+
+                            <div class="row align-items-center mt-3">
+                                <div class="col-6"><label class="form-check-label"><span class="color-7"><label for="tab-1">Déja Membre?</label> </span></label></div>
+                                <div class="col-6 mt-2 mt-sm-3"><button class="btn btn-primary btn-block"
+                                        type="" (click)="signup(signupForm.value)" >S'inscrire</button></div>
+                            </div>
+                            
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
