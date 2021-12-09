@@ -4,6 +4,15 @@ const express = require('express');
 //Instance express in App
 const app = express();
 
+// import mongoose
+const mongoose = require('mongoose');
+// import model User
+const User = require('./models/user');
+
+// import body parser
+const bodyParser = require('body-parser');
+
+
 // Connect to Data Base
 mongoose.connect('mongodb://localhost:27017/WaterDB', { useNewUrlParser: true, useUnifiedTopology: true });
 
