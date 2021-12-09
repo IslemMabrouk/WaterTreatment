@@ -42,6 +42,7 @@ import { ProductsComponent } from './products/products.component';
     EspaceClientComponent,
     ProductsComponent,
 
+
    
   ],
   imports: [
