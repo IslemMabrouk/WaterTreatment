@@ -20,6 +20,11 @@ import { ReviewsComponent } from './components/reviews/reviews.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EspaceClientComponent } from './components/espace-client/espace-client.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import{HttpClientModule} from'@angular/common/http'
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +53,9 @@ import { EspaceClientComponent } from './components/espace-client/espace-client.
     BrowserModule,
     AppRoutingModule,
     FormsModule,  //Général filProjet kol yjibhom
-    ReactiveFormsModule
+    ReactiveFormsModule, 
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
