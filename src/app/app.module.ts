@@ -19,7 +19,6 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 import { ReviewsComponent } from './components/reviews/reviews.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DisplayUserComponent } from './display-user/display-user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +37,6 @@ import { DisplayUserComponent } from './display-user/display-user.component';
     WelcomeComponent,
     ReviewsComponent,
     AddProductComponent,
-    DisplayUserComponent,
 
 
    
