@@ -11,108 +11,39 @@
 
                         <div class="login-space" >
                             <div class="sign-up-form" style="margin-top: 30px;">
-                                <form [formGroup]="signupForm" >
+                                <form>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <input type="text" class="form-control" id="" placeholder="Prénom *" formControlName="firstName" >
+                                        <input type="text" class="form-control" id="" placeholder="Prénom *"  >
                                     </div>
-    
-                                    <!-- Control Input First Name -->
-                                <div *ngIf="signupForm.controls['firstName'].invalid && ( signupForm.controls['firstName'].dirty || signupForm.controls['firstName'].touched )">
-                                    <div *ngIf="signupForm.controls['firstName'].errors.required" class="text-danger" style="font-size: 14px;">
-                                        Prénom est obligatoir
-                                    </div>
-    
-                                    <div *ngIf="signupForm.controls['firstName'].errors.minlength" class="text-danger">
-                                        First Name must have at least 3 characters
-                                    </div>
-                                </div>
     
                                     <div class="form-group col-md-6">
-                                        <input type="text" class="form-control" id="" placeholder="Nom de famille *" formControlName="lastName" >
+                                        <input type="text" class="form-control" id="" placeholder="Nom de famille *"  >
                                     </div>
     
-                                     <!-- Control Input Last Name -->
-                                <div *ngIf="signupForm.controls['lastName'].invalid && ( signupForm.controls['lastName'].dirty || signupForm.controls['lastName'].touched )">
-                                    <div *ngIf="signupForm.controls['lastName'].errors.required" class="text-danger">
-                                        First Name is required
-                                    </div>
-    
-                                    <div *ngIf="signupForm.controls['lastName'].errors.minlength" class="text-danger">
-                                        First Name must have at least 5 characters
-                                    </div>
-                                </div>
-                                    
                                 </div>
                                         <div class="input-group">
-                                           <input class="form-control" type="email" placeholder="E-mail *" aria-label="Text input with dropdown button" formControlName="email" />
+                                           <input class="form-control" type="email" placeholder="E-mail *" aria-label="Text input with dropdown button"  />
                                         </div>
-    
-                                         <!-- Control Input Email -->
-                                <div *ngIf="signupForm.controls['email'].invalid && ( signupForm.controls['email'].dirty || signupForm.controls['email'].touched )">
-                                    <div *ngIf="signupForm.controls['email'].errors.required" class="text-danger">
-                                        Email Name is required
-                                    </div>
-    
-                                    <div *ngIf="signupForm.controls['email'].errors.email" class="text-danger">
-                                        Invalid Email
-                                    </div>
-                                </div>
-    
     
                                         <div class="form-row" style="margin-top:15px;">
                                             <div class="form-group col-md-6">
-                                                <input type="password" class="form-control" id="" placeholder="Mot de passe *" formControlName="password">
+                                                <input type="password" class="form-control" id="" placeholder="Mot de passe *" >
                                             </div>
     
-                                              <!-- Control Input Password -->
-                                <div *ngIf="signupForm.controls['password'].invalid && ( signupForm.controls['password'].dirty || signupForm.controls['password'].touched )">
-                                    <div *ngIf="signupForm.controls['password'].errors.required" class="text-danger">
-                                        Password is required
-                                    </div>
-    
-                                    <div *ngIf="signupForm.controls['password'].errors.minlength" class="text-danger">
-                                        Password must have at least 8 characters
-                                    </div>
-                                </div>
-            
                                             <div class="form-group col-md-6">
-                                                <input type="password" class="form-control" id="" placeholder="Confirmer mot de passe *"  formControlName="confirmPassword">
+                                                <input type="password" class="form-control" id="" placeholder="Confirmer mot de passe *"  >
                                             </div>
                                             
-                                             <!-- Control Input Confirm Password -->
-                                <div *ngIf="signupForm.controls['confirmPassword'].invalid && ( signupForm.controls['confirmPassword'].dirty || signupForm.controls['confirmPassword'].touched )">
-                                    <div *ngIf="signupForm.controls['confirmPassword'].errors.required" class="text-danger">
-                                        Confirm Password is required
-                                    </div>
-                                    <div *ngIf="signupForm.controls['confirmPassword'].errors.mustMatch" class="text-danger">
-                                        Confirm Password must match Password
-                                    </div>
-                                </div>
-    
-    
+                            
                                         </div>
                                     <div class="input-group">
-                                       <input class="form-control" type="tel"   placeholder="Numéro de mobile *" aria-label="Text input with dropdown button" formControlName="tel" />
+                                       <input class="form-control" type="tel"   placeholder="Numéro de mobile *" aria-label="Text input with dropdown button"  />
                                     </div>
-    
-                                     <!-- Control Input tel -->
-                                <div *ngIf="signupForm.controls['tel'].invalid && ( signupForm.controls['tel'].dirty || signupForm.controls['tel'].touched )">
-                                    <div *ngIf="signupForm.controls['tel'].errors.required" class="text-danger">
-                                        Phone Number is required
-                                    </div>
-    
-                                    <div *ngIf="signupForm.controls['tel'].errors.minlength" class="text-danger">
-                                        Phone Number must have at least 8 numbers
-                                    </div>
-                                    <div *ngIf="signupForm.controls['tel'].errors.maxlength" class="text-danger">
-                                        Phone Number must have maximum 13 numbers
-                                    </div>
-                                </div>
     
                                 <div class="row align-items-center mt-3">
                                     <div class="col-6 mt-2 mt-sm-3" style="margin-left: 25%;"><button class="btn btn-primary btn-block"
-                                            type="" (click)="signup(signupForm.value)" >AJOUTER</button></div>
+                                            type=""  >AJOUTER</button></div>
                                 </div>
                                 
                             </form>
