@@ -20,7 +20,6 @@ import { ReviewsComponent } from './components/reviews/reviews.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EspaceClientComponent } from './components/espace-client/espace-client.component';
-import { ProductsComponent } from './products/products.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +39,7 @@ import { ProductsComponent } from './products/products.component';
     ReviewsComponent,
     AddProductComponent,
     EspaceClientComponent,
-    ProductsComponent,
+
 
 
    
