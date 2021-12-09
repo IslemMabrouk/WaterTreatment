@@ -40,6 +40,7 @@ import { DisplayUserComponent } from './display-user/display-user.component';
     AddProductComponent,
     DisplayUserComponent,
 
+
    
   ],
   imports: [
