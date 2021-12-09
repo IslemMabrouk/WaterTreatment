@@ -7,6 +7,7 @@ import { AdoucisseursComponent } from './components/adoucisseurs/adoucisseurs.co
 import { ContactComponent } from './components/contact/contact.component';
 import { DashboardAdminComponent } from './components/dashboard-admin/dashboard-admin.component';
 import { EntretienComponent } from './components/entretien/entretien.component';
+import { EspaceClientComponent } from './components/espace-client/espace-client.component';
 import { HomeComponent } from './components/home/home.component';
 import { PurificateursComponent } from './components/purificateurs/purificateurs.component';
 import { RegistrationComponent } from './components/registration/registration.component';
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path: 'purificateurs' , component: PurificateursComponent},
   {path: 'aboutUs' , component: AboutUsComponent},
   {path: 'entretien' , component: EntretienComponent},
-  {path: 'contact' , component: ContactComponent}
+  {path: 'contact' , component: ContactComponent},
+  {path: 'espaceClient' , component: EspaceClientComponent}
 
 ];
 
