@@ -17,11 +17,7 @@ const app = express();
 const User = require('./models/user');
 // import mongoose
 const mongoose = require('mongoose');
-// import model User
-const User = require('./models/user');
 
-// import body parser
-const bodyParser = require('body-parser');
 //import bcrypt
 const bcrypt = require('bcrypt');
 
