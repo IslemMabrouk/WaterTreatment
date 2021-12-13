@@ -5,6 +5,7 @@
                 <div class="login-snip" style="margin-top:-40px;"  ><input id="tab-1" type="radio" name="tab" class="sign-in text-uppercase fs-0 fs-md-1" checked><label for="tab-1" class="tab" style=" margin-right: 40px;"> <h4 style="font-size: 19px; margin-bottom: 20px; margin-bottom: 5px;">Se Connecter</h4> </label> <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab"> <h4 style="font-size: 20px; margin-bottom: 5px;">S'inscrire</h4> </label>
                     <div class="login-space" >
                         <div class="login" >
+                            <form #loginForm="ngForm" (ngSubmit)="login()">
                             <div class="col-12" style="margin-top: 30px;">
                                 <div class="input-group">
                                     <div class="input-group-addon background-11 fs-2">
@@ -12,16 +13,17 @@
                                         </div>
                                             <mat-form-field appearance="fill" style="margin-left: 10px;" class="col-11">
                                                 <mat-label> Entrer votre Email * </mat-label>
-                                                <input matInput placeholder="pat@example.com" >
+                                                <input matInput placeholder="pat@example.com" [(ngModel)]="user.email" [ngModelOptions]="{standalone:true}">
                                               </mat-form-field>
                                 </div>
                             </div>
                             <div class="col-12 mt-2 mt-sm-4" >
                                 <div class="input-group">
+
                                     <div class="input-group-addon background-11 fs-2" ><mat-icon style="font-size: 28px; margin-top: 10px; color: #2a3855;">https</mat-icon></div>
                                             <mat-form-field appearance="fill" style="margin-left: 10px;" class="col-11" >
                                                 <mat-label aria-label="Text input with dropdown button" >  Entrer votre Mot de passe * </mat-label>
-                                                <input matInput [type]="hide ? 'password' : 'text'">
+                                                <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="user.password" [ngModelOptions]="{standalone:true}">
                                                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                                                   <mat-icon style=" color: #2a3855;">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                                                 </button>
@@ -31,8 +33,9 @@
                             <div class="row align-items-center mt-3">
                                 <div class="col-6"><label class="form-check-label"><input class="form-check-input "
                                             type="checkbox" /><span class="color-7">Rester Connecté</span></label></div>
-                                <div class="col-6 mt-2 mt-sm-3"><button class="btn btn-primary btn-block" type="submit">Se Connecter</button></div>
+                                <div class="col-6 mt-2 mt-sm-3"><button class="btn btn-primary btn-block" >Se Connecter</button></div>
                             </div>
+                            </form>
                         </div>
                         <div class="sign-up-form" style="margin-top: 30px;">
                             <form [formGroup]="signupForm" >
@@ -136,8 +139,10 @@
 
                             <div class="row align-items-center mt-3">
                                 <div class="col-6"><label class="form-check-label"><span class="color-7"><label for="tab-1">Déja Membre?</label> </span></label></div>
-                                <div class="col-6 mt-2 mt-sm-3"><button class="btn btn-primary btn-block"
-                                        type=""  >S'inscrire</button></div>
+                                <div class="col-6 mt-2 mt-sm-3">
+                                    <button class="btn btn-primary btn-block"
+                                    (click)="signup(signupForm.value)" >S'inscrire</button>
+                                    </div>
                             </div>
                             
                         </form>
