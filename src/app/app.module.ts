@@ -23,13 +23,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button' ;
 import { MatTabsModule } from '@angular/material/tabs' ;
 import { MatSelectModule } from '@angular/material/select' ;
-import { HttpClientModule } from '@angular/common/http';
 import { MatOptionModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import{ MatInputModule } from '@angular/material/input';
 import{ MatCardModule } from '@angular/material/card';
+import{HttpClientModule} from'@angular/common/http'
 
 
 
@@ -62,12 +62,12 @@ import{ MatCardModule } from '@angular/material/card';
     AppRoutingModule,
     FormsModule,  //Général filProjet kol yjibhom
     ReactiveFormsModule,
-     BrowserAnimationsModule,
+   BrowserAnimationsModule,
     MatButtonModule, 
     MatTabsModule,MatSelectModule,MatOptionModule,
     MatFormFieldModule,MatIconModule,
-    HttpClientModule,MatCheckboxModule, MatInputModule,MatCardModule
-
+    HttpClientModule,MatCheckboxModule, MatInputModule,MatCardModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

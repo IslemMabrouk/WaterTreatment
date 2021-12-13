@@ -1,7 +1,5 @@
 //Import express
 const express = require('express');
-//Import mongoose
-const mongoose = require('mongoose');
 //Import model Product
 const Product = require('./models/product');
 //Import Body-Parser
@@ -17,6 +15,13 @@ const app = express();
 
 // import model User
 const User = require('./models/user');
+// import mongoose
+const mongoose = require('mongoose');
+// import model User
+const User = require('./models/user');
+
+// import body parser
+const bodyParser = require('body-parser');
 //import bcrypt
 const bcrypt = require('bcrypt');
 
@@ -134,6 +139,83 @@ app.post('/api/addProduct', multer({ storage: storage }).single('img'), (req, re
 });
 
 
+
+
+// traitement create user
+app.post('/api/users', (req, res) => {
+
+    console.log(req.body);
+    User.findOne({email : req.body.email}).then(
+    (doc) =>{
+        if (doc) {
+            res.status(200).json({message : "user exist"});
+        }else{
+            bcrypt.hash(req.body.password, 10).then(cryptedPassword => {
+    
+                let user = new User({
+                    firstName: req.body.firstName,
+                    lastName: req.body.lastName,
+                    email: req.body.email,
+                    password: cryptedPassword,
+                    tel: req.body.tel,
+                    role: req.body.role
+            
+                });
+            
+                // etape 2 
+                user.save();
+            
+                // etape 3
+            
+                res.status(200).json({
+                    message: 'User added with sucess'
+                })
+                })
+        }
+    }
+    
+    
+    
+    )
+    
+    
+        
+    
+    });
+
+//traitement de login
+app.post("/api/login", (req, res) => {
+    console.log("Here in login", req.body);
+    User.findOne({ email: req.body.email }).then(
+        (resultEmail) => {
+            console.log("resultEmail", resultEmail);
+            if (!resultEmail) {
+                res.status(200).json({
+                    findedUser: "Wrong Email"
+                });
+            }
+            return bcrypt.compare(req.body.password, resultEmail.password);
+        })
+        .then(
+            (resultPwd) => {
+                console.log("resultPwd", resultPwd);
+                if (!resultPwd) {
+                    res.status(200).json({
+                        findedUser: "Wrong password"
+                    });
+                }
+                else {
+                    User.findOne({ email: req.body.email }).then(
+                        (result) => {
+                            console.log("result", result);
+                            res.status(200).json({
+                                findedUser: result
+                            })
+                        }
+                    )
+                }
+            })
+});
 
 
 // traitement create user

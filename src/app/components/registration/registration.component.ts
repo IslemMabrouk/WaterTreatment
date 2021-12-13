@@ -10,7 +10,10 @@ import { MustMatch } from '../confirmPwd';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
+<<<<<<< HEAD
   hide = true;
+=======
+>>>>>>> d2071fa4df6eaefae6859fdab0c6a6239cf93519
   signupForm : FormGroup;
   user: any = {};
   loginForm: FormGroup;

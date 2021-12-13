@@ -8,6 +8,7 @@
                             <form #loginForm="ngForm" (ngSubmit)="login()">
                             <div class="col-12" style="margin-top: 30px;">
                                 <div class="input-group">
+<<<<<<< HEAD
                                     <div class="input-group-addon background-11 fs-2">
                                         <mat-icon style="font-size: 35px; margin-top: 10px; color: #2a3855;">perm_identity</mat-icon>
                                         </div>
@@ -15,10 +16,19 @@
                                                 <mat-label> Entrer votre Email * </mat-label>
                                                 <input matInput placeholder="pat@example.com" [(ngModel)]="user.email" [ngModelOptions]="{standalone:true}">
                                               </mat-form-field>
+=======
+                                    <div class="input-group-addon background-11 fs-2"><span
+                                            class="ion-ios-person-outline color-warning" ></span></div>
+                                            <input
+                                        class="form-control" type="email" style="margin-left: 10px;" placeholder="E-mail *"
+                                        aria-label="Text input with dropdown button"
+                                        [(ngModel)]="user.email" [ngModelOptions]="{standalone:true}" />
+>>>>>>> d2071fa4df6eaefae6859fdab0c6a6239cf93519
                                 </div>
                             </div>
                             <div class="col-12 mt-2 mt-sm-4" >
                                 <div class="input-group">
+<<<<<<< HEAD
 
                                     <div class="input-group-addon background-11 fs-2" ><mat-icon style="font-size: 28px; margin-top: 10px; color: #2a3855;">https</mat-icon></div>
                                             <mat-form-field appearance="fill" style="margin-left: 10px;" class="col-11" >
@@ -28,6 +38,13 @@
                                                   <mat-icon style=" color: #2a3855;">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                                                 </button>
                                               </mat-form-field>
+=======
+                                    <div class="input-group-addon background-11 fs-2"><span
+                                            class="ion-ios-locked-outline color-warning"></span></div><input
+                                        class="form-control" type="password" style="margin-left: 10px;"   placeholder="Mot de passe *"
+                                        aria-label="Text input with dropdown button" 
+                                        [(ngModel)]="user.password" [ngModelOptions]="{standalone:true}" />
+>>>>>>> d2071fa4df6eaefae6859fdab0c6a6239cf93519
                                 </div>
                             </div>
                             <div class="row align-items-center mt-3">
