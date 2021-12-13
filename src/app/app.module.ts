@@ -20,6 +20,18 @@ import { ReviewsComponent } from './components/reviews/reviews.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EspaceClientComponent } from './components/espace-client/espace-client.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button' ;
+import { MatTabsModule } from '@angular/material/tabs' ;
+import { MatSelectModule } from '@angular/material/select' ;
+import { HttpClientModule } from '@angular/common/http';
+import { MatOptionModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatIconModule } from '@angular/material/icon';
+import{ MatInputModule } from '@angular/material/input';
+import{ MatCardModule } from '@angular/material/card';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +60,13 @@ import { EspaceClientComponent } from './components/espace-client/espace-client.
     BrowserModule,
     AppRoutingModule,
     FormsModule,  //Général filProjet kol yjibhom
-    ReactiveFormsModule
+    ReactiveFormsModule,
+     BrowserAnimationsModule,
+    MatButtonModule, 
+    MatTabsModule,MatSelectModule,MatOptionModule,
+    MatFormFieldModule,MatIconModule,
+    HttpClientModule,MatCheckboxModule, MatInputModule,MatCardModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
