@@ -8,6 +8,7 @@ const app = express();
 const mongoose = require('mongoose');
 // import model User
 const User = require('./models/user');
+const Calcul = require('./models/calcul');
 
 // import body parser
 const bodyParser = require('body-parser');
@@ -31,7 +32,7 @@ app.use((req, res, next) => {
     );
     next();
 });
-
+//********************************************************************************************************* */
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -115,6 +116,29 @@ app.post("/api/login", (req, res) => {
             })
 });
 
+
+
+
+
+
+
+//fonction qui calcule 
+app.post("/api/calcul", (req) => {
+console.log("here in calcul", req.body);
+
+
+chloreInitial = req.body.chloreInitial;
+
+
+let chloreFinal= Number(chloreInitial)*2;
+let calcul = new Calcul ({
+    chloreFinal :chloreFinal,
+    chloreInitial : chloreInitial,
+});
+console.log(chloreFinal)
+calcul.save();
+
+});
 
 
 
