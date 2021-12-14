@@ -3,52 +3,134 @@
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 <div class="border border-color-9 p-3 p-sm-6 radius-secondary">
-                    <h3 class="text-center fs-2 fs-md-3">Ajouter un Product</h3>
+                    <h4 class="text-center fs-2 fs-md-3">Ajouter un Produit</h4>
                     <hr class="short"
                         data-zanim='{"from":{"opacity":0,"width":0},"to":{"opacity":2,"width":"4.20873rem"},"duration":0.8}'
                         data-zanim-trigger="scroll" />
-                    
 
-                        <div class="login-space" >
-                            <div class="sign-up-form" style="margin-top: 30px;">
-                                <form>
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <input type="text" class="form-control" id="" placeholder="Prénom *"  >
-                                    </div>
-    
-                                    <div class="form-group col-md-6">
-                                        <input type="text" class="form-control" id="" placeholder="Nom de famille *"  >
-                                    </div>
-    
-                                </div>
-                                        <div class="input-group">
-                                           <input class="form-control" type="email" placeholder="E-mail *" aria-label="Text input with dropdown button"  />
-                                        </div>
-    
-                                        <div class="form-row" style="margin-top:15px;">
-                                            <div class="form-group col-md-6">
-                                                <input type="password" class="form-control" id="" placeholder="Mot de passe *" >
+                    <mat-tab-group >
+                        <mat-tab label="Adoucisseur">
+
+                            <div class="login-space">
+                                <div class="sign-up-form" style="margin-top: 30px;">
+                                    <form #addAdoucisseurForm="ngForm" (ngSubmit)="addAdoucisseur()">
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6"> 
+                                             <mat-form-field appearance="fill" class="col-md-12">
+                                                <mat-label> Type </mat-label>
+                                                <input matInput type="text"  required [(ngModel)]="product.type" [ngModelOptions]="{standalone:true}">
+                                            </mat-form-field>
                                             </div>
-    
+
                                             <div class="form-group col-md-6">
-                                                <input type="password" class="form-control" id="" placeholder="Confirmer mot de passe *"  >
+                                                <mat-form-field appearance="fill" class="col-md-12">
+                                                    <mat-label> Price </mat-label>
+                                                    <input matInput type="text"  required [(ngModel)]="product.price" [ngModelOptions]="{standalone:true}">
+                                                </mat-form-field>
                                             </div>
-                                            
-                            
+
+                                            <div class="form-group col-md-6">
+                                                <mat-form-field appearance="fill" class="col-md-12">
+                                                    <mat-label> Volume de résine  </mat-label>
+                                                    <input matInput type="number"  required [(ngModel)]="product.volume" [ngModelOptions]="{standalone:true}">
+                                                </mat-form-field>
+                                            </div>
+
+                                            <div class="form-group col-md-6">
+                                                <mat-form-field appearance="fill"  class="col-md-12">
+                                                    <mat-label> Pression d'eau </mat-label>
+                                                    <input matInput type="text"  required [(ngModel)]="product.pression" [ngModelOptions]="{standalone:true}">
+                                                </mat-form-field>
+                                            </div>
+
+                                            <div class="form-group col-md-6">
+                                                <mat-form-field appearance="fill" class="col-md-12">
+                                                    <mat-label> Economie d'eau </mat-label>
+                                                    <input matInput type="number"  required [(ngModel)]="product.economie" [ngModelOptions]="{standalone:true}">
+                                                 </mat-form-field>
+                                            </div>
+
+                                            <div class="form-group col-md-6">
+                                                <mat-form-field appearance="fill" class="form-group col-md-12">
+                                                    <mat-label>Conception</mat-label>
+                                                    <mat-select disableRipple  required [(ngModel)]="product.conception" [ngModelOptions]="{standalone:true}">
+                                                        <mat-option value="Compact">Compact</mat-option>
+                                                        <mat-option value="Bi-bloc">Bi-bloc</mat-option>
+                                                    </mat-select>
+                                                </mat-form-field>
+                                            </div>
                                         </div>
-                                    <div class="input-group">
-                                       <input class="form-control" type="tel"   placeholder="Numéro de mobile *" aria-label="Text input with dropdown button"  />
-                                    </div>
-    
-                                <div class="row align-items-center mt-3">
-                                    <div class="col-6 mt-2 mt-sm-3" style="margin-left: 25%;"><button class="btn btn-primary btn-block"
-                                            type=""  >AJOUTER</button></div>
+
+                                        <button type="button" (click)='filePicker.click()' class="btn btn-warning mt-3">
+                                            Select Product Image
+                                        </button>
+                                        <div class="form-group">
+                                            <input style="visibility: hidden;" type="file" class="form-control"
+                                                #filePicker (change)='onImageSelected($event)' />
+                                        </div>
+                                        <img [src]="imagePreview" *ngIf="imagePreview" width="100px" height="100px">
+
+                                        <div class="row align-items-center mt-3" style="margin-top:-20px;">
+                                            <div class="col-6 mt-2 mt-sm-3" style="margin-left: 25%;"><button
+                                                    class="btn btn-primary btn-block" type="">AJOUTER</button></div>
+                                        </div>
+
+                                    </form>
                                 </div>
-                                
-                            </form>
                             </div>
-                        </div>
+
+                        </mat-tab>
+                        <mat-tab label="Purificateur">  <div class="login-space">
+                            <div class="sign-up-form" style="margin-top: 30px;">
+                                <form #addPurificateurForm="ngForm" (ngSubmit)="addPurificateur()" >
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <mat-form-field appearance="fill" class="col-md-12">
+                                                <mat-label> Type </mat-label>
+                                                <input matInput type="text" required [(ngModel)]="product.type" [ngModelOptions]="{standalone:true}">
+                                              </mat-form-field>
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            <mat-form-field appearance="fill" class="col-md-12">
+                                                <mat-label> Price </mat-label>
+                                                <input matInput type="text"  required required [(ngModel)]="product.price" [ngModelOptions]="{standalone:true}">
+                                              </mat-form-field>
+                                        </div>
+                                        <div class="form-group col-md-6" style="text-align: justify;">
+                                            <h4 style="margin-left: 10px;">Les composants à éliminer: </h4> <br>
+                                                <mat-checkbox color ="primary" class="example-margin" required [(ngModel)]="product.chlore" [ngModelOptions]="{standalone:true}"> <h4> Chlore, mauvais goûts et mauvaises odeurs de l’eau </h4> </mat-checkbox> <br>
+                                                <mat-checkbox color ="primary" class="example-margin"> <h4> Matières organiques et COV </h4> </mat-checkbox> <br>
+                                                <mat-checkbox color ="primary" class="example-margin"> <h4> Pesticides </h4> </mat-checkbox> <br>
+                                                <mat-checkbox color ="primary" class="example-margin"> <h4> Métaux lourds : Plomb, mercure et zinc </h4> </mat-checkbox> <br>
+                                                <mat-checkbox color ="primary" class="example-margin"> <h4> Résidus médicamenteux </h4> </mat-checkbox> <br>
+                                                <mat-checkbox color ="primary" class="example-margin"> <h4> Aluminium, fluor </h4> </mat-checkbox> <br>
+                                                <mat-checkbox color ="primary" class="example-margin"> <h4>  Nitrates / Nitrites </h4> </mat-checkbox> <br>                                          
+                                          </div>
+ 
+                                      
+                                    </div>
+
+                                    <button type="button" (click)='filePicker.click()' class="btn btn-warning mt-3">
+                                        Select Product Image
+                                    </button>
+                                    <div class="form-group">
+                                        <input style="visibility: hidden;" type="file" class="form-control"
+                                            #filePicker (change)='onImageSelected($event)' />
+                                    </div>
+                                    <img [src]="imagePreview" *ngIf="imagePreview" width="100px" height="100px">
+
+                                    <div class="row align-items-center mt-3" style="margin-top:-20px;">
+                                        <div class="col-6 mt-2 mt-sm-3" style="margin-left: 25%;"><button
+                                                class="btn btn-primary btn-block" type="">AJOUTER</button></div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div></mat-tab>
+                    </mat-tab-group>
+
+
 
                 </div>
             </div>
