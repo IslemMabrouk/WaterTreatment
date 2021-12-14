@@ -90,6 +90,10 @@ app.use((req, res, next) => {
 //:::::::::::::::::CRUD Products::::::::::::::::::::::://
 //:::::::::::::::::::::::::::::::::::::::::::::::::://
 
+//:::::::::::::::::::::::::::::::::::::::::::::::::://
+//:::::::::::::::::CRUD Products::::::::::::::::::::::://
+//:::::::::::::::::::::::::::::::::::::::::::::::::://
+
 //Traitement add Product
 app.post('/api/addProduct', multer({ storage: storage }).single('img'), (req, res) => {
     //Etape1
@@ -126,6 +130,14 @@ app.post('/api/addProduct', multer({ storage: storage }).single('img'), (req, re
                     message: 'Product added with  success'
                 })
 
+                //Etape2
+                product.save();
+
+                //Etape3
+                res.status(200).json({
+                    message: 'Product added with  success'
+                })
+
 
             }
         }
@@ -134,6 +146,53 @@ app.post('/api/addProduct', multer({ storage: storage }).single('img'), (req, re
 
 
 });
+
+
+
+
+// traitement create user
+app.post('/api/users', (req, res) => {
+
+    console.log(req.body);
+    User.findOne({email : req.body.email}).then(
+    (doc) =>{
+        if (doc) {
+            res.status(200).json({message : "user exist"});
+        }else{
+            bcrypt.hash(req.body.password, 10).then(cryptedPassword => {
+    
+                let user = new User({
+                    firstName: req.body.firstName,
+                    lastName: req.body.lastName,
+                    email: req.body.email,
+                    password: cryptedPassword,
+                    tel: req.body.tel,
+                    role: req.body.role
+            
+                });
+            
+                // etape 2 
+                user.save();
+            
+                // etape 3
+            
+                res.status(200).json({
+                    message: 'User added with sucess'
+                })
+                })
+        }
+    }
+    
+    
+    
+    )
+    
+    
+        
+    
+    });
+
+      
 
 
 
