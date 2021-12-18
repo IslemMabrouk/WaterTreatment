@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { MustMatch } from '../confirmPwd';
 
+
+
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -15,6 +17,7 @@ export class RegistrationComponent implements OnInit {
   user: any = {};
   loginForm: FormGroup;
   findedUser: any;
+
   constructor(private fb :FormBuilder,
               private userService :UserService, private router : Router) { }
 
