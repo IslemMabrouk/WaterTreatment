@@ -13,9 +13,12 @@ const path = require('path');
 //Instance express in App
 const app = express();
 
+//import model Contrat
+const Contrat =require('./models/contrat');
+
+
 // import model User
 const User = require('./models/user');
-const Calcul = require('./models/calcul');
 // import mongoose
 const mongoose = require('mongoose');
 
@@ -90,10 +93,6 @@ app.use((req, res, next) => {
 //:::::::::::::::::CRUD Products::::::::::::::::::::::://
 //:::::::::::::::::::::::::::::::::::::::::::::::::://
 
-//:::::::::::::::::::::::::::::::::::::::::::::::::://
-//:::::::::::::::::CRUD Products::::::::::::::::::::::://
-//:::::::::::::::::::::::::::::::::::::::::::::::::://
-
 //Traitement add Product
 app.post('/api/addProduct', multer({ storage: storage }).single('img'), (req, res) => {
     //Etape1
@@ -130,13 +129,7 @@ app.post('/api/addProduct', multer({ storage: storage }).single('img'), (req, re
                     message: 'Product added with  success'
                 })
 
-                //Etape2
-                product.save();
-
-                //Etape3
-                res.status(200).json({
-                    message: 'Product added with  success'
-                })
+           
 
 
             }
@@ -146,53 +139,6 @@ app.post('/api/addProduct', multer({ storage: storage }).single('img'), (req, re
 
 
 });
-
-
-
-
-// traitement create user
-app.post('/api/users', (req, res) => {
-
-    console.log(req.body);
-    User.findOne({email : req.body.email}).then(
-    (doc) =>{
-        if (doc) {
-            res.status(200).json({message : "user exist"});
-        }else{
-            bcrypt.hash(req.body.password, 10).then(cryptedPassword => {
-    
-                let user = new User({
-                    firstName: req.body.firstName,
-                    lastName: req.body.lastName,
-                    email: req.body.email,
-                    password: cryptedPassword,
-                    tel: req.body.tel,
-                    role: req.body.role
-            
-                });
-            
-                // etape 2 
-                user.save();
-            
-                // etape 3
-            
-                res.status(200).json({
-                    message: 'User added with sucess'
-                })
-                })
-        }
-    }
-    
-    
-    
-    )
-    
-    
-        
-    
-    });
-
-      
 
 
 
@@ -274,105 +220,38 @@ app.post("/api/login", (req, res) => {
 });
 
 
-// traitement create user
-app.post('/api/users', (req, res) => {
+//traitement de add contract
+app.post("/api/contract" , (req,res) =>{
 
-    console.log(req.body);
-    User.findOne({email : req.body.email}).then(
-    (doc) =>{
-        if (doc) {
-            res.status(200).json({message : "user exist"});
-        }else{
-            bcrypt.hash(req.body.password, 10).then(cryptedPassword => {
-    
-                let user = new User({
-                    firstName: req.body.firstName,
-                    lastName: req.body.lastName,
-                    email: req.body.email,
-                    password: cryptedPassword,
-                    tel: req.body.tel,
-                    role: req.body.role
-            
-                });
-            
-                // etape 2 
-                user.save();
-            
-                // etape 3
-            
-                res.status(200).json({
-                    message: 'User added with sucess'
-                })
-                })
-        }
-    }
-    
-    
-    
-    )
-    
-    
-        
-    
-    });
-
-//traitement de login
-app.post("/api/login", (req, res) => {
-    console.log("Here in login", req.body);
-    User.findOne({ email: req.body.email }).then(
-        (resultEmail) => {
-            console.log("resultEmail", resultEmail);
-            if (!resultEmail) {
-                res.status(200).json({
-                    findedUser: "Wrong Email"
-                });
-            }
-            return bcrypt.compare(req.body.password, resultEmail.password);
-        })
-        .then(
-            (resultPwd) => {
-                console.log("resultPwd", resultPwd);
-                if (!resultPwd) {
-                    res.status(200).json({
-                        findedUser: "Wrong password"
-                    });
-                }
-                else {
-                    User.findOne({ email: req.body.email }).then(
-                        (result) => {
-                            console.log("result", result);
-                            res.status(200).json({
-                                findedUser: result
-                            })
-                        }
-                    )
-                }
-            })
-});
+console.log("here in contract", req.body);
 
 
 
-
-
-
-
-//fonction qui calcule 
-app.post("/api/calcul", (req) => {
-console.log("here in calcul", req.body);
-
-
-chloreInitial = req.body.chloreInitial;
-
-
-let chloreFinal= Number(chloreInitial)*2;
-let calcul = new Calcul ({
-    chloreFinal :chloreFinal,
-    chloreInitial : chloreInitial,
-});
-console.log(chloreFinal)
-calcul.save();
+let contrat = new Contrat({
+  type : req.body.type,
+  nombreVisites : req.body.nombreVisites,
+  analyseEau : req.body.analyseEau ,
+  désinfectionAppareil : req.body.désinfectionAppareil,
+  contrôleRéglage : req.body.contrôleRéglage,
+  sel : req.body.sel,
+  filtres  : req.body.filtres,
+  dépannageMain : req.body.dépannageMain,
+  dépannagePrioritaire : req.body.dépannagePrioritaire,
+  piècesDétachées : req.body.piècesDétachées,
 
 });
+    contrat.save();
+            
+    // etape 3
+
+    res.status(200).json({
+        message: 'Contrat added with sucess'
+    })
+
+
+
+})
+
 
 
 

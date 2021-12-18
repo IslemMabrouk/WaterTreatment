@@ -29,9 +29,47 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import{ MatInputModule } from '@angular/material/input';
 import{ MatCardModule } from '@angular/material/card';
-import{HttpClientModule} from'@angular/common/http'
-
-
+import{HttpClientModule} from'@angular/common/http';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatMenuModule } from '@angular/material/menu';
+import { CardComponent } from './card/card.component';
+import { AdminDashboardRoutingModule } from './admin-dashboard/admin-dashboard-routing.module';
+import { NavComponent } from './nav/nav.component';
+import { DashComponent } from './dash/dash.component';
+import { Home2Component } from './home2/home2.component';
+import {MatStepperModule} from '@angular/material/stepper';
+// Material Form Controls
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+// Material Layout
+import { MatDividerModule } from '@angular/material/divider';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatTreeModule } from '@angular/material/tree';
+// Material Buttons & Indicators
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatRippleModule } from '@angular/material/core';
+// Material Popups & Modals
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTooltipModule } from '@angular/material/tooltip';
+// Material Data tables
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
+import { CdkStepperModule } from '@angular/cdk/stepper';
+import { AddContratComponent } from './components/add-contrat/add-contrat.component';
 
 @NgModule({
   declarations: [
@@ -52,8 +90,12 @@ import{HttpClientModule} from'@angular/common/http'
     ReviewsComponent,
     AddProductComponent,
     EspaceClientComponent,
-
-
+    CardComponent,
+    NavComponent,
+    DashComponent,
+    Home2Component,
+    EntretienComponent,
+    AddContratComponent,
 
    
   ],
@@ -67,7 +109,38 @@ import{HttpClientModule} from'@angular/common/http'
     MatTabsModule,MatSelectModule,MatOptionModule,
     MatFormFieldModule,MatIconModule,
     HttpClientModule,MatCheckboxModule, MatInputModule,MatCardModule,
-    HttpClientModule
+    LayoutModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatGridListModule,
+    MatMenuModule,
+    AdminDashboardRoutingModule,
+    MatDatepickerModule,
+    MatRadioModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatDividerModule,
+    MatExpansionModule,
+    MatStepperModule,
+    MatTreeModule,
+    MatButtonToggleModule,
+    MatBadgeModule,
+    MatChipsModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule,
+    MatRippleModule,
+    MatBottomSheetModule,
+    MatDialogModule,
+    MatSnackBarModule,
+    MatTooltipModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatTableModule,
+    MatAutocompleteModule,
+    CdkStepperModule
+   
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
