@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ContratService } from 'src/app/services/contrat.service';
 
 @Component({
   selector: 'app-entretien',
@@ -7,9 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EntretienComponent implements OnInit {
 
-  constructor() { }
+isLinear = false;
+firstFormGroup: FormGroup;
+secondFormGroup: FormGroup;
+
+  constructor(private contratServices : ContratService,
+    private fb :FormBuilder) { }
 
   ngOnInit(): void {
-  }
+  this.firstFormGroup = this.fb.group({
+          firstCtrl: ['', Validators.required],
+        });
+        this.secondFormGroup = this.fb.group({
+          secondCtrl: ['', Validators.required],
+        });
+  
+      
+      }
+
+
+
+  
+
+
+
+
 
 }

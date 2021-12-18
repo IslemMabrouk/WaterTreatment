@@ -1,0 +1,48 @@
+<mat-tab label="Purificateur">  <div class="login-space">
+    <div class="sign-up-form" style="margin-top: 30px;">
+        <form #addContratForm="ngForm" (ngSubmit)="addContrat()" >
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <mat-form-field appearance="fill" class="col-md-12">
+                        <mat-label> Type </mat-label>
+                        <input matInput type="text" required [(ngModel)]="contrat.type" [ngModelOptions]="{standalone:true}">
+                      </mat-form-field>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <mat-form-field appearance="fill" class="col-md-12">
+                        <mat-label> Price </mat-label>
+                        <input matInput type="text"  required required [(ngModel)]="product.price" [ngModelOptions]="{standalone:true}">
+                      </mat-form-field>
+                </div>
+                <div class="form-group col-md-6" style="text-align: justify;">
+                    <h4 style="margin-left: 10px;">Les composants à éliminer: </h4> <br>
+                        <mat-checkbox color ="primary" class="example-margin" required [(ngModel)]="product.chlore" [ngModelOptions]="{standalone:true}"> <h4> Chlore, mauvais goûts et mauvaises odeurs de l’eau </h4> </mat-checkbox> <br>
+                        <mat-checkbox color ="primary" class="example-margin"> <h4> Matières organiques et COV </h4> </mat-checkbox> <br>
+                        <mat-checkbox color ="primary" class="example-margin"> <h4> Pesticides </h4> </mat-checkbox> <br>
+                        <mat-checkbox color ="primary" class="example-margin"> <h4> Métaux lourds : Plomb, mercure et zinc </h4> </mat-checkbox> <br>
+                        <mat-checkbox color ="primary" class="example-margin"> <h4> Résidus médicamenteux </h4> </mat-checkbox> <br>
+                        <mat-checkbox color ="primary" class="example-margin"> <h4> Aluminium, fluor </h4> </mat-checkbox> <br>
+                        <mat-checkbox color ="primary" class="example-margin"> <h4>  Nitrates / Nitrites </h4> </mat-checkbox> <br>                                          
+                  </div>
+
+              
+            </div>
+
+            <button type="button" (click)='filePicker.click()' class="btn btn-warning mt-3">
+                Select Product Image
+            </button>
+            <div class="form-group">
+                <input style="visibility: hidden;" type="file" class="form-control"
+                    #filePicker (change)='onImageSelected($event)' />
+            </div>
+            <img [src]="imagePreview" *ngIf="imagePreview" width="100px" height="100px">
+
+            <div class="row align-items-center mt-3" style="margin-top:-20px;">
+                <div class="col-6 mt-2 mt-sm-3" style="margin-left: 25%;"><button
+                        class="btn btn-primary btn-block" type="">AJOUTER</button></div>
+            </div>
+
+        </form>
+    </div>
+</div></mat-tab>
