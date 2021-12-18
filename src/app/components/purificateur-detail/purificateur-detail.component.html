@@ -1,0 +1,48 @@
+
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title> <h3> <strong>{{p.type}}</strong> </h3> </mat-card-title>
+      </mat-card-header>
+      <img mat-card-image [src]="p.img" alt="Image Indisponible">
+      <mat-card-content>
+          <mat-card-subtitle>Prix sans engagement</mat-card-subtitle>
+          <mat-card-title> <h3> <strong>{{p.price}} Dt</strong> </h3> </mat-card-title>
+      </mat-card-content>
+      <mat-divider inset ></mat-divider>
+      <mat-card-content style="margin:20px;">
+          <mat-card-subtitle><strong> Chlore, mauvais goûts et mauvaises odeurs de l'eau</strong> </mat-card-subtitle>
+      </mat-card-content>
+      <mat-divider inset></mat-divider>
+      <mat-card-content style="margin:20px;">
+          <mat-card-subtitle><strong>Matières organiques et COV</strong> </mat-card-subtitle>
+      </mat-card-content>
+      <mat-divider inset></mat-divider>
+      <mat-card-content style="margin:20px;">
+          <mat-card-subtitle><strong>Pesticides</strong> </mat-card-subtitle>
+      </mat-card-content>
+      <mat-divider inset></mat-divider>
+      <mat-card-content style="margin:20px;">
+          <mat-card-subtitle><strong>Métaux lourds : Plomb, mercure et zinc</strong> </mat-card-subtitle>
+      </mat-card-content>
+      <mat-divider inset style="margin-bottom: 30;"></mat-divider>
+      <mat-card-content style="margin:20px;">
+        <mat-card-subtitle><strong>Résidus médicamenteux</strong> </mat-card-subtitle>
+    </mat-card-content>
+    <mat-divider inset style="margin-bottom: 30;"></mat-divider>
+    <mat-card-content style="margin:20px;">
+        <mat-card-subtitle><strong>Aluminium, fluor</strong> </mat-card-subtitle>
+    </mat-card-content>
+    <mat-divider inset style="margin-bottom: 30;"></mat-divider>
+    <mat-card-content style="margin:20px;">
+        <mat-card-subtitle><strong> Nitrates / Nitrites</strong> </mat-card-subtitle>
+    </mat-card-content>
+    <mat-divider inset style="margin-bottom: 30;"></mat-divider>
+  
+      <button type="button" class="btn btn-warning mt-3 text-center" style=" margin: 30px 0px 30px 75px ;" (click)="displayProduct(p._id)">
+          Voir le produit
+      </button>
+      
+      <mat-card-footer>
+          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        </mat-card-footer>
+  

@@ -1,0 +1,39 @@
+
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title> <h3> <strong>{{a.type}}</strong> </h3> </mat-card-title>
+    </mat-card-header>
+    <img mat-card-image [src]="a.img" alt="Image Indisponible">
+    <mat-card-content>
+        <mat-card-subtitle>Prix sans engagement</mat-card-subtitle>
+        <mat-card-title> <h3> <strong>{{a.price}} Dt</strong> </h3> </mat-card-title>
+    </mat-card-content>
+    <mat-divider inset ></mat-divider>
+    <mat-card-content style="margin:20px;">
+        <mat-card-subtitle>Volume de Résine</mat-card-subtitle>
+        <mat-card-subtitle><strong>{{a.volume}}L / 20L</strong> </mat-card-subtitle>
+    </mat-card-content>
+    <mat-divider inset></mat-divider>
+    <mat-card-content style="margin:20px;">
+        <mat-card-subtitle>Pression d'eau</mat-card-subtitle>
+        <mat-card-subtitle><strong>{{a.pression}} à 5 bars</strong> </mat-card-subtitle>
+    </mat-card-content>
+    <mat-divider inset></mat-divider>
+    <mat-card-content style="margin:20px;">
+        <mat-card-subtitle>Economie d'eau et de sels</mat-card-subtitle>
+        <mat-card-subtitle><strong>{{a.economie}}</strong> </mat-card-subtitle>
+    </mat-card-content>
+    <mat-divider inset></mat-divider>
+    <mat-card-content style="margin:20px;">
+        <mat-card-subtitle>Conception</mat-card-subtitle>
+        <mat-card-subtitle><strong>{{a.conception}}</strong> </mat-card-subtitle>
+    </mat-card-content>
+    <mat-divider inset style="margin-bottom: 30;"></mat-divider>
+
+    <button type="button" class="btn btn-warning mt-3 text-center" style=" margin: 30px 0px 30px 75px ;" (click)="displayProduct(a._id)">
+        Voir le produit
+    </button>
+    
+    <mat-card-footer>
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+      </mat-card-footer>

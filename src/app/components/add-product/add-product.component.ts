@@ -9,7 +9,10 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./add-product.component.css']
 })
 export class AddProductComponent implements OnInit {
+  //list of checkBox
+  _composantList:composant[];
 
+//:::::::::::::::
 product : any={};
 addAdoucisseurForm: FormGroup;
 addPurificateurForm: FormGroup;
@@ -18,12 +21,16 @@ users : any;
 title : string;
 messageAdd : any;
 imagePreview : any;
+p:any=[];
+
   constructor( private fb : FormBuilder,
                private productService : ProductService,
-               private router :Router,
            ) { }
 
   ngOnInit(): void {
+
+    this.getComposant();
+
     this.addAdoucisseurForm = this.fb.group({
       type: [''],
       price: [''],
@@ -31,24 +38,47 @@ imagePreview : any;
       pression:[''],
       economie: [''],
       conception :[''],
+      description:[''],
+      role : [''],
       img : [''],
-    })
+    });
 
     this.addPurificateurForm = this.fb.group({
       type: [''],
       price: [''],
-      chlore: [''],
+      list: [''],
+      description: [''],
+      role : [''],
       img : [''],
-    })
-
+    });
 
     }
 
-    
-    addAdoucisseur(){
+    getComposant(){
+      this._composantList=[
+        {id:1, name:"Chlore, mauvais goûts et mauvaises odeurs de l'eau", isselected:false},
+        {id:2, name:"Matières organiques et COV ", isselected:false},
+        {id:3, name:"Pesticides", isselected:false},
+        {id:4, name:"Métaux lourds : Plomb, mercure et zinc", isselected:false},
+        {id:5, name:"Résidus médicamenteux ", isselected:false},
+        {id:6, name:"Aluminium, fluor", isselected:false},
+        {id:7, name:"Nitrates / Nitrites", isselected:false},
 
-      this.product.role = 'Adoucisseur';
+      ]
+    }
+
+
+
+
+    onChange(){
+      console.log(this._composantList);
+    }
     
+
+    
+    addAdoucisseur(){    
+           
+      this.product.role = 'Adoucisseur';
       this.productService.addAdoucisseur(this.product, this.addAdoucisseurForm.value.img).subscribe(
         (data) => {
           console.log(data.message);
@@ -58,6 +88,7 @@ imagePreview : any;
     }
 
     addPurificateur(){
+      this.product.list =this._composantList.filter(x=>x.isselected==true).map(x=>x.name).join(";").toString();
 
       this.product.role = 'Purificateur';
 
@@ -94,4 +125,10 @@ imagePreview : any;
 
 
 
+}
+
+class composant {
+  id : number;
+  name : string;
+  isselected : boolean;
 }

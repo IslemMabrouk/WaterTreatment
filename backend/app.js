@@ -87,11 +87,7 @@ app.use((req, res, next) => {
     );
     next();
 });
-//********************************************************************************************************* */
 
-//:::::::::::::::::::::::::::::::::::::::::::::::::://
-//:::::::::::::::::CRUD Products::::::::::::::::::::::://
-//:::::::::::::::::::::::::::::::::::::::::::::::::://
 
 //Traitement add Product
 app.post('/api/addProduct', multer({ storage: storage }).single('img'), (req, res) => {
@@ -184,6 +180,42 @@ app.post('/api/users', (req, res) => {
         
     
     });
+
+//traitement de login
+app.post("/api/login", (req, res) => {
+    console.log("Here in login", req.body);
+    User.findOne({ email: req.body.email }).then(
+        (resultEmail) => {
+            console.log("resultEmail", resultEmail);
+            if (!resultEmail) {
+                res.status(200).json({
+                    findedUser: "Wrong Email"
+                });
+            }
+            return bcrypt.compare(req.body.password, resultEmail.password);
+        })
+        .then(
+            (resultPwd) => {
+                console.log("resultPwd", resultPwd);
+                if (!resultPwd) {
+                    res.status(200).json({
+                        findedUser: "Wrong password"
+                    });
+                }
+                else {
+                    User.findOne({ email: req.body.email }).then(
+                        (result) => {
+                            console.log("result", result);
+                            res.status(200).json({
+                                findedUser: result
+                            })
+                        }
+                    )
+                }
+            })
+});
+
+
 
 //traitement de login
 app.post("/api/login", (req, res) => {
