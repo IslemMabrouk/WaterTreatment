@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from 'src/app/services/product.service';
 
 
@@ -14,7 +14,8 @@ export class DisplayProductComponent implements OnInit {
   product:any;
   list:any;
   constructor( private activatedRoute : ActivatedRoute,
-               private productService : ProductService) { }
+               private productService : ProductService,
+               private router : Router) { }
 
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
@@ -35,6 +36,10 @@ export class DisplayProductComponent implements OnInit {
     )
     
     
+    
+  }
+  valider(id:any){
+    this.router.navigate([`validation/${id}`]);
     
   }
 

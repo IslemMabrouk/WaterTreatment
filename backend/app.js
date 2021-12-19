@@ -15,6 +15,8 @@ const app = express();
 
 // import model User
 const User = require('./models/user');
+//Import model Mesure
+const Mesure = require('./models/mesure')
 // import mongoose
 const mongoose = require('mongoose');
 
@@ -112,7 +114,9 @@ app.post('/api/addProduct', multer({ storage: storage }).single('img'), (req, re
                     pression:req.body.pression,
                     economie: req.body.economie,
                     conception :req.body.conception,
-                    chlore : req.body.chlore,
+                    list: req.body.list,
+                    description: req.body.description,
+                    role : req.body.role,
                     img: url + '/images/' + req.file.filename
 
                 });
@@ -135,7 +139,45 @@ app.post('/api/addProduct', multer({ storage: storage }).single('img'), (req, re
 });
 
 
+//Traitement get Products
+app.get('/api/allProducts', (req, res) => {
+    console.log("Here in function get All Products");
 
+    //Etape 1
+    Product.find((err, docs) => {
+        if (err) {
+            console.log("Error in DB");
+        } else {
+            //Success
+            res.status(200).json({
+                products: docs
+            })
+        }
+    })
+
+})
+
+
+//Traitement get Product by ID
+app.get('/api/allProducts/:id', (req, res) =>{
+    console.log('Here in Function get by ID');
+
+    let id = req.params.id;
+    console.log('id Product by id', id);
+
+    Product.findOne({_id : id}).then(
+        (doc) => {
+            console.log('finded Product', doc);
+            res.status(200).json({
+                product:doc
+            })
+        }
+    )
+})
+
+//:::::::::::::::::::::::::::::::::::::::::::::::::://
+//:::::::::::::::::CRUD Users::::::::::::::::::::::://
+//:::::::::::::::::::::::::::::::::::::::::::::::::://
 
 // traitement create user
 app.post('/api/users', (req, res) => {
@@ -214,83 +256,30 @@ app.post("/api/login", (req, res) => {
 });
 
 
-// traitement create user
-app.post('/api/users', (req, res) => {
+//:::::::::::::::::::::::::::::::::::::::::::::::::://
+//:::::::::::::::::CRUD Mesures:::::::::::::::::::://
+//:::::::::::::::::::::::::::::::::::::::::::::::::://
+app.post('/api/addMesure', (req,res)=>{
+    console.log('Here in function addMesure');
 
-    console.log(req.body);
-    User.findOne({email : req.body.email}).then(
-    (doc) =>{
-        if (doc) {
-            res.status(200).json({message : "user exist"});
-        }else{
-            bcrypt.hash(req.body.password, 10).then(cryptedPassword => {
-    
-                let user = new User({
-                    firstName: req.body.firstName,
-                    lastName: req.body.lastName,
-                    email: req.body.email,
-                    password: cryptedPassword,
-                    tel: req.body.tel,
-                    role: req.body.role
-            
-                });
-            
-                // etape 2 
-                user.save();
-            
-                // etape 3
-            
-                res.status(200).json({
-                    message: 'User added with sucess'
-                })
-                })
-        }
-    }
-    
-    
-    
-    )
-    
-    
-        
-    
-    });
+                let mesure  = new Mesure({
+                    region : req.body.region,
+                    chlore : req.body.chlore,
+                    calcaire : req.body.calcaire,
+                    residu : req.body.residu
 
-//traitement de login
-app.post("/api/login", (req, res) => {
-    console.log("Here in login", req.body);
-    User.findOne({ email: req.body.email }).then(
-        (resultEmail) => {
-            console.log("resultEmail", resultEmail);
-            if (!resultEmail) {
-                res.status(200).json({
-                    findedUser: "Wrong Email"
                 });
-            }
-            return bcrypt.compare(req.body.password, resultEmail.password);
-        })
-        .then(
-            (resultPwd) => {
-                console.log("resultPwd", resultPwd);
-                if (!resultPwd) {
-                    res.status(200).json({
-                        findedUser: "Wrong password"
-                    });
-                }
-                else {
-                    User.findOne({ email: req.body.email }).then(
-                        (result) => {
-                            console.log("result", result);
-                            res.status(200).json({
-                                findedUser: result
-                            })
-                        }
-                    )
-                }
-            })
+                console.log(mesure);
+
+                //Etape2
+                mesure.save();
+
+                //Etape3
+                res.status(200).json({
+                    message: 'Mesures added with  success'
+                })
+
 });
-
-
 
 
 

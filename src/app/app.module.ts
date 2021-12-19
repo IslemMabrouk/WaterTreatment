@@ -29,8 +29,16 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import{ MatInputModule } from '@angular/material/input';
 import{ MatCardModule } from '@angular/material/card';
-import{HttpClientModule} from'@angular/common/http'
-
+import{ MatAutocompleteModule } from '@angular/material/autocomplete';
+import{HttpClientModule} from'@angular/common/http';
+import { AddMesureComponent } from './components/add-mesure/add-mesure.component';
+import { MaterialModule } from './material/material.module';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatDividerModule } from '@angular/material/divider';
+import { AdoucisseurDetailComponent } from './components/adoucisseur-detail/adoucisseur-detail.component';
+import { PurificateurDetailComponent } from './components/purificateur-detail/purificateur-detail.component';
+import { DisplayProductComponent } from './components/display-product/display-product.component';
+import { ValidationComponent } from './components/validation/validation.component';
 
 
 @NgModule({
@@ -52,6 +60,11 @@ import{HttpClientModule} from'@angular/common/http'
     ReviewsComponent,
     AddProductComponent,
     EspaceClientComponent,
+    AddMesureComponent,
+    AdoucisseurDetailComponent,
+    PurificateurDetailComponent,
+    DisplayProductComponent,
+    ValidationComponent,
 
 
 
@@ -67,7 +80,9 @@ import{HttpClientModule} from'@angular/common/http'
     MatTabsModule,MatSelectModule,MatOptionModule,
     MatFormFieldModule,MatIconModule,
     HttpClientModule,MatCheckboxModule, MatInputModule,MatCardModule,
-    HttpClientModule
+    MatAutocompleteModule,
+    HttpClientModule,
+    MaterialModule,MatProgressBarModule, MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

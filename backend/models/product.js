@@ -6,7 +6,8 @@ const productSchema = mongoose.Schema({
     pression:String,
     economie: String,
     conception :String,
-    chlore: String,
+    list: String,
+    description: String,
     role: String,
     img : String
     
