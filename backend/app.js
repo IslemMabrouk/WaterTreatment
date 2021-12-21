@@ -16,12 +16,17 @@ const app = express();
 // import model User
 const User = require('./models/user');
 //Import model Mesure
-const Mesure = require('./models/mesure')
+const Mesure = require('./models/mesure');
+//Import model demnade
+const Demande = require('./models/demande');
+//Import Model Contact
+const Contact = require('./models/contact')
 // import mongoose
 const mongoose = require('mongoose');
 
 //import bcrypt
 const bcrypt = require('bcrypt');
+const contact = require('./models/contact');
 
 
 // Connect to Data Base
@@ -259,6 +264,8 @@ app.post("/api/login", (req, res) => {
 //:::::::::::::::::::::::::::::::::::::::::::::::::://
 //:::::::::::::::::CRUD Mesures:::::::::::::::::::://
 //:::::::::::::::::::::::::::::::::::::::::::::::::://
+
+//traitement addMesure
 app.post('/api/addMesure', (req,res)=>{
     console.log('Here in function addMesure');
 
@@ -281,7 +288,48 @@ app.post('/api/addMesure', (req,res)=>{
 
 });
 
+//:::::::::::::::::::::::::::::::::::::::::::::::::://
+//:::::::::::::::::CRUD Demande:::::::::::::::::::://
+//:::::::::::::::::::::::::::::::::::::::::::::::::://
 
+//Traitement add Demande
+app.post('/api/demande', (req,res)=>{
+    console.log('Here in demande');
+
+    let demande = new Demande({
+        idClient : req.body.idClient,
+        idProduct : req.body.idProduct,
+        validation : req.body.validation,
+        etat : req.body.etat
+    });
+    console.log(demande);
+
+    demande.save();
+
+    res.status(200).json({
+        message: 'demande added with  success'
+    })
+})
+
+//:::::::::::::::::::::::::::::::::::::::::::::::::://
+//:::::::::::::::::CRUD Contact:::::::::::::::::::://
+//:::::::::::::::::::::::::::::::::::::::::::::::::://
+app.post('/api/contactCons', (req,res)=>{
+    console.log('Here in send contact');
+
+    let contact = new Contact({
+        idClient: req.body.idClient,
+        type: req.body.type,
+        date: req.body.date
+    })
+    console.log(contact);
+
+    contact.save();
+
+    res.status(200).json({
+        message: 'Contact send with  success'
+    })
+})
 
 //Export App
 module.exports = app;

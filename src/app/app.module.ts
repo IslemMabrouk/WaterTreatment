@@ -38,8 +38,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { AdoucisseurDetailComponent } from './components/adoucisseur-detail/adoucisseur-detail.component';
 import { PurificateurDetailComponent } from './components/purificateur-detail/purificateur-detail.component';
 import { DisplayProductComponent } from './components/display-product/display-product.component';
-import { ValidationComponent } from './components/validation/validation.component';
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { ValidationDemandeComponent } from './components/validation-demande/validation-demande.component'
 
 @NgModule({
   declarations: [
@@ -64,7 +64,9 @@ import { ValidationComponent } from './components/validation/validation.componen
     AdoucisseurDetailComponent,
     PurificateurDetailComponent,
     DisplayProductComponent,
-    ValidationComponent,
+    ValidationDemandeComponent,
+    
+    
 
 
 
@@ -73,16 +75,17 @@ import { ValidationComponent } from './components/validation/validation.componen
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,  //Général filProjet kol yjibhom
+    FormsModule, //Général filProjet kol yjibhom
     ReactiveFormsModule,
    BrowserAnimationsModule,
     MatButtonModule, 
     MatTabsModule,MatSelectModule,MatOptionModule,
     MatFormFieldModule,MatIconModule,
     HttpClientModule,MatCheckboxModule, MatInputModule,MatCardModule,
-    MatAutocompleteModule,
+    MatAutocompleteModule,MatDatepickerModule,
     HttpClientModule,
-    MaterialModule,MatProgressBarModule, MatDividerModule
+    MaterialModule,MatProgressBarModule,
+     MatDividerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

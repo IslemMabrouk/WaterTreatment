@@ -13,7 +13,7 @@ import { EspaceClientComponent } from './components/espace-client/espace-client.
 import { HomeComponent } from './components/home/home.component';
 import { PurificateursComponent } from './components/purificateurs/purificateurs.component';
 import { RegistrationComponent } from './components/registration/registration.component';
-import { ValidationComponent } from './components/validation/validation.component';
+import { ValidationDemandeComponent } from './components/validation-demande/validation-demande.component';
 
 const routes: Routes = [
   {path: '' , component: HomeComponent},
@@ -31,7 +31,8 @@ const routes: Routes = [
 
   //Path Dynamique
   {path: 'displayProduct/:id' , component: DisplayProductComponent},
-  { path: 'validation/:id' , component: ValidationComponent}
+  { path: 'validation/achat/:id' , component: ValidationDemandeComponent},
+  { path: 'validation/devis/:id' , component: ValidationDemandeComponent}
 
 
 ];

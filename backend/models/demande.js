@@ -1,11 +1,12 @@
 const mongoose = require ('mongoose');
-const demandeSchema = mongoose.Schema5({
+const demandeSchema = mongoose.Schema({
     idClient : String,
     idProduct : String,
-    demande : String,
+    validation : String,
     etat : String
 });
 
-const demande = mongoose.model('Dmenade', demandeSchema);
+const demande = mongoose.model('Demande', demandeSchema );
+
 
 module.exports = demande;

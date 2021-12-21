@@ -38,9 +38,14 @@ export class DisplayProductComponent implements OnInit {
     
     
   }
-  valider(id:any){
-    this.router.navigate([`validation/${id}`]);
+  validerAchat(id:any){
+    this.router.navigate([`validation/achat/${id}`]);
     
+  }
+
+
+  validerDemande(id:any){
+    this.router.navigate([`validation/devis/${id}`])
   }
 
 }

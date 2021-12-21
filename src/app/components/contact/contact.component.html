@@ -1,1 +1,149 @@
-<p>contact works!</p>
+<section >
+    <div>
+        <div class="background-holder overlay"
+        style="background-image:url(assets/images/background-2.jpg);background-position: center bottom;">
+    </div>
+        <!--/.background-holder-->
+        <div class="container">
+            <div class="row pt-6" data-inertia='{"weight":1.5}'>
+                <div class="col-md-8 px-md-0 color-white" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                    <div  >
+                        <h1 class="color-white fs-4 fs-md-5 mb-0 zopacity" data-zanim='{"delay":0}' style="line-height: 0.8;" >I.M. HydroCare est a votre service</h1>
+                        <div class="nav zopacity" aria-label="breadcrumb" role="navigation"
+                            data-zanim='{"delay":0.1}'>
+                            <ol class="breadcrumb fs-1 pl-0 fw-700">
+                                <li class="breadcrumb-item"><a class="color-white" href="#">Home</a></li> <mat-icon>chevron_right</mat-icon>
+                                <li class="breadcrumb-item active" aria-current="page">Contact</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/.row-->
+    </div>
+    <!--/.container-->
+</section>
+
+<section style="margin-top: -100px;" >
+    <div class="container">
+       
+        <div class="row" >
+            
+            <div
+                class="col-lg-8 px-lg-5 py-lg-6 p-4 my-lg-0 background-white radius-bl-secondary radius-bl-lg-0 radius-br-secondary radius-br-lg-0 radius-tr-lg-secondary" >
+                <div class="d-flex align-items-center h-100">
+                    <div data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                        <h3 class="text-center fs-2 fs-lg-3" style="line-height: 1.1;">Nous sommes disponibles pour vous conseiller</h3>
+            <hr class="short"
+                data-zanim='{"from":{"opacity":0,"width":0},"to":{"opacity":1,"width":"4.20873rem"},"duration":0.8}'
+                data-zanim-trigger="scroll">
+                       
+                        <div class="overflow-hidden">
+                            <div class="row" data-zanim='{"delay":0.2}'>
+                                <div class="col-lg-6">
+                                    <mat-card   class="card human-resources col-12" (click)="toggleShow1()" type="checkbox" >
+                                     <mat-icon  style="font-size: 70px; margin-left: -50px; color: #0a2868;"  >support_agent</mat-icon>
+                                    <br> <br>
+                                     <p class="mt-3" data-zanim='{"delay":0.1}' style=" margin-left: -5px;">Être conseillé sur un produit</p>
+                                    </mat-card>
+                                   
+                                    
+                                </div>     
+                                <div class="col-lg-6">
+                                    <mat-card   class="card human-resources  col-12" (click)="toggleShow2()" type="checkbox">
+                                     <mat-icon style="font-size: 70px; margin-left: -50px; color: #0a2868;">engineering</mat-icon>
+                                    <br> <br>
+                                     <p class="mt-3" data-zanim='{"delay":0.1}' style=" margin-left: -5px;">Contacter le service clients</p>
+                                    </mat-card>
+                                   
+                                </div>    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="col-4" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                    <div class="background-white p-5 radius-tl-secondary radius-tr-secondary">
+                  
+                        <div class="row my-5"   >
+                            <div class="col-2 text-center"><img 
+                                    data-zanim='{"delay":0.1}' src="assets/images/6.jpg"
+                                    style="min-width: 400px; height: 300px;" alt=""></div>
+                           
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 px-lg-5 py-lg-6 p-4 my-lg-0 background-white radius-bl-secondary radius-bl-lg-0 radius-br-secondary radius-br-lg-0 radius-tr-lg-secondary" >
+                    <form #contactConsForm="ngForm" (ngSubmit)="contacterCons()">
+                    <div *ngIf="isShown1" class="row container-fluid"  id="divshow1" style="margin-top: -100px; margin-left: -70px;" >
+                    
+                        <h6 for="meeting-time" style="font-size: 20px; text-align: center;">
+                            Choisissez une heure pour votre rendez-vous :</h6 >
+    
+    
+                            <input class="form-control background-white" type="datetime-local" id="meeting-time"
+                            name="meeting-time" value="2018-06-12T19:30"
+                            min="2021-21-12T00:00" style="color: rgba(2, 2, 29, 0.726);" [(ngModel)]="contact.date" [ngModelOptions]="{standalone:true}">
+                    
+                            <button  class="btn btn-warning mt-3 text-center" style=" margin: 30px 0px 30px 70px ; font-size: 15px;">
+                                Valider mon RDV
+                            </button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-5 px-lg-5 py-lg-6 p-4 my-lg-0 background-white radius-bl-secondary radius-bl-lg-0 radius-br-secondary radius-br-lg-0 radius-tr-lg-secondary" style="margin-left:-120px ;">
+                <form #contactClientForm="ngForm" (ngSubmit)="contacterClient()">
+                    <div *ngIf="isShown2" class="row container-fluid"  id="divshow2" style="margin-top: -100px;" >
+                    
+                        <h6  for="meeting-time" style="font-size: 20px; text-align: center;">
+                            Choisissez une heure pour votre rendez-vous :</h6 >
+                            <input class="form-control background-white" type="datetime-local" id="meeting-time"
+                            name="meeting-time" value="2018-06-12T19:30"
+                            min="2021-21-12T00:00" style="color: rgba(2, 2, 29, 0.726);" [(ngModel)]="contact.date" [ngModelOptions]="{standalone:true}">
+
+                            <button  class="btn btn-warning mt-3 text-center" style=" margin: 30px 0px 30px 80px ; font-size: 15px;">
+                                Valider mon RDV
+                            </button>
+                    </div>
+                </form>
+    
+    
+                </div>  
+        </div>
+    
+        <!--/.row-->
+              
+    </div>
+    <!--/.container-->
+</section>
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
