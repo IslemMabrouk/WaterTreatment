@@ -29,7 +29,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import{ MatInputModule } from '@angular/material/input';
 import{ MatCardModule } from '@angular/material/card';
-import{HttpClientModule} from'@angular/common/http';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -43,13 +42,11 @@ import { DashComponent } from './dash/dash.component';
 import { Home2Component } from './home2/home2.component';
 import {MatStepperModule} from '@angular/material/stepper';
 // Material Form Controls
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 // Material Layout
-import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTreeModule } from '@angular/material/tree';
 // Material Buttons & Indicators
@@ -57,7 +54,6 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatRippleModule } from '@angular/material/core';
 // Material Popups & Modals
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
@@ -70,6 +66,21 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { CdkStepperModule } from '@angular/cdk/stepper';
 import { AddContratComponent } from './components/add-contrat/add-contrat.component';
+import{ MatAutocompleteModule } from '@angular/material/autocomplete';
+import{HttpClientModule} from'@angular/common/http';
+import { AddMesureComponent } from './components/add-mesure/add-mesure.component';
+import { MaterialModule } from './material/material.module';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatDividerModule } from '@angular/material/divider';
+import { AdoucisseurDetailComponent } from './components/adoucisseur-detail/adoucisseur-detail.component';
+import { PurificateurDetailComponent } from './components/purificateur-detail/purificateur-detail.component';
+import { DisplayProductComponent } from './components/display-product/display-product.component';
+import { ValidationComponent } from './components/validation/validation.component';
+import { ContratDetailComponent } from './components/contrat-detail/contrat-detail.component';
+import { DisplayContratComponent } from './components/display-contrat/display-contrat.component';
+import { UsersTableComponent } from './users-table/users-table.component';
+
+
 
 @NgModule({
   declarations: [
@@ -96,6 +107,16 @@ import { AddContratComponent } from './components/add-contrat/add-contrat.compon
     Home2Component,
     EntretienComponent,
     AddContratComponent,
+    AddMesureComponent,
+    AdoucisseurDetailComponent,
+    PurificateurDetailComponent,
+    DisplayProductComponent,
+    ValidationComponent,
+    ContratDetailComponent,
+    DisplayContratComponent,
+    UsersTableComponent
+    
+
 
    
   ],
@@ -138,9 +159,13 @@ import { AddContratComponent } from './components/add-contrat/add-contrat.compon
     MatSortModule,
     MatTableModule,
     MatAutocompleteModule,
-    CdkStepperModule
+    CdkStepperModule,
    
     
+    MatAutocompleteModule,
+    HttpClientModule,
+    MaterialModule,MatProgressBarModule, MatDividerModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

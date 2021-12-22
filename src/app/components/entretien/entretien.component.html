@@ -1,42 +1,117 @@
-<button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
-  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
-</button>
-<mat-horizontal-stepper orientation="vertical" [linear]="isLinear" #stepper>
-  <mat-step [stepControl]="firstFormGroup">
-    <!-- <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel>Fill out your name</ng-template>
-      <mat-form-field appearance="fill">
-        <mat-label>Name</mat-label>
-        <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
-      </mat-form-field>
-      <div>
-        <button mat-button matStepperNext>Next</button>
+<section >
+  <div>
+      <div class="background-holder overlay"
+          style="background-image:url(assets/images/puri.jpg);background-position: center bottom;">
       </div>
-    </form> -->
- <mat-card>
-   
- </mat-card>
-  </mat-step>
-  <mat-step [stepControl]="secondFormGroup">
-    <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel>Fill out your address</ng-template>
-      <mat-form-field appearance="fill">
-        <mat-label>Address</mat-label>
-        <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
-               required>
-      </mat-form-field>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+      <!--/.background-holder-->
+      <div class="container">
+          <div class="row pt-6" data-inertia='{"weight":1.5}'>
+              <div class="col-md-8 px-md-0 color-white" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                  <div  >
+                      <h1 class="color-white fs-4 fs-md-5 mb-0 zopacity" data-zanim='{"delay":0}' style="line-height: 0.8;" >Nos contrats d'entretien</h1>
+                      <div class="nav zopacity" aria-label="breadcrumb" role="navigation"
+                          data-zanim='{"delay":0.1}'>
+                          <ol class="breadcrumb fs-1 pl-0 fw-700">
+                              <li class="breadcrumb-item"><a class="color-white" href="#">Home</a></li> <mat-icon>chevron_right</mat-icon>
+                              <li class="breadcrumb-item active" aria-current="page">Entretien</li>
+                          </ol>
+                      </div>
+                  </div>
+              </div>
+          </div>
       </div>
-    </form>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
-    <p>You are now done.</p>
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
-    </div>
-  </mat-step>
-</mat-horizontal-stepper>
+      <!--/.row-->
+  </div>
+  <!--/.container-->
+</section>
+
+<section class="background-11">
+  <div class="container">
+      <div class="row no-gutters pos-relative mt-6">
+          <div class="elixir-caret d-none d-lg-block"></div>
+          <div class="col-lg-6 py-3 py-lg-0 mb-0" style="min-height:400px;">
+              <div class="background-holder radius-tl-secondary radius-tr-secondary radius-tr-lg-0"
+                  style="background-image:url(assets/images/6.jpg);"></div>
+              <!--/.background-holder-->
+          </div>
+          <div
+              class="col-lg-6 px-lg-5 py-lg-6 p-4 my-lg-0 background-white radius-bl-secondary radius-bl-lg-0 radius-br-secondary radius-br-lg-0 radius-tr-lg-secondary">
+              <div class="d-flex align-items-center h-100">
+                  <div data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                      <div class="overflow-hidden">
+                          <h3 class="text-center fs-2 fs-lg-3 " data-zanim='{"delay":0.1}' style="line-height: 0.9;" >I.m Hydrocare est a votre service</h3>
+                      </div>
+                      <div class="overflow-hidden">
+                          <p class="mt-3" data-zanim='{"delay":0.1}' style="font-size: 20px ;line-height: 1.5; text-align:justify; ">Il est nécessaire d'entretenir au moins une fois par an votre équipement
+                            (adoucisseur d'eau, osmoseur), afin d'optimiser son efficacité et de prolonger sa durée de vie. Lors de cet entretien,
+                            les paramètres de votre appareil de traitement de l'eau sont contrôlés et une désinfection est effectuée. Prendre soin
+                            de son adoucisseur permet ainsi de le garder jusqu'à 20 ans. Même en cas de déménagement, I.M Hydrocare se charge de
+                            déplacer et de réinstaller l'adoucisseur dans la nouvelle habitation.</p>
+                      </div>
+                     
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="row no-gutters pos-relative mt-4 mt-lg-0">
+          <div class="elixir-caret d-none d-lg-block"></div>
+          <div class="col-lg-6 py-3 py-lg-0 mb-0 order-lg-2" style="min-height:400px;">
+              <div class="background-holder radius-tl-secondary radius-tl-lg-0 radius-tr-secondary radius-tr-lg-0"
+                  style="background-image:url(assets/images/7.jpg);"></div>
+              <!--/.background-holder-->
+          </div>
+          <div
+              class="col-lg-6 px-lg-5 py-lg-6 p-4 my-lg-0 background-white radius-bl-secondary radius-bl-lg-0 radius-br-secondary radius-br-lg-0">
+              <div class="d-flex align-items-center h-100">
+                <div data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                  <div class="overflow-hidden">
+                      <h3 class="text-center fs-2 fs-lg-3 " data-zanim='{"delay":0.1}' style="line-height: 0.9;" >Faites entretenir votre adoucisseur par un Expert I.M Hydrocare</h3>
+                  </div>
+                  <div class="overflow-hidden">
+                      <p class="mt-3" data-zanim='{"delay":0.1}' style="font-size: 20px ;line-height: 1.5; text-align:justify; ">Une à deux
+                        fois par an, selon le contrat choisi, un Technicien I.M Hydrocare procède à un contrôle des différentes pièces de
+                        l'appareil, à la désinfection de la résine, au changement des filtres et au remplacement des pièces détachées si
+                        nécessaire. I.M Hydrocare assure l'entretien de votre adoucisseur ou de votre appareil d'eau de boisson, quelle que soit sa
+                        marque.</p>
+                  </div>
+                 
+              </div>
+              </div>
+          </div>
+      </div>
+      
+      <!--/.row-->
+  </div>
+  <!--/.container-->
+</section>
+
+<section>
+<div class="container" style="margin-top: -190px;" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+  <div class="row mb-6">
+      <div class="col">
+          <h3 class="text-center fs-2 fs-lg-3">Choisissez le contrat adapté à vos besoins</h3>
+          <hr class="short"
+              data-zanim='{"from":{"opacity":0,"width":0},"to":{"opacity":1,"width":"4.20873rem"},"duration":0.8}'
+              data-zanim-trigger="scroll">
+      </div>
+  </div>
+
+</div>
+
+<!-- Contrat -->
+
+<div class="container" class="container" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+<div class="row">
+<div class="row col-lg-12"  >
+  <mat-card class="example-card" data-zanim='{"delay":0.1}' style=" margin-left: 30px;width: 300px; margin-bottom: 100px;" *ngFor='let c of contrats'  >
+  <app-contrat-detail [c]="c" class="col-2"></app-contrat-detail>
+
+
+</mat-card>
+<!-- <mat-card-footer >
+    <mat-progress-bar   mode="indeterminate" ></mat-progress-bar>
+  </mat-card-footer> -->
+</div>
+</div>
+</div>
+</section>

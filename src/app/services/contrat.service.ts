@@ -16,8 +16,15 @@ addContrat (contratObj){
 
 }
 
+getAllContrats(){
+  return this.httpClient.get<{contrats : any}>(this.ContratURL)
+}
 
 
+getContratId(contratId)  {
+return this.httpClient.get<{contrat :any}>(`${this.ContratURL}/${contratId}`)
+
+}
 
 
 

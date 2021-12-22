@@ -12,13 +12,8 @@ export class ProductService {
   constructor(private httpClient : HttpClient) { }
 
 
-
-  public getProducts(){
-    return this.httpClient.get<{products : any}>(this.SERVER_URL + '/api/allProducts');
-  }
-
-  public getProduct(productId){
-    return this.httpClient.get<{product : any}>(`${this.SERVER_URL + '/api/allProducts'}/${productId}`);
+  getAllProducts(){
+    return this.httpClient.get<{products : any}>(this.SERVER_URL + '/api/allProducts')
   }
 
 //:::::::::::Adoucisseur service:::::::::::::::::://
@@ -31,6 +26,7 @@ export class ProductService {
     formData.append('pression', product.pression);
     formData.append('economie', product.economie);
     formData.append('conception', product.conception);
+    formData.append('description', product.description);
     formData.append('role', product.role);
     formData.append('img', img);
 
@@ -45,7 +41,8 @@ addPurificateur(product:any, img : File){
   let formData = new FormData();
   formData.append('type', product.type);
   formData.append('price', product.price);
-  formData.append('chlore', product.chlore);
+  formData.append('list', product.list);
+  formData.append('description', product.description);
   formData.append('role', product.role);
   formData.append('img', img);
  
@@ -53,17 +50,9 @@ addPurificateur(product:any, img : File){
   return this.httpClient.post<{message : string}>(this.SERVER_URL + '/api/addProduct', formData)
 }
 
-public login(product:any){
-  return this.httpClient.post<{findedProduct : any}>(this.SERVER_URL + '/api/login', product);
-}
+getProdcut(productID){
+  return this.httpClient.get<{product:any}>(`${this.SERVER_URL + '/api/allProducts'}/${productID}`);
 
-public deleteProduct(productId){
-  return this.httpClient.delete<{message : string}>(`${this.SERVER_URL + '/api/allProducts'}/${productId}`)
 }
-
-public updateProduct(product: any){
-  return this.httpClient.put<{message : string}>(`${this.SERVER_URL + '/api/allProducts'}/${product._id}`,product)
-}
-
 
 }

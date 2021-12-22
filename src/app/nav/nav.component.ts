@@ -10,14 +10,17 @@ import { Router, Routes } from '@angular/router';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent {
+// nav.component.ts
 
+menuItems = ['dashboard', 'addProduct', 'orders', 'customers', 'products'];
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
       shareReplay()
     );
-    router: string;
+ 
   constructor(private breakpointObserver: BreakpointObserver,
+private router :Router 
      ) {
 
      }

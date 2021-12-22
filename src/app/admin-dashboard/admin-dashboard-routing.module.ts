@@ -5,6 +5,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 
 const routes: Routes = [
     {path : 'admin', component : NavComponent},
+   
+   
 
 
     

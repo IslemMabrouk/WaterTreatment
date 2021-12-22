@@ -19,6 +19,8 @@ const Contrat =require('./models/contrat');
 
 // import model User
 const User = require('./models/user');
+//Import model Mesure
+const Mesure = require('./models/mesure')
 // import mongoose
 const mongoose = require('mongoose');
 
@@ -116,7 +118,9 @@ app.post('/api/addProduct', multer({ storage: storage }).single('img'), (req, re
                     pression:req.body.pression,
                     economie: req.body.economie,
                     conception :req.body.conception,
-                    chlore : req.body.chlore,
+                    list: req.body.list,
+                    description: req.body.description,
+                    role : req.body.role,
                     img: url + '/images/' + req.file.filename
 
                 });
@@ -141,7 +145,45 @@ app.post('/api/addProduct', multer({ storage: storage }).single('img'), (req, re
 });
 
 
+//Traitement get Products
+app.get('/api/allProducts', (req, res) => {
+    console.log("Here in function get All Products");
 
+    //Etape 1
+    Product.find((err, docs) => {
+        if (err) {
+            console.log("Error in DB");
+        } else {
+            //Success
+            res.status(200).json({
+                products: docs
+            })
+        }
+    })
+
+})
+
+
+//Traitement get Product by ID
+app.get('/api/allProducts/:id', (req, res) =>{
+    console.log('Here in Function get by ID');
+
+    let id = req.params.id;
+    console.log('id Product by id', id);
+
+    Product.findOne({_id : id}).then(
+        (doc) => {
+            console.log('finded Product', doc);
+            res.status(200).json({
+                product:doc
+            })
+        }
+    )
+})
+
+//:::::::::::::::::::::::::::::::::::::::::::::::::://
+//:::::::::::::::::CRUD Users::::::::::::::::::::::://
+//:::::::::::::::::::::::::::::::::::::::::::::::::://
 
 // traitement create user
 app.post('/api/users', (req, res) => {
@@ -238,9 +280,7 @@ let contrat = new Contrat({
   dépannageMain : req.body.dépannageMain,
   dépannagePrioritaire : req.body.dépannagePrioritaire,
   piècesDétachées : req.body.piècesDétachées,
-
-});
-    contrat.save();
+  contrat.save();
             
     // etape 3
 
@@ -252,8 +292,32 @@ let contrat = new Contrat({
 
 })
 
+  
+//:::::::::::::::::::::::::::::::::::::::::::::::::://
+//:::::::::::::::::CRUD Mesures:::::::::::::::::::://
+//:::::::::::::::::::::::::::::::::::::::::::::::::://
+app.post('/api/addMesure', (req,res)=>{
+    console.log('Here in function addMesure');
 
+                let mesure  = new Mesure({
+                    region : req.body.region,
+                    chlore : req.body.chlore,
+                    calcaire : req.body.calcaire,
+                    residu : req.body.residu
 
+                });
+                console.log(mesure);
+
+                //Etape2
+                mesure.save();
+
+                //Etape3
+                res.status(200).json({
+                    message: 'Mesures added with  success'
+                })
+
+});
+    
 
 
 //Export App

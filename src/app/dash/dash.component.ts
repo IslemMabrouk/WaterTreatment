@@ -1,6 +1,22 @@
 import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTable } from '@angular/material/table';
+import { Router } from '@angular/router';
+import { UserService } from '../services/user.service';
+export interface User {
+  firstName : String,
+lastName : String,
+email : String,
+password : String,
+tel : String,
+role:String
+
+}
+
+
 
 @Component({
   selector: 'app-dash',
@@ -9,35 +25,48 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 })
 export class DashComponent {
   /** Based on the screen size, switch from standard to one column per row */
-  cards = this.breakpointObserver.observe(Breakpoints.Small).pipe(
-    map(({ matches }) => {
-      if (matches) {
-        return [
-          { title: 'Card 1', cols: 1, rows: 1 },
-          { title: 'Card 2', cols: 1, rows: 1 },
-          { title: 'Card 3', cols: 1, rows: 1 },
-          { title: 'Card 4', cols: 1, rows: 1 },
-          { title: 'Card 5', cols: 1, rows: 1 },
-          { title: 'Card 6', cols: 1, rows: 1 },
-          { title: 'Card 7', cols: 1, rows: 1 },
-          { title: 'Card 8', cols: 1, rows: 1 },
-          { title: 'Card 9', cols: 1, rows: 1 }
-        ];
-      }
 
-      return [
-        { title: 'Card 1', cols: 1, rows: 1 },
-        { title: 'Card 2', cols: 1, rows: 1 },
-        { title: 'Card 3', cols: 1, rows: 1 },
-        { title: 'Card 4', cols: 1, rows: 1 },
-        { title: 'Card 5', cols: 2, rows: 1 },
-        { title: 'Card 6', cols: 2, rows: 1 },
-        { title: 'Card 7', cols: 2, rows: 1 },
-        { title: 'Card 8', cols: 2, rows: 1 },
-        { title: 'Card 9', cols: 4, rows: 1 }
-      ];
-    })
-  );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+
+
+  displayedColumns: string[] = ['firstName', 'lastName','email','tel','role'];
+users:any;
+  
+
+
+cardLayout = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
+   map(({ matches }) => {
+     if (matches) {
+       return {
+         columns: 1,
+         miniCard: { cols: 1, rows: 1 },
+         chart: { cols: 1, rows: 2 },
+         table: { cols: 1, rows: 4 },
+       };
+     }
+
+    return {
+       columns: 4,
+       miniCard: { cols: 1, rows: 1 },
+       chart: { cols: 2, rows: 2 },
+       table: { cols: 4, rows: 4 },
+     };
+   })
+ );
+
+  constructor(private breakpointObserver: BreakpointObserver,
+    private router: Router, private userServices :UserService) {}
+
+    ngOnInit(): void {
+
+
+      this.userServices.getUsers().subscribe(
+        (data)=>{
+          
+          console.log(data.users);
+          this.users=data.users;});
+
+
+    }
+  
 }

@@ -8,25 +8,30 @@ import { ContratService } from 'src/app/services/contrat.service';
   styleUrls: ['./entretien.component.css']
 })
 export class EntretienComponent implements OnInit {
-
-isLinear = false;
-firstFormGroup: FormGroup;
-secondFormGroup: FormGroup;
+contrats:any;
+services;
+serves;
 
   constructor(private contratServices : ContratService,
-    private fb :FormBuilder) { }
+    ) { }
 
   ngOnInit(): void {
-  this.firstFormGroup = this.fb.group({
-          firstCtrl: ['', Validators.required],
-        });
-        this.secondFormGroup = this.fb.group({
-          secondCtrl: ['', Validators.required],
-        });
-  
+  this.contratServices.getAllContrats().subscribe(
+(data)=>{
+console.log("here in get all contrats");
+this.contrats = data.contrats;
+
+
+
+
+
+
+
+})
+
+
       
       }
-
 
 
   

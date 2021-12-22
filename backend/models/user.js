@@ -7,10 +7,6 @@ password : String,
 tel : String,
 role:String
 
-
-
-
-
 });
 
 const user = mongoose.model('User', userSchema);

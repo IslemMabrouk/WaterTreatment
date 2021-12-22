@@ -20,6 +20,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 
 
@@ -59,8 +62,11 @@ import { MatMenuModule } from '@angular/material/menu';
     MatGridListModule,
     MatMenuModule,
     AdminDashboardRoutingModule,
-    NavComponent
-   
+    NavComponent,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
+    
 
     
     ],
@@ -69,7 +75,7 @@ import { MatMenuModule } from '@angular/material/menu';
      
     ],
 
-     declarations: [AdminDashboardComponent, 
+     declarations: [AdminDashboardComponent
     
     
     ],

@@ -19,6 +19,9 @@ return this.httpClient.post<{message : string}>(this.userURL, userObj);
   return this.httpClient.post<{findedUser : any}>(this.loginURL, userObj);
    }
    
+   getUsers(){
+     return this.httpClient.get<{users: any}>(this.userURL)
+   }
 
 
 
