@@ -86,7 +86,7 @@
                             name="meeting-time" value="2018-06-12T19:30"
                             min="2021-21-12T00:00" style="color: rgba(2, 2, 29, 0.726);" [(ngModel)]="contact.date" [ngModelOptions]="{standalone:true}">
                     
-                            <button  class="btn btn-warning mt-3 text-center" style=" margin: 30px 0px 30px 70px ; font-size: 15px;">
+                            <button  class="btn btn-warning mt-3 text-center" style=" margin: 30px 0px 30px 70px ; font-size: 15px;" (click)="openOtherDialog()">
                                 Valider mon RDV
                             </button>
                     </div>
@@ -102,7 +102,7 @@
                             name="meeting-time" value="2018-06-12T19:30"
                             min="2021-21-12T00:00" style="color: rgba(2, 2, 29, 0.726);" [(ngModel)]="contact.date" [ngModelOptions]="{standalone:true}">
 
-                            <button  class="btn btn-warning mt-3 text-center" style=" margin: 30px 0px 30px 80px ; font-size: 15px;">
+                            <button  class="btn btn-warning mt-3 text-center" style=" margin: 30px 0px 30px 80px ; font-size: 15px;" (click)="openOtherDialog()">
                                 Valider mon RDV
                             </button>
                     </div>
@@ -120,8 +120,15 @@
 
 
 
-   
 
+<ng-template #secondDialog > 
+    <mat-icon  class="material-icons-outlined" style="color: green; font-size: 100px; margin-left: 37%;">check_circle_outline</mat-icon >
+        <h2 matDialogTitle style="text-align: center;">Merci, votre RDV a bien été prise en compte !</h2>
+    
+  <p matDialogContent style="text-align: center;">Un Conseiller HydroCare vous contactera très prochainement.</p>
+  <mat-dialog-actions align="end">
+    <button mat-button matDialogClose style="margin-top:20px ;">OK</button>
+  </mat-dialog-actions>
 
 
 

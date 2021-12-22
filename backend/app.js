@@ -92,6 +92,11 @@ app.use((req, res, next) => {
 });
 
 
+
+var emailRouter = require('./routes/emailRoute');
+app.use('/email',emailRouter);
+
+
 //:::::::::::::::::::::::::::::::::::::::::::::::::://
 //:::::::::::::::::CRUD Products::::::::::::::::::::::://
 //:::::::::::::::::::::::::::::::::::::::::::::::::://
@@ -220,11 +225,27 @@ app.post('/api/users', (req, res) => {
     
     
     )
-    
-    
-        
-    
+      
     });
+
+//get allusers
+app.get('api/users', (req, res) => {
+    console.log("Here in function get All Users");
+
+    //Etape 1
+    User.find((err, docs) => {
+        if (err) {
+            console.log("Error in DB");
+        } else {
+            //Success
+            res.status(200).json({
+                users: docs
+            })
+        }
+    })
+
+})
+
 
 //traitement de login
 app.post("/api/login", (req, res) => {

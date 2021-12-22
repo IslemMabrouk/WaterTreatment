@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ContactService } from 'src/app/services/contact.service';
 
 @Component({
@@ -8,6 +9,7 @@ import { ContactService } from 'src/app/services/contact.service';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
+  @ViewChild('secondDialog') secondDialog: TemplateRef<any>;
   isShown1: boolean = false ;
   isShown2: boolean = false ;
   contactConsForm: FormGroup;
@@ -15,7 +17,8 @@ export class ContactComponent implements OnInit {
   contact:any={};
   connectedUser:any;
   constructor( private fb :FormBuilder,
-              private contacService : ContactService) { }
+              private contacService : ContactService,
+              private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.contactConsForm= this.fb.group({
@@ -66,8 +69,18 @@ this.contacService.contacter(this.contact).subscribe(
         (data) =>{
           console.log(data.message);
           });
-      
+    
           }
+
+        
+          openOtherDialog() {
+            this.dialog.open(this.secondDialog);
+          }
+
+
+
+
+
 
 
 

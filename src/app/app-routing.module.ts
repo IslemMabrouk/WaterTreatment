@@ -8,6 +8,7 @@ import { AdoucisseursComponent } from './components/adoucisseurs/adoucisseurs.co
 import { ContactComponent } from './components/contact/contact.component';
 import { DashboardAdminComponent } from './components/dashboard-admin/dashboard-admin.component';
 import { DisplayProductComponent } from './components/display-product/display-product.component';
+import { EmailContactComponent } from './components/email-contact/email-contact.component';
 import { EntretienComponent } from './components/entretien/entretien.component';
 import { EspaceClientComponent } from './components/espace-client/espace-client.component';
 import { HomeComponent } from './components/home/home.component';
@@ -28,6 +29,7 @@ const routes: Routes = [
   {path: 'contact' , component: ContactComponent},
   {path: 'espaceClient' , component: EspaceClientComponent},
   {path: 'addMesure' , component: AddMesureComponent},
+  {path: 'emailContact' , component: EmailContactComponent},
 
   //Path Dynamique
   {path: 'displayProduct/:id' , component: DisplayProductComponent},

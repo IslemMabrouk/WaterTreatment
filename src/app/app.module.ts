@@ -40,6 +40,9 @@ import { PurificateurDetailComponent } from './components/purificateur-detail/pu
 import { DisplayProductComponent } from './components/display-product/display-product.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { ValidationDemandeComponent } from './components/validation-demande/validation-demande.component'
+import { MatTableModule } from '@angular/material/table';
+import { EmailContactComponent } from './components/email-contact/email-contact.component'
+
 
 @NgModule({
   declarations: [
@@ -65,6 +68,7 @@ import { ValidationDemandeComponent } from './components/validation-demande/vali
     PurificateurDetailComponent,
     DisplayProductComponent,
     ValidationDemandeComponent,
+    EmailContactComponent,
     
     
 
@@ -85,7 +89,7 @@ import { ValidationDemandeComponent } from './components/validation-demande/vali
     MatAutocompleteModule,MatDatepickerModule,
     HttpClientModule,
     MaterialModule,MatProgressBarModule,
-     MatDividerModule,
+     MatDividerModule, MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
