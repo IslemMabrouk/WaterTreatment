@@ -2,7 +2,10 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule} from '@angular/router';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { AddAdminComponent } from './components/add-admin/add-admin.component';
+<<<<<<< HEAD
 import { AddContratComponent } from './components/add-contrat/add-contrat.component';
+=======
+>>>>>>> 16911e390e1d918b64a0dfa7dcc14527fd404d23
 import { AddMesureComponent } from './components/add-mesure/add-mesure.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { AdoucisseursComponent } from './components/adoucisseurs/adoucisseurs.component';
@@ -14,12 +17,16 @@ import { EspaceClientComponent } from './components/espace-client/espace-client.
 import { HomeComponent } from './components/home/home.component';
 import { PurificateursComponent } from './components/purificateurs/purificateurs.component';
 import { RegistrationComponent } from './components/registration/registration.component';
+<<<<<<< HEAD
 import { DashComponent } from './dash/dash.component';
 import { Home2Component } from './home2/home2.component';
 import { NavComponent } from './nav/nav.component';
 import { ValidationComponent } from './components/validation/validation.component';
 import { DisplayContratComponent } from './components/display-contrat/display-contrat.component';
 import { UsersTableComponent } from './users-table/users-table.component';
+=======
+import { ValidationComponent } from './components/validation/validation.component';
+>>>>>>> 16911e390e1d918b64a0dfa7dcc14527fd404d23
 
 const routes: Routes = [
   // {path: '' , component : HomeComponent}  ,
@@ -51,6 +58,7 @@ children :[
   {path: 'contact' , component: ContactComponent},
   {path: 'espaceClient' , component: EspaceClientComponent},
   {path: 'addMesure' , component: AddMesureComponent},
+<<<<<<< HEAD
    //Path Dynamique
    {path: 'displayProduct/:id' , component: DisplayProductComponent},
    {path: 'displayContrat/:id' , component:DisplayContratComponent },
@@ -65,6 +73,12 @@ children :[
  
 
  
+=======
+
+  //Path Dynamique
+  {path: 'displayProduct/:id' , component: DisplayProductComponent},
+  { path: 'validation/:id' , component: ValidationComponent}
+>>>>>>> 16911e390e1d918b64a0dfa7dcc14527fd404d23
 
 
 ];

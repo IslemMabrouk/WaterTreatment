@@ -29,6 +29,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import{ MatInputModule } from '@angular/material/input';
 import{ MatCardModule } from '@angular/material/card';
+<<<<<<< HEAD
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -66,6 +67,8 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { CdkStepperModule } from '@angular/cdk/stepper';
 import { AddContratComponent } from './components/add-contrat/add-contrat.component';
+=======
+>>>>>>> 16911e390e1d918b64a0dfa7dcc14527fd404d23
 import{ MatAutocompleteModule } from '@angular/material/autocomplete';
 import{HttpClientModule} from'@angular/common/http';
 import { AddMesureComponent } from './components/add-mesure/add-mesure.component';
@@ -76,10 +79,13 @@ import { AdoucisseurDetailComponent } from './components/adoucisseur-detail/adou
 import { PurificateurDetailComponent } from './components/purificateur-detail/purificateur-detail.component';
 import { DisplayProductComponent } from './components/display-product/display-product.component';
 import { ValidationComponent } from './components/validation/validation.component';
+<<<<<<< HEAD
 import { ContratDetailComponent } from './components/contrat-detail/contrat-detail.component';
 import { DisplayContratComponent } from './components/display-contrat/display-contrat.component';
 import { UsersTableComponent } from './users-table/users-table.component';
 
+=======
+>>>>>>> 16911e390e1d918b64a0dfa7dcc14527fd404d23
 
 
 @NgModule({
@@ -101,21 +107,28 @@ import { UsersTableComponent } from './users-table/users-table.component';
     ReviewsComponent,
     AddProductComponent,
     EspaceClientComponent,
+<<<<<<< HEAD
     CardComponent,
     NavComponent,
     DashComponent,
     Home2Component,
     EntretienComponent,
     AddContratComponent,
+=======
+>>>>>>> 16911e390e1d918b64a0dfa7dcc14527fd404d23
     AddMesureComponent,
     AdoucisseurDetailComponent,
     PurificateurDetailComponent,
     DisplayProductComponent,
     ValidationComponent,
+<<<<<<< HEAD
     ContratDetailComponent,
     DisplayContratComponent,
     UsersTableComponent
     
+=======
+
+>>>>>>> 16911e390e1d918b64a0dfa7dcc14527fd404d23
 
 
    
@@ -130,6 +143,7 @@ import { UsersTableComponent } from './users-table/users-table.component';
     MatTabsModule,MatSelectModule,MatOptionModule,
     MatFormFieldModule,MatIconModule,
     HttpClientModule,MatCheckboxModule, MatInputModule,MatCardModule,
+<<<<<<< HEAD
     LayoutModule,
     MatToolbarModule,
     MatSidenavModule,
@@ -166,6 +180,11 @@ import { UsersTableComponent } from './users-table/users-table.component';
     HttpClientModule,
     MaterialModule,MatProgressBarModule, MatDividerModule
 
+=======
+    MatAutocompleteModule,
+    HttpClientModule,
+    MaterialModule,MatProgressBarModule, MatDividerModule
+>>>>>>> 16911e390e1d918b64a0dfa7dcc14527fd404d23
   ],
   providers: [],
   bootstrap: [AppComponent]
