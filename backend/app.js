@@ -13,6 +13,10 @@ const path = require('path');
 //Instance express in App
 const app = express();
 
+//import model Contrat
+const Contrat =require('./models/contrat');
+
+
 // import model User
 const User = require('./models/user');
 //Import model Mesure
@@ -26,8 +30,6 @@ const mongoose = require('mongoose');
 
 //import bcrypt
 const bcrypt = require('bcrypt');
-const contact = require('./models/contact');
-
 
 // Connect to Data Base
 mongoose.connect('mongodb://localhost:27017/WaterDB', { useNewUrlParser: true, useUnifiedTopology: true });
@@ -90,7 +92,7 @@ app.use((req, res, next) => {
     );
     next();
 });
-
+//********************************************************************************************************* */
 
 
 var emailRouter = require('./routes/emailRoute');
@@ -138,6 +140,8 @@ app.post('/api/addProduct', multer({ storage: storage }).single('img'), (req, re
                 res.status(200).json({
                     message: 'Product added with  success'
                 })
+
+           
 
 
             }
@@ -229,7 +233,7 @@ app.post('/api/users', (req, res) => {
     });
 
 //get allusers
-app.get('api/users', (req, res) => {
+app.get('/api/users', (req, res) => {
     console.log("Here in function get All Users");
 
     //Etape 1
@@ -282,6 +286,39 @@ app.post("/api/login", (req, res) => {
 });
 
 
+//traitement de add contract
+app.post("/api/contract" , (req,res) =>{
+
+console.log("here in contract", req.body);
+
+
+
+let contrat = new Contrat({
+  type : req.body.type,
+  nombreVisites : req.body.nombreVisites,
+  analyseEau : req.body.analyseEau ,
+  désinfectionAppareil : req.body.désinfectionAppareil,
+  contrôleRéglage : req.body.contrôleRéglage,
+  sel : req.body.sel,
+  filtres  : req.body.filtres,
+  dépannageMain : req.body.dépannageMain,
+  dépannagePrioritaire : req.body.dépannagePrioritaire,
+  piècesDétachées : req.body.piècesDétachées,
+});
+
+  contrat.save();
+            
+    // etape 3
+
+    res.status(200).json({
+        message: 'Contrat added with sucess'
+    })
+
+
+
+})
+
+  
 //:::::::::::::::::::::::::::::::::::::::::::::::::://
 //:::::::::::::::::CRUD Mesures:::::::::::::::::::://
 //:::::::::::::::::::::::::::::::::::::::::::::::::://
@@ -308,6 +345,7 @@ app.post('/api/addMesure', (req,res)=>{
                 })
 
 });
+    
 
 //:::::::::::::::::::::::::::::::::::::::::::::::::://
 //:::::::::::::::::CRUD Demande:::::::::::::::::::://

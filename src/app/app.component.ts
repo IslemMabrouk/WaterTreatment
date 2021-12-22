@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 
@@ -9,4 +10,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'WaterProject';
+
+
+  constructor(private router: Router){
+
+          
+    }
+
+
+  
 }

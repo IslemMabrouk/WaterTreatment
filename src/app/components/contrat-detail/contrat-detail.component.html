@@ -1,0 +1,30 @@
+
+    <mat-card-header style="background-color: #0a2868;height: 50px;padding: 10px;">
+      
+            <mat-card-title style="color: white;"> <strong> {{c.type}} <mat-icon *ngIf=" c.type=='Confort' "
+                        style="color: rgb(235, 195, 16);margin-left: 50px;">star star</mat-icon>
+                        <mat-icon *ngIf=" c.type=='Privilège' "
+                        style="color: rgb(235, 195, 16);margin-left: 50px;">star star star</mat-icon></strong></mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+      
+      <mat-divider inset ></mat-divider>
+      <mat-card-subtitle> <h3> <strong>{{c.nombreVisites}} visites par an</strong> </h3> </mat-card-subtitle>
+      <mat-card-subtitle style="margin:20px;" >  <strong>Dépannage prioritaire : <mat-icon>access_time</mat-icon> <span style="color: green;">{{c.depannagePrioritaire}}</span>  </strong> </mat-card-subtitle>
+      
+     
+    
+      <mat-card-content style="margin:20px;" *ngFor="let link of services" >
+          <mat-card-subtitle > <mat-divider inset></mat-divider> <strong>{{ link }}</strong>  <mat-icon style="margin: 0px 0px 0px 200px ;color: green;">check_circle</mat-icon>  </mat-card-subtitle>
+          
+      </mat-card-content>
+
+    <mat-divider inset style="margin-bottom: 30;"></mat-divider>
+  
+      
+      </mat-card-content>
+
+<mat-card-footer> <button type="button" class="btn btn-warning mt-3 text-center" style=" margin: 20px 0px 30px 60px ;" (click)="displayContrat(c._id)">
+          Voir le contrat
+      </button></mat-card-footer>
+    
