@@ -261,31 +261,9 @@ app.post("/api/login", (req, res) => {
             })
 });
 
-// Traitement de get All Users
 
-app.get('/api/users', (req, res) => {
-    console.log('hello in be to get all Users');
-
-    // Etape 1
-    User.find((err, docs) => {
-        if (err) {
-            console.log('error in DB');
-        }
-        else {
-            // succes
-            res.status(200).json({
-                users: docs
-            });
-        }
-
-    });
-});
-//:::::::::::::::::::::::::::::::::::::::::::::::::://
-//:::::::::::::::::CRUD Contrats:::::::::::::::::::://
-//:::::::::::::::::::::::::::::::::::::::::::::::::://
-
-//traitement de add contrat
-app.post("/api/contrat" , (req,res) =>{
+//traitement de add contract
+app.post("/api/contract" , (req,res) =>{
 
 console.log("here in contract", req.body);
 
@@ -295,11 +273,13 @@ let contrat = new Contrat({
   type : req.body.type,
   nombreVisites : req.body.nombreVisites,
   analyseEau : req.body.analyseEau ,
-  depannagePrioritaire : req.body.depannagePrioritaire,
-  services : req.body.services,
-
-});
-
+  désinfectionAppareil : req.body.désinfectionAppareil,
+  contrôleRéglage : req.body.contrôleRéglage,
+  sel : req.body.sel,
+  filtres  : req.body.filtres,
+  dépannageMain : req.body.dépannageMain,
+  dépannagePrioritaire : req.body.dépannagePrioritaire,
+  piècesDétachées : req.body.piècesDétachées,
   contrat.save();
             
     // etape 3
@@ -310,42 +290,8 @@ let contrat = new Contrat({
 
 
 
-});
-
-//Traitement get contrats
-app.get('/api/contrat', (req, res) => {
-    console.log("Here in function get All Contrats");
-
-    //Etape 1
-    Contrat.find((err, docs) => {
-        if (err) {
-            console.log("Error in DB");
-        } else {
-            //Success
-            res.status(200).json({
-                contrats: docs
-            })
-        }
-    })
-
 })
 
-//Traitement get contrat by ID
-app.get('/api/contrat/:id', (req, res) =>{
-    console.log('Here in contrat get by ID');
-
-    let id = req.params.id;
-    console.log('id contrat by id', id);
-
-    Contrat.findOne({_id : id}).then(
-        (doc) => {
-            console.log('finded contrat', doc);
-            res.status(200).json({
-                contrat:doc
-            })
-        }
-    )
-})
   
 //:::::::::::::::::::::::::::::::::::::::::::::::::://
 //:::::::::::::::::CRUD Mesures:::::::::::::::::::://
@@ -372,21 +318,6 @@ app.post('/api/addMesure', (req,res)=>{
 
 });
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //Export App
