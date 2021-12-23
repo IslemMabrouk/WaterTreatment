@@ -14,13 +14,13 @@ import { EspaceClientComponent } from './components/espace-client/espace-client.
 import { HomeComponent } from './components/home/home.component';
 import { PurificateursComponent } from './components/purificateurs/purificateurs.component';
 import { RegistrationComponent } from './components/registration/registration.component';
-
+import { ValidationDemandeComponent } from './components/validation-demande/validation-demande.component';
 import { DashComponent } from './dash/dash.component';
 import { Home2Component } from './home2/home2.component';
 import { NavComponent } from './nav/nav.component';
 import { DisplayContratComponent } from './components/display-contrat/display-contrat.component';
 import { UsersTableComponent } from './users-table/users-table.component';
-import { ValidationDemandeComponent } from './components/validation-demande/validation-demande.component';
+
 
 const routes: Routes = [
   // {path: '' , component : HomeComponent}  ,
@@ -42,7 +42,7 @@ children :[
     {path: '' , component: HomeComponent},
    
   {path: 'registration' , component: RegistrationComponent},
-  {path: 'addAdmin' , component: AddAdminComponent},
+  {path: 'addAdmin' , component: AddAdminComponent},  
   {path: 'adoucisseurs' , component: AdoucisseursComponent},
   {path: 'purificateurs' , component: PurificateursComponent},
   {path: 'aboutUs' , component: AboutUsComponent},
@@ -56,13 +56,12 @@ children :[
   {path: 'displayProduct/:id' , component: DisplayProductComponent},
   { path: 'validation/achat/:id' , component: ValidationDemandeComponent},
   { path: 'validation/devis/:id' , component: ValidationDemandeComponent},
-   //Path Dynamique
-   {path: 'displayProduct/:id' , component: DisplayProductComponent},
    {path: 'displayContrat/:id' , component:DisplayContratComponent },
   {path: 'addContrat' , component: AddContratComponent},
   { path: '**', redirectTo: '' },
   ],
   },
+  
   
 
 ];

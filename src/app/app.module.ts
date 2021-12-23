@@ -83,6 +83,8 @@ import { UsersTableComponent } from './users-table/users-table.component';
 import { GoogleChartsModule } from 'angular-google-charts';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -116,8 +118,6 @@ import { GoogleChartsModule } from 'angular-google-charts';
     ContratDetailComponent,
     DisplayContratComponent,
     UsersTableComponent
-    
-
    
   ],
   imports: [
@@ -167,7 +167,10 @@ import { GoogleChartsModule } from 'angular-google-charts';
     MatAutocompleteModule,
     HttpClientModule,
     MaterialModule,MatProgressBarModule, MatDividerModule,
-    GoogleChartsModule.forRoot()
+    GoogleChartsModule.forRoot(),
+       MatAutocompleteModule,
+    HttpClientModule,
+    MaterialModule,MatProgressBarModule, MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

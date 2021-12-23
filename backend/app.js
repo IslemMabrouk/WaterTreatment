@@ -353,6 +353,37 @@ app.post("/api/contrat" , (req,res) =>{
     })
 
 
+//traitement de add contract
+app.post("/api/contract" , (req,res) =>{
+
+console.log("here in contract", req.body);
+
+
+
+let contrat = new Contrat({
+  type : req.body.type,
+  nombreVisites : req.body.nombreVisites,
+  analyseEau : req.body.analyseEau ,
+  désinfectionAppareil : req.body.désinfectionAppareil,
+  contrôleRéglage : req.body.contrôleRéglage,
+  sel : req.body.sel,
+  filtres  : req.body.filtres,
+  dépannageMain : req.body.dépannageMain,
+  dépannagePrioritaire : req.body.dépannagePrioritaire,
+  piècesDétachées : req.body.piècesDétachées,
+});
+  contrat.save();
+            
+    // etape 3
+
+    res.status(200).json({
+        message: 'Contrat added with sucess'
+    })
+
+
+
+})
+
   
 //:::::::::::::::::::::::::::::::::::::::::::::::::://
 //:::::::::::::::::CRUD Mesures:::::::::::::::::::://
@@ -381,6 +412,7 @@ app.post('/api/addMesure', (req,res)=>{
                 })
 
 });
+<<<<<<< HEAD
 
 //Traitement All Mesures
 app.get('/api/AllMesures', (req, res) => {
@@ -417,6 +449,9 @@ app.post('/api/demande', (req,res)=>{
     console.log(demande);
 
     demande.save();
+=======
+    
+>>>>>>> 211e8dd5d4b20ca39496021e09e0821ff59cb4c6
 
     res.status(200).json({
         message: 'demande added with  success'
