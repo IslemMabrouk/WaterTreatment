@@ -1,103 +1,130 @@
+
 <div class="row" style="margin: 150px 0px 150px 0px ;">
     <div class="col-md-6 mx-auto p-0">
-        <div class="card">
+        <div class="card" style="margin-left: -60px;">
             <div class="login-box" >
                 <div class="login-snip" style="margin-top:-40px;"  ><input id="tab-1" type="radio" name="tab" class="sign-in text-uppercase fs-0 fs-md-1" checked><label for="tab-1" class="tab" style=" margin-right: 40px;"> <h4 style="font-size: 19px; margin-bottom: 20px; margin-bottom: 5px;">Se Connecter</h4> </label> <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab"> <h4 style="font-size: 20px; margin-bottom: 5px;">S'inscrire</h4> </label>
                     <div class="login-space" >
                         <div class="login" >
+                            <form #loginForm="ngForm" (ngSubmit)="login()">
                             <div class="col-12" style="margin-top: 30px;">
                                 <div class="input-group">
-                                    <div class="input-group-addon background-11 fs-2"><span
-                                            class="ion-ios-person-outline color-warning" ></span></div><input
-                                        class="form-control" type="text" style="margin-left: 10px;" placeholder="E-mail *"
-                                        aria-label="Text input with dropdown button" />
+                                    <div class="input-group-addon background-11 fs-2">
+                                        <mat-icon style="font-size: 35px; margin-top: 10px; color: #2a3855;">perm_identity</mat-icon>
+                                        </div>
+                                            <mat-form-field appearance="fill" style="margin-left: 10px;" class="col-md-11">
+                                                <mat-label>Entrer votre Email</mat-label>
+                                                <input type="email" matInput  placeholder="Ex. pat@example.com" required [(ngModel)]="user.email" [ngModelOptions]="{standalone:true}">
+                                                <!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                                                    Votre adresse email est <strong>invalide</strong> 
+                                                </mat-error> -->
+                                                <!-- <mat-error *ngIf="emailFormControl.hasError('required')">
+                                                  Email est <strong>obligatoire</strong>
+                                                </mat-error> -->
+                                              </mat-form-field>
                                 </div>
                             </div>
                             <div class="col-12 mt-2 mt-sm-4" >
                                 <div class="input-group">
-                                    <div class="input-group-addon background-11 fs-2"><span
-                                            class="ion-ios-locked-outline color-warning"></span></div><input
-                                        class="form-control" type="Password" style="margin-left: 10px;"   placeholder="Mot de passe *"
-                                        aria-label="Text input with dropdown button" />
+                                    <div class="input-group-addon background-11 fs-2" ><mat-icon style="font-size: 28px; margin-top: 10px; color: #2a3855;">https</mat-icon></div>
+                                            <mat-form-field appearance="fill" class="col-md-12" >
+                                                <mat-label aria-label="Text input with dropdown button" >  Entrer votre Mot de passe * </mat-label>
+                                                <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="user.password" [ngModelOptions]="{standalone:true}">
+                                                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                                  <mat-icon style=" color: #2a3855;">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                                </button>
+                                              </mat-form-field>
                                 </div>
                             </div>
                             <div class="row align-items-center mt-3">
                                 <div class="col-6"><label class="form-check-label"><input class="form-check-input "
                                             type="checkbox" /><span class="color-7">Rester Connecté</span></label></div>
-                                <div class="col-6 mt-2 mt-sm-3"><button class="btn btn-primary btn-block" type="submit">Se Connecter</button></div>
+                                <div class="col-6 mt-2 mt-sm-3"><button class="btn btn-primary btn-block" >Se Connecter</button></div>
                             </div>
+                            </form>
                         </div>
                         <div class="sign-up-form" style="margin-top: 30px;">
                             <form [formGroup]="signupForm" >
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="" placeholder="Prénom *" formControlName="firstName" >
+                                    <mat-form-field appearance="fill" class="col-md-12">
+                                        <mat-label> Prénom </mat-label>
+                                        <input matInput type="text" class="form-control"  required formControlName="firstName">
+                                       <!-- Control Input First Name -->
+                                        <mat-error *ngIf="signupForm.controls['firstName'].invalid && ( signupForm.controls['firstName'].dirty || signupForm.controls['firstName'].touched )">
+                                            Prénom est <strong>obligatoire</strong> 
+                                        </mat-error>
+                                        <mat-error *ngIf="signupForm.controls['firstName'].errors.minlength">
+                                             Prénom doit avoir au moins <strong>3 caractères</strong>
+                                        </mat-error>
+                                    </mat-form-field>
                                 </div>
 
-                                <!-- Control Input First Name -->
-                            <div *ngIf="signupForm.controls['firstName'].invalid && ( signupForm.controls['firstName'].dirty || signupForm.controls['firstName'].touched )">
-                                <div *ngIf="signupForm.controls['firstName'].errors.required" class="text-danger" style="font-size: 14px;">
-                                    Prénom est obligatoir
-                                </div>
-
-                                <div *ngIf="signupForm.controls['firstName'].errors.minlength" class="text-danger">
-                                    First Name must have at least 3 characters
-                                </div>
-                            </div>
-
-                                <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="" placeholder="Nom de famille *" formControlName="lastName" >
-                                </div>
-
-                                 <!-- Control Input Last Name -->
-                            <div *ngIf="signupForm.controls['lastName'].invalid && ( signupForm.controls['lastName'].dirty || signupForm.controls['lastName'].touched )">
-                                <div *ngIf="signupForm.controls['lastName'].errors.required" class="text-danger">
-                                    First Name is required
-                                </div>
-
-                                <div *ngIf="signupForm.controls['lastName'].errors.minlength" class="text-danger">
-                                    First Name must have at least 5 characters
-                                </div>
-                            </div>
                                 
+                                <div class="form-group col-md-6">
+                                    <mat-form-field appearance="fill" class="col-md-12">
+                                        <mat-label> Nom de famille </mat-label>
+                                        <input matInput type="text" class="form-control"  required formControlName="lastName">
+                                       <!-- Control Input Last Name -->
+                                       <mat-error *ngIf="signupForm.controls['lastName'].invalid && ( signupForm.controls['lastName'].dirty || signupForm.controls['lastName'].touched )">
+                                            Nom est <strong>obligatoire</strong> 
+                                        </mat-error>
+                                        <mat-error *ngIf="signupForm.controls['lastName'].errors.minlength">
+                                             Nom doit avoir au moins <strong>5 caractères</strong>
+                                        </mat-error>
+                                    </mat-form-field>  
+                                  </div>
+   
                             </div>
                                     <div class="input-group">
-                                       <input class="form-control" type="email" placeholder="E-mail *" aria-label="Text input with dropdown button" formControlName="email" />
-                                    </div>
-
+                                        <mat-form-field appearance="fill" class="col-md-12">
+                                            <mat-label> E-mail </mat-label>
+                                            <input type="email" matInput  placeholder="Ex. pat@example.com" required formControlName="email">
                                      <!-- Control Input Email -->
-                            <div *ngIf="signupForm.controls['email'].invalid && ( signupForm.controls['email'].dirty || signupForm.controls['email'].touched )">
-                                <div *ngIf="signupForm.controls['email'].errors.required" class="text-danger">
-                                    Email Name is required
-                                </div>
-
-                                <div *ngIf="signupForm.controls['email'].errors.email" class="text-danger">
-                                    Invalid Email
-                                </div>
-                            </div>
-
-
+                                     <mat-error *ngIf="signupForm.controls['email'].invalid && ( signupForm.controls['email'].dirty || signupForm.controls['email'].touched )">
+                                                L'adresse email est <strong>obligatoire</strong> 
+                                            </mat-error>
+                                            <mat-error *ngIf="signupForm.controls['email'].errors.email">
+                                                Votre adresse email est <strong>invalide</strong>
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                
                                     <div class="form-row" style="margin-top:15px;">
                                         <div class="form-group col-md-6">
-                                            <input type="password" class="form-control" id="" placeholder="Mot de passe *" formControlName="password">
+                                            <mat-form-field appearance="fill" class="col-md-12" >
+                                                <mat-label aria-label="Text input with dropdown button" >Mot de passe </mat-label>
+                                                <input matInput class="form-control" [type]="hide ? 'password' : 'text'" formControlName="password" required>
+                                                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                                  <mat-icon style=" color: #2a3855;">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                                </button>
+                                                 <!-- Control Input Password -->
+                                     <mat-error *ngIf="signupForm.controls['email'].invalid && ( signupForm.controls['email'].dirty || signupForm.controls['email'].touched )">
+                                        Mot de passe est <strong>obligatoire</strong> 
+                                    </mat-error>
+                                    <mat-error *ngIf="signupForm.controls['email'].errors.email">
+                                        Votre mot de passe est <strong>invalide</strong>
+                                    </mat-error>
+                                </mat-form-field>
+                                              
                                         </div>
 
-                                          <!-- Control Input Password -->
-                            <div *ngIf="signupForm.controls['password'].invalid && ( signupForm.controls['password'].dirty || signupForm.controls['password'].touched )">
-                                <div *ngIf="signupForm.controls['password'].errors.required" class="text-danger">
-                                    Password is required
-                                </div>
-
-                                <div *ngIf="signupForm.controls['password'].errors.minlength" class="text-danger">
-                                    Password must have at least 8 characters
-                                </div>
-                            </div>
-        
                                         <div class="form-group col-md-6">
-                                            <input type="password" class="form-control" id="" placeholder="Confirmer mot de passe *"  formControlName="confirmPassword">
+                                            <mat-form-field appearance="fill" class="col-md-12" >
+                                                <mat-label aria-label="Text input with dropdown button" >Confirmer mot de passe </mat-label>
+                                                <input matInput class="form-control" [type]="hide ? 'password' : 'text'" formControlName="confirmPassword" required>
+                                       
+                                                 <!-- Control Input Email -->
+                                     <mat-error *ngIf="signupForm.controls['email'].invalid && ( signupForm.controls['email'].dirty || signupForm.controls['email'].touched )">
+                                        L'adresse email est <strong>obligatoire</strong> 
+                                    </mat-error>
+                                    <mat-error *ngIf="signupForm.controls['email'].errors.email">
+                                        Votre adresse email est <strong>invalide</strong>
+                                    </mat-error>
+                                              </mat-form-field>
                                         </div>
                                         
-                                         <!-- Control Input Confirm Password -->
+                                         
                             <div *ngIf="signupForm.controls['confirmPassword'].invalid && ( signupForm.controls['confirmPassword'].dirty || signupForm.controls['confirmPassword'].touched )">
                                 <div *ngIf="signupForm.controls['confirmPassword'].errors.required" class="text-danger">
                                     Confirm Password is required
@@ -109,28 +136,47 @@
 
 
                                     </div>
-                                <div class="input-group">
-                                   <input class="form-control" type="tel"   placeholder="Numéro de mobile *" aria-label="Text input with dropdown button" formControlName="tel" />
+                                <div class="form-group col-md-12">
+                                    <mat-form-field class="example-full-width" appearance="fill">
+                                        <mat-label>Telephone</mat-label>
+                                        <span matPrefix>+216 &nbsp;</span>
+                                        <input type="tel" matInput placeholder="55 555 555" formControlName="tel" required >
+                                        <mat-icon matSuffix>mode_edit</mat-icon>
+                                        <!-- Control Input Tel -->
+                                        <mat-error *ngIf="signupForm.controls['tel'].invalid && ( signupForm.controls['tel'].dirty || signupForm.controls['tel'].touched )">
+                                       <mat-error *ngIf="signupForm.controls['tel'].errors.tel">
+                                        Numéro de téléphone est <strong>obligatoire</strong> 
+                                    </mat-error>
+                                    <mat-error *ngIf="signupForm.controls['tel'].errors.minlength">
+                                        Numéro de téléphone doit avoir au moins <strong>8 caractères</strong>
+                                    </mat-error>
+                                    <mat-error *ngIf="signupForm.controls['tel'].errors.maxlength">
+                                        Numéro de téléphone doit avoir au maximum <strong>13 caractères</strong>
+                                    </mat-error>
+                                   </mat-error>
+                                      </mat-form-field>
                                 </div>
 
                                  <!-- Control Input tel -->
-                            <div *ngIf="signupForm.controls['tel'].invalid && ( signupForm.controls['tel'].dirty || signupForm.controls['tel'].touched )">
-                                <div *ngIf="signupForm.controls['tel'].errors.required" class="text-danger">
+                            <!-- <div *ngIf="">
+                                <div *ngIf="" class="text-danger">
                                     Phone Number is required
                                 </div>
 
-                                <div *ngIf="signupForm.controls['tel'].errors.minlength" class="text-danger">
+                                <div *ngIf="" class="text-danger">
                                     Phone Number must have at least 8 numbers
                                 </div>
-                                <div *ngIf="signupForm.controls['tel'].errors.maxlength" class="text-danger">
+                                <div *ngIf="" class="text-danger">
                                     Phone Number must have maximum 13 numbers
                                 </div>
-                            </div>
+                            </div> -->
 
                             <div class="row align-items-center mt-3">
                                 <div class="col-6"><label class="form-check-label"><span class="color-7"><label for="tab-1">Déja Membre?</label> </span></label></div>
-                                <div class="col-6 mt-2 mt-sm-3"><button class="btn btn-primary btn-block"
-                                        type=""  >S'inscrire</button></div>
+                                <div class="col-6 mt-2 mt-sm-3">
+                                    <button class="btn btn-primary btn-block"
+                                    (click)="signup(signupForm.value)" >S'inscrire</button>
+                                    </div>
                             </div>
                             
                         </form>

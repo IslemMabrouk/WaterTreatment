@@ -1,0 +1,115 @@
+<section class="bg-light">
+    <div class="container pb-5">
+        <div class="row">
+            <div class="col-lg-7 mt-5">
+                <mat-card class="card mb-3">
+                    <img class="card-img img-fluid" [src]="product.img" alt="Card image cap" id="product-detail" >
+                </mat-card>
+
+            </div>
+            <!-- col end -->
+            <div class="col-lg-5 mt-5">
+                <mat-card>
+                    <div class="card-body">
+                        <p style="font-size: small;"><strong> {{product.role}}</strong></p>
+                        <h3 class=" fs-2 fs-lg-3">{{product.type}}</h3>
+                        <p class=" text-muted " style="font-size: 25px; margin-bottom: 25px;"> <strong>{{product.price}} DT</strong></p>
+                    
+                        <p  class="mt-3 px-lg-3" style="margin-bottom: 25px; text-align: left;">{{product.description}}</p>
+                       
+                        <h6 class="fs-0 fs-lg-1"  >Specification:</h6>
+                        <ul class="mt-3 px-lg-3"  [innerHtml]="list[3]" >
+                            <li>Amet, consectetur</li>
+                            <li>Adipiscing elit,set</li>
+                            <li>Duis aute irure</li>
+                            <li>Ut enim ad minim</li>
+                            <li>Dolore magna aliqua</li>
+                            <li>Excepteur sint</li>
+                        </ul>
+                    
+                        <button href="#offr" type="button" class="btn btn-warning mt-3 text-center" style=" margin: 30px 0px 30px 100px ; font-size: 15px;">
+                            Voir nos offres
+                        </button>
+                       
+
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-light" style="margin-top: -100px;" >
+    <div class="container ">
+        <div class="col" style="margin-bottom: 60px ;">
+            <h3  class="offr text-center fs-2 fs-lg-3">Devis ou achat, à vous de choisir !</h3>
+            <hr class="short"
+                data-zanim='{"from":{"opacity":0,"width":0},"to":{"opacity":1,"width":"4.20873rem"},"duration":0.8}'
+                data-zanim-trigger="scroll">
+        </div>
+        <div class="row" style="margin-left:10px ;">
+            <div class="col-6">
+    <mat-card >        
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title> <h1 style="font-size: 35px; padding: 30px;"> <strong> Sur devis </strong> </h1> </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+          <mat-card-subtitle>Bénéficiez d'un rendez-vous avec un Conseiller HydroCare pour identifier la solution adaptée à votre besoin et recevoir un devis personnalisé.</mat-card-subtitle>
+      </mat-card-content>
+      <mat-card-content style="margin:20px;">
+          <mat-card-subtitle style="color: rgba(0, 0, 0, 0.733); font-size:15px;"> <mat-icon color="primary">done</mat-icon> <strong>Analyse de la qualité de votre eau</strong></mat-card-subtitle>
+          <mat-card-subtitle>Identification des micropolluants éventuellement présents dans l'eau de votre robinet. </mat-card-subtitle>
+      </mat-card-content>
+      <mat-card-content style="margin:20px;">
+          <mat-card-subtitle style="color: rgba(0, 0, 0, 0.733); font-size:15px;"> <mat-icon color="primary">done</mat-icon> <strong>Devis personnalisé</strong></mat-card-subtitle>
+          <mat-card-subtitle>Proposition de la solution Culligan adaptée à votre besoin et à vos contraintes. </mat-card-subtitle>
+      </mat-card-content>
+      <mat-card-content style="margin:20px;">
+          <mat-card-subtitle style="color: rgba(0, 0, 0, 0.733); font-size:15px;"> <mat-icon color="primary">done</mat-icon> <strong>Contrat d'entretien annuel en option</strong></mat-card-subtitle>
+          <mat-card-subtitle>Remplacement de la cartouche de filtration et désinfection de votre purificateur d'eau. </mat-card-subtitle>
+      </mat-card-content>
+
+      <a  class="btn btn-outline-primary" style=" margin: 30px 0px 30px 75px ;" (click)="valider(product._id)">Demander un devis</a>
+      
+      <mat-card-footer>
+          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        </mat-card-footer>
+  
+    </mat-card>
+</div>
+<div class="col-6" id="offr">
+    <mat-card  >        
+    <mat-card-header style="height: 127px;">
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title> <h1 style="font-size: 35px; padding: 30px;"> <strong> ACHAT </strong> </h1> </mat-card-title>
+        <mat-card-title> <h1 style=" margin-top: -50px;"> <strong>sans engagement</strong>  </h1> </mat-card-title>
+
+    </mat-card-header>
+      <mat-card-content>
+          <mat-card-subtitle>La formule idéale pour découvrir le plaisir de l'eau filtrée à volonté sans engagement.</mat-card-subtitle>
+      </mat-card-content>
+      <mat-card-content style="margin:20px;">
+          <mat-card-subtitle style=" font-size:15px;"> <mat-icon color="primary">done</mat-icon> <strong style="color: rgba(0, 0, 0, 0.733);">Installation sous 15 jours</strong></mat-card-subtitle>
+          <mat-card-subtitle>Livraison & installation effectuées gratuitement, sous 15 jours, par un Technicien Expert. </mat-card-subtitle>
+      </mat-card-content>
+      <mat-card-content style="margin:20px;">
+          <mat-card-subtitle style=" font-size:15px;"> <mat-icon color="primary">done</mat-icon> <strong style="color: rgba(0, 0, 0, 0.733);">Contrat d'entretien annuel en option</strong></mat-card-subtitle>
+          <mat-card-subtitle>Remplacement de la cartouche de filtration et désinfection de votre purificateur d'eau. </mat-card-subtitle>
+      </mat-card-content>
+      <mat-card-content style="margin:20px;">
+          <mat-card-subtitle style="font-size:15px;"> <mat-icon color="primary">done</mat-icon> <strong style="color: rgba(0, 0, 0, 0.733);">Tranquillité assurée</strong></mat-card-subtitle>
+          <mat-card-subtitle>Intervention en cas de besoin. </mat-card-subtitle>
+      </mat-card-content>
+
+      <a  class="btn btn-outline-primary" style=" margin: 30px 0px 30px 190px ;" (click)="valider(product._id)">ACHETER</a>
+      
+      <mat-card-footer>
+          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        </mat-card-footer>
+  
+    </mat-card>
+</div>
+        </div>
+    </div>
+</section>

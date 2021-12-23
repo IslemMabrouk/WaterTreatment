@@ -1,0 +1,41 @@
+<section class="bg-light">
+    <div class="container pb-5">
+        <div class="row">
+            <div class="col-lg-6 mt-5">
+                <mat-card class="card mb-3">
+                    <img class="card-img img-fluid" src="assets/images/12.jpg" alt="Card image cap" id="product-detail" >
+                </mat-card>
+
+            </div>
+            <!-- col end -->
+            <div class="col-lg-6 mt-5">
+                <mat-card>
+                    <div class="card-body">
+                        <p style="font-size: small;"><strong>Nos Contrats </strong></p>
+                        <h3 class=" fs-2 fs-lg-3">Contrat: {{contrat.type}}</h3>
+                        <p class=" text-muted " style="font-size: 14px; margin-bottom: 25px;"> 
+                            <strong>Le contrat est un service de
+                                maintenance et de protection de votre installation de traitement d'eau. Il assure sa pérennité. Les dépannages
+                                assurés entre les visites de maintenance sont gratuits et prioritaires.</strong></p>
+                    
+                        <p  class="mt-3 px-lg-3" style="margin-bottom: 25px; text-align: left;"></p>
+                      
+                         <mat-nav-list  role="list">
+                            <a mat-list-item  role="listitem" style="color:red;">{{contrat.nombreVisites }} visites par an<mat-icon>calendar_today</mat-icon></a>
+                            <a mat-list-item role="listitem" style="color:green;">{{contrat.depannagePrioritaire}} <mat-icon>access_time</mat-icon></a>
+                    
+                            <a mat-list-item *ngFor="let link of services"> {{ link }} </a>
+                         </mat-nav-list>
+                     
+                        <button href="#offr" type="button" class="btn btn-warning mt-3 text-center" style=" margin-left: 35% ; font-size: 15px;">
+                            Valider
+                        </button>
+                       
+
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</section>
+
