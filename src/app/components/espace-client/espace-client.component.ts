@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { DemandeService } from 'src/app/services/demande.service';
+import { ProductService } from 'src/app/services/product.service';
 
 
 
@@ -18,8 +19,10 @@ export class EspaceClientComponent implements OnInit {
   connectedUser:any;
   demandes:any;
   myDemande:any=[];
+  products:any;
 
-  constructor(private demandeService : DemandeService) { }
+  constructor(private demandeService : DemandeService,
+              private productService : ProductService) { }
 
   ngOnInit() {
 
@@ -48,6 +51,16 @@ export class EspaceClientComponent implements OnInit {
         
   //     }
   //   )
+
+
+  this.productService.getAllProducts().subscribe(
+    (data) => {
+      console.log('Here data from BE');
+      this.products=data.products;
+      
+    }
+  )
+
 
 
   }
