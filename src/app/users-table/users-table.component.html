@@ -1,12 +1,16 @@
-<table mat-table [dataSource]="users" class="mat-elevation-z8" style="width:1000px" >
+
+  
+  <mat-tab-group>
+    <mat-tab label="Admins">
+      <table mat-table [dataSource]="users" class="mat-elevation-z8" style="width:1000px" >
 
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
   
     <!-- Position Column -->
-    <ng-container matColumnDef="firstName">
+    <ng-container matColumnDef="firstName" >
       <th mat-header-cell *matHeaderCellDef>prenom </th>
-      <td mat-cell *matCellDef="let user"> {{user.firstName}} </td>
+      <td mat-cell *matCellDef="let user" > {{user.firstName}} </td>
     </ng-container>
   
     <!-- Name Column -->
@@ -36,5 +40,10 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-  
-  
+
+</mat-tab>
+    <mat-tab label="Clients">
+      
+    </mat-tab>
+    <mat-tab label="Third"> Content 3 </mat-tab>
+  </mat-tab-group>

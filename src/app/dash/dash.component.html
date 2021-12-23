@@ -14,47 +14,9 @@
     </mat-grid-tile>
     <!--Table-->
     <mat-grid-tile [colspan]="( cardLayout | async )?.table.cols" [rowspan]="( cardLayout | async )?.table.rows">
-    
-      <mat-tab-group mat-align-tabs="center">
-        <mat-tab label="Admins">
-          <table mat-table  class="mat-elevation-z8" style="width: 1000px;" *ngFor="let user of users">
-
-            <!--- Note that these columns can be defined in any order.
-                  The actual rendered columns are set as a property on the row definition" -->
-          
-            <!-- Position Column -->
-            <ng-container matColumnDef="position">
-              <th mat-header-cell > No. </th>
-              <td mat-cell > {{user}} </td>
-            </ng-container>
-          
-            <!-- Name Column -->
-            <ng-container matColumnDef="name">
-              <th mat-header-cell > Name </th>
-              <td mat-cell > {{user.lastName}} </td>
-            </ng-container>
-          
-            <!-- Weight Column -->
-            <ng-container matColumnDef="weight">
-              <th mat-header-cell > Weight </th>
-              <td mat-cell > {{user.email}} </td>
-            </ng-container>
-          
-            <!-- Symbol Column -->
-            <ng-container matColumnDef="symbol">
-              <th mat-header-cell > Symbol </th>
-              <td mat-cell > {{user.tel}} </td>
-            </ng-container>
-          
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-          </table> 
-        </mat-tab>
-        
-        <mat-tab label="Clients"></mat-tab>
-      
-      </mat-tab-group>
-   
+    <mat-card>
+   <app-users-table></app-users-table>
+   </mat-card>
    </mat-grid-tile>
   </mat-grid-list>
  </div>

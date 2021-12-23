@@ -280,6 +280,8 @@ app.get('/api/users', (req, res) => {
 
     });
 });
+
+
 //:::::::::::::::::::::::::::::::::::::::::::::::::://
 //:::::::::::::::::CRUD Contrats:::::::::::::::::::://
 //:::::::::::::::::::::::::::::::::::::::::::::::::://
@@ -292,6 +294,7 @@ console.log("here in contract", req.body);
 
 
 let contrat = new Contrat({
+
   type : req.body.type,
   nombreVisites : req.body.nombreVisites,
   analyseEau : req.body.analyseEau ,
