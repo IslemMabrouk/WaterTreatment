@@ -15,4 +15,14 @@ export class DemandeService {
   valider(demande:any){
     return this.httpClient.post<{message : string}>(this.SERVER_URL + '/api/demande', demande)
   }  
+
+  getAllDemandes( ){
+  return this.httpClient.get<{demandes : any}>(this.SERVER_URL + '/api/AllDemandes');
+}
+
+ getmyDemandes(idClient){
+  return this.httpClient.get<{myDemandes : any}>(`${this.SERVER_URL + '/api/myDemandes'}/${idClient}`);
+}
+
+
 }

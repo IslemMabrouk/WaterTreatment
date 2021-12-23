@@ -7,7 +7,6 @@ import { AddMesureComponent } from './components/add-mesure/add-mesure.component
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { AdoucisseursComponent } from './components/adoucisseurs/adoucisseurs.component';
 import { ContactComponent } from './components/contact/contact.component';
-import { DashboardAdminComponent } from './components/dashboard-admin/dashboard-admin.component';
 import { DisplayProductComponent } from './components/display-product/display-product.component';
 import { EmailContactComponent } from './components/email-contact/email-contact.component';
 import { EntretienComponent } from './components/entretien/entretien.component';
@@ -44,8 +43,6 @@ children :[
    
   {path: 'registration' , component: RegistrationComponent},
   {path: 'addAdmin' , component: AddAdminComponent},
-  
-  {path: 'dashboardAdmin' , component: DashboardAdminComponent},
   {path: 'adoucisseurs' , component: AdoucisseursComponent},
   {path: 'purificateurs' , component: PurificateursComponent},
   {path: 'aboutUs' , component: AboutUsComponent},

@@ -1,14 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { UserService } from 'src/app/services/user.service';
+import { DemandeService } from 'src/app/services/demande.service';
 
 
-export interface PeriodicElement {
-  firstName: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
 
 
 @Component({
@@ -19,23 +13,42 @@ export interface PeriodicElement {
 
 
 
-export class EspaceClientComponent implements OnInit {
-  displayedColumns: string[] = ['firstName', 'name', 'weight', 'symbol'];
-  dataSource:any;
-  users:any=[];
+export class EspaceClientComponent implements OnInit { 
+  displayedColumns=['validation', 'idProduct', 'etat'];
+  connectedUser:any;
+  demandes:any;
+  myDemande:any=[];
 
-  constructor(private userService : UserService) { }
+  constructor(private demandeService : DemandeService) { }
 
   ngOnInit() {
 
-    this.userService.getUsers().subscribe( 
-      (data) =>{
-      this.users = data.users;
-      console.log(this.users);
-      
-      this.dataSource = new MatTableDataSource(this.users)
+    this.connectedUser = JSON.parse(localStorage.getItem("connectedUser"));
+    console.log(this.connectedUser);
 
-    });
+    this.demandeService.getmyDemandes(this.connectedUser._id).subscribe(
+      (data)=>{
+    this.myDemande = data.myDemandes
+      })
+
+  //  this.demandeService.getAllDemandes().subscribe(
+  //     (data)=>{
+  //       this.demandes = data.demandes;
+  //     console.log( this.demandes);
+
+  //       for (let i = 0; i < this.demandes.length; i++) {  
+  //         if (this.demandes[i].idClient == this.connectedUser._id) {
+            
+  //           this.myDemande.push(this.demandes[i]);
+  //           console.log(this.myDemande);
+            
+  //         }
+          
+  //       }  
+        
+  //     }
+  //   )
+
 
   }
 

@@ -33,6 +33,7 @@ export class AddMesureComponent implements OnInit {
 
         this.addMesureForm = this.formbuilder.group({
       region:[''],
+      annee:[''],
       chlore:[''],
       calcaire:[''],
       residu:['']

@@ -23,8 +23,8 @@ emailRouter.route('/')
     port: 465,
     secure: true,
     auth: {
-      user: 'islemabrouk@gmail.com',//replace with your email
-      pass: 'islem123'//replace with your password
+      user: 'im.hydrocare@gmail.com',//replace with your email
+      pass: 'hydroCare123'//replace with your password
     }
   }); 
 
@@ -35,7 +35,7 @@ emailRouter.route('/')
     html is our form details which we parsed using bodyParser.
   */
   var mailOptions = {
-    from: 'islemabrouk@gmail.com',//replace with your email
+    from: 'im.hydrocare@gmail.com',//replace with your email
     to: req.body.email,//replace with your email
     subject: `NodeMail Testing`,
     html:`Node Mail Testing Sucessful`

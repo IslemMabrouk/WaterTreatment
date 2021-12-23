@@ -13,7 +13,6 @@ import { ContactComponent } from './components/contact/contact.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AddAdminComponent } from './components/add-admin/add-admin.component';
-import { DashboardAdminComponent } from './components/dashboard-admin/dashboard-admin.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { ReviewsComponent } from './components/reviews/reviews.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
@@ -81,6 +80,7 @@ import { EmailContactComponent } from './components/email-contact/email-contact.
 import { ContratDetailComponent } from './components/contrat-detail/contrat-detail.component';
 import { DisplayContratComponent } from './components/display-contrat/display-contrat.component';
 import { UsersTableComponent } from './users-table/users-table.component';
+import { GoogleChartsModule } from 'angular-google-charts';
 
 
 @NgModule({
@@ -97,7 +97,6 @@ import { UsersTableComponent } from './users-table/users-table.component';
     RegistrationComponent,
     FooterComponent,
     AddAdminComponent,
-    DashboardAdminComponent,
     WelcomeComponent,
     ReviewsComponent,
     AddProductComponent,
@@ -164,12 +163,11 @@ import { UsersTableComponent } from './users-table/users-table.component';
     MatSortModule,
     MatTableModule,
     MatAutocompleteModule,
-    CdkStepperModule,
-   
-    
+    CdkStepperModule,    
     MatAutocompleteModule,
     HttpClientModule,
-    MaterialModule,MatProgressBarModule, MatDividerModule
+    MaterialModule,MatProgressBarModule, MatDividerModule,
+    GoogleChartsModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
