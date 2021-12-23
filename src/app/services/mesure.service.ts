@@ -14,4 +14,8 @@ export class MesureService {
     return this.httpClient.post<{message : string}>(this.SERVER_URL + '/api/addMesure', mesure)
   }
 
+  getAllMesures( ){
+    return this.httpClient.get<{mesures : any}>(this.SERVER_URL + '/api/AllMesures');
+  }
+
 }

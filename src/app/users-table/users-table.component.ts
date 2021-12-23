@@ -29,6 +29,8 @@ clients:any[]=[];
     private activatedRoute : ActivatedRoute) { } 
 
   ngOnInit(): void  {
+    this.connectedUser = JSON.parse(localStorage.getItem("connectedUser"));
+
     this.userService.getUsers().subscribe(
       (data)=>{
 
@@ -37,26 +39,12 @@ clients:any[]=[];
       this.users =data.users;
       this.admins =data.users;
   
-      
-this.connectedUser = JSON.parse(localStorage.getItem("connectedUser"));
-       
+  });
 
-      // for (let i = 0; i < this.admins.length; i++) {
-      //     if (this.users[i].role != 'admin' ) {
-      //     this.admins.splice(i,1);
-      //     }
 
-      //     }
-        });
-        // this.array= this.users.split(";");
-        // this.dataSource = new MatTableDataSource (this.users);
-        // console.log(this.dataSource);
-        
-        // this.dataSource.sort =this.sort;
-        
-      
-        
+
   }
+
 
 }
 

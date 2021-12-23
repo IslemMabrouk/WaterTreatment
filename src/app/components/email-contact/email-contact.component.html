@@ -1,0 +1,49 @@
+<section class="text-center bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <mat-card>
+                <div class=" border-color-9 p-3 p-sm-6 radius-secondary">
+                    <h3 class="text-center fs-2 fs-md-3">Envoyer un E-mail</h3>
+                    <hr class="short"
+                        data-zanim='{"from":{"opacity":0,"width":0},"to":{"opacity":2,"width":"4.20873rem"},"duration":0.8}'
+                        data-zanim-trigger="scroll" />
+                    
+
+                        <div class="login-space" >
+                            <div class="sign-up-form" style="margin-top: 30px;">
+                                <form [formGroup]="nodeMailerForm">
+                                    <div class="col-12" style="margin-top: 30px;">
+                                        <div class="input-group">
+                                            <div class="input-group-addon background-11 fs-2">
+                                                </div>
+                                                    <mat-form-field appearance="fill" style="margin-left: 10px;" class="col-md-11">
+                                                        <mat-label>Entrer votre Email</mat-label>
+                                                        <input type="email" matInput  placeholder="Ex. pat@example.com" required formControlName="email">
+                                                      </mat-form-field>
+                                        </div>
+                                    </div>
+                                   
+                                    <div class="row align-items-center mt-3">
+                                        <div class="col-6 mt-2 mt-sm-3"><button class="btn btn-primary btn-block" (click)="sendEmail()">Se Connecter</button></div>
+                                    </div>
+                                    </form>
+
+
+
+
+                            </div>
+                        </div>
+
+                </div>
+            </mat-card>
+            </div>
+        </div>
+        <!--/.row-->
+    </div>
+    <!--/.container-->
+</section>
+
+
+
+

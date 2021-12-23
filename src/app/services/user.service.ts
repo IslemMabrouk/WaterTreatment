@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import axios, { Axios } from 'axios';
+
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +16,8 @@ export class UserService {
  addUser(userObj){ 
 return this.httpClient.post<{message : string}>(this.userURL, userObj);
  }
+
+
  
  login(userObj){ 
   return this.httpClient.post<{findedUser : any}>(this.loginURL, userObj);

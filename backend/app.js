@@ -20,13 +20,16 @@ const Contrat =require('./models/contrat');
 // import model User
 const User = require('./models/user');
 //Import model Mesure
-const Mesure = require('./models/mesure')
+const Mesure = require('./models/mesure');
+//Import model demnade
+const Demande = require('./models/demande');
+//Import Model Contact
+const Contact = require('./models/contact')
 // import mongoose
 const mongoose = require('mongoose');
 
 //import bcrypt
 const bcrypt = require('bcrypt');
-
 
 // Connect to Data Base
 mongoose.connect('mongodb://localhost:27017/WaterDB', { useNewUrlParser: true, useUnifiedTopology: true });
@@ -90,6 +93,11 @@ app.use((req, res, next) => {
     next();
 });
 //********************************************************************************************************* */
+
+
+var emailRouter = require('./routes/emailRoute');
+app.use('/email',emailRouter);
+
 
 //:::::::::::::::::::::::::::::::::::::::::::::::::://
 //:::::::::::::::::CRUD Products::::::::::::::::::::::://
@@ -221,11 +229,27 @@ app.post('/api/users', (req, res) => {
     
     
     )
-    
-    
-        
-    
+      
     });
+
+//get allusers
+app.get('/api/users', (req, res) => {
+    console.log("Here in function get All Users");
+
+    //Etape 1
+    User.find((err, docs) => {
+        if (err) {
+            console.log("Error in DB");
+        } else {
+            //Success
+            res.status(200).json({
+                users: docs
+            })
+        }
+    })
+
+})
+
 
 //traitement de login
 app.post("/api/login", (req, res) => {
@@ -261,6 +285,7 @@ app.post("/api/login", (req, res) => {
             })
 });
 
+<<<<<<< HEAD
 // Traitement de get All Users
 
 app.get('/api/users', (req, res) => {
@@ -282,12 +307,78 @@ app.get('/api/users', (req, res) => {
 });
 
 
+=======
+>>>>>>> 5025d94a461cd410c1d53a8ea73e82b364d516ae
 //:::::::::::::::::::::::::::::::::::::::::::::::::://
 //:::::::::::::::::CRUD Contrats:::::::::::::::::::://
 //:::::::::::::::::::::::::::::::::::::::::::::::::://
 
 //traitement de add contrat
 app.post("/api/contrat" , (req,res) =>{
+
+    console.log("here in contract", req.body);
+    
+    
+    
+    let contrat = new Contrat({
+      type : req.body.type,
+      nombreVisites : req.body.nombreVisites,
+      analyseEau : req.body.analyseEau ,
+      depannagePrioritaire : req.body.depannagePrioritaire,
+      services : req.body.services,
+    
+    });
+    
+      contrat.save();
+                
+        // etape 3
+    
+        res.status(200).json({
+            message: 'Contrat added with sucess'
+        })
+    
+    
+    
+    });
+    
+    //Traitement get contrats
+    app.get('/api/contrat', (req, res) => {
+        console.log("Here in function get All Contrats");
+    
+        //Etape 1
+        Contrat.find((err, docs) => {
+            if (err) {
+                console.log("Error in DB");
+            } else {
+                //Success
+                res.status(200).json({
+                    contrats: docs
+                })
+            }
+        })
+    
+    })
+    
+    //Traitement get contrat by ID
+    app.get('/api/contrat/:id', (req, res) =>{
+        console.log('Here in contrat get by ID');
+    
+        let id = req.params.id;
+        console.log('id contrat by id', id);
+    
+        Contrat.findOne({_id : id}).then(
+            (doc) => {
+                console.log('finded contrat', doc);
+                res.status(200).json({
+                    contrat:doc
+                })
+            }
+        )
+    })
+
+
+//traitement de add contract
+app.post("/api/contract" , (req,res) =>{
 
 console.log("here in contract", req.body);
 
@@ -298,11 +389,14 @@ let contrat = new Contrat({
   type : req.body.type,
   nombreVisites : req.body.nombreVisites,
   analyseEau : req.body.analyseEau ,
-  depannagePrioritaire : req.body.depannagePrioritaire,
-  services : req.body.services,
-
+  désinfectionAppareil : req.body.désinfectionAppareil,
+  contrôleRéglage : req.body.contrôleRéglage,
+  sel : req.body.sel,
+  filtres  : req.body.filtres,
+  dépannageMain : req.body.dépannageMain,
+  dépannagePrioritaire : req.body.dépannagePrioritaire,
+  piècesDétachées : req.body.piècesDétachées,
 });
-
   contrat.save();
             
     // etape 3
@@ -313,51 +407,20 @@ let contrat = new Contrat({
 
 
 
-});
-
-//Traitement get contrats
-app.get('/api/contrat', (req, res) => {
-    console.log("Here in function get All Contrats");
-
-    //Etape 1
-    Contrat.find((err, docs) => {
-        if (err) {
-            console.log("Error in DB");
-        } else {
-            //Success
-            res.status(200).json({
-                contrats: docs
-            })
-        }
-    })
-
 })
 
-//Traitement get contrat by ID
-app.get('/api/contrat/:id', (req, res) =>{
-    console.log('Here in contrat get by ID');
-
-    let id = req.params.id;
-    console.log('id contrat by id', id);
-
-    Contrat.findOne({_id : id}).then(
-        (doc) => {
-            console.log('finded contrat', doc);
-            res.status(200).json({
-                contrat:doc
-            })
-        }
-    )
-})
   
 //:::::::::::::::::::::::::::::::::::::::::::::::::://
 //:::::::::::::::::CRUD Mesures:::::::::::::::::::://
 //:::::::::::::::::::::::::::::::::::::::::::::::::://
+
+//traitement addMesure
 app.post('/api/addMesure', (req,res)=>{
     console.log('Here in function addMesure');
 
                 let mesure  = new Mesure({
                     region : req.body.region,
+                    annee : req.body.annee,
                     chlore : req.body.chlore,
                     calcaire : req.body.calcaire,
                     residu : req.body.residu
@@ -374,23 +437,105 @@ app.post('/api/addMesure', (req,res)=>{
                 })
 
 });
+<<<<<<< HEAD
+
+//Traitement All Mesures
+app.get('/api/AllMesures', (req, res) => {
+    console.log("Here in function get All Mesures");
+
+    //Etape 1
+    Mesure.find((err, docs) => {
+        if (err) {
+            console.log("Error in DB");
+        } else {
+            //Success
+            res.status(200).json({
+                mesures : docs
+            })
+        }
+    })
+
+})
+
+//:::::::::::::::::::::::::::::::::::::::::::::::::://
+//:::::::::::::::::CRUD Demande:::::::::::::::::::://
+//:::::::::::::::::::::::::::::::::::::::::::::::::://
+
+//Traitement add Demande
+app.post('/api/demande', (req,res)=>{
+    console.log('Here in demande');
+
+    let demande = new Demande({
+        idClient : req.body.idClient,
+        idProduct : req.body.idProduct,
+        validation : req.body.validation,
+        etat : req.body.etat
+    });
+    console.log(demande);
+
+    demande.save();
+=======
     
+>>>>>>> 211e8dd5d4b20ca39496021e09e0821ff59cb4c6
 
+    res.status(200).json({
+        message: 'demande added with  success'
+    })
+})
 
+//Traitement All demandes
+app.get('/api/AllDemandes', (req, res) => {
+    console.log("Here in function get All Demandes");
 
+    //Etape 1
+    Demande.find((err, docs) => {
+        if (err) {
+            console.log("Error in DB");
+        } else {
+            //Success
+            res.status(200).json({
+                demandes: docs
+            })
+        }
+    })
 
+})
 
+//Traitemment myDemande
+app.get('/api/myDemandes/:id', (req, res) => {
+    console.log('Here in getmyDemandes');
 
+    let id = req.params.id
+    Demande.find({ idClient: id }, (err, docs) => {
+        if (err) {
+            console.log("Error in DB");
+        } else {
+            res.status(200).json({
+                myDemandes: docs
+            })
+        }
+    })
+})
 
+//:::::::::::::::::::::::::::::::::::::::::::::::::://
+//:::::::::::::::::CRUD Contact:::::::::::::::::::://
+//:::::::::::::::::::::::::::::::::::::::::::::::::://
+app.post('/api/contactCons', (req,res)=>{
+    console.log('Here in send contact');
 
+    let contact = new Contact({
+        idClient: req.body.idClient,
+        type: req.body.type,
+        date: req.body.date
+    })
+    console.log(contact);
 
+    contact.save();
 
-
-
-
-
-
-
+    res.status(200).json({
+        message: 'Contact send with  success'
+    })
+})
 
 //Export App
 module.exports = app;

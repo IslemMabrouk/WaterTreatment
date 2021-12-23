@@ -13,7 +13,6 @@ import { ContactComponent } from './components/contact/contact.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AddAdminComponent } from './components/add-admin/add-admin.component';
-import { DashboardAdminComponent } from './components/dashboard-admin/dashboard-admin.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { ReviewsComponent } from './components/reviews/reviews.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
@@ -75,10 +74,14 @@ import { MatDividerModule } from '@angular/material/divider';
 import { AdoucisseurDetailComponent } from './components/adoucisseur-detail/adoucisseur-detail.component';
 import { PurificateurDetailComponent } from './components/purificateur-detail/purificateur-detail.component';
 import { DisplayProductComponent } from './components/display-product/display-product.component';
-import { ValidationComponent } from './components/validation/validation.component';
+import { ValidationDemandeComponent } from './components/validation-demande/validation-demande.component'
+import { EmailContactComponent } from './components/email-contact/email-contact.component'
+
 import { ContratDetailComponent } from './components/contrat-detail/contrat-detail.component';
 import { DisplayContratComponent } from './components/display-contrat/display-contrat.component';
 import { UsersTableComponent } from './users-table/users-table.component';
+import { GoogleChartsModule } from 'angular-google-charts';
+
 
 
 
@@ -96,7 +99,6 @@ import { UsersTableComponent } from './users-table/users-table.component';
     RegistrationComponent,
     FooterComponent,
     AddAdminComponent,
-    DashboardAdminComponent,
     WelcomeComponent,
     ReviewsComponent,
     AddProductComponent,
@@ -111,25 +113,27 @@ import { UsersTableComponent } from './users-table/users-table.component';
     AdoucisseurDetailComponent,
     PurificateurDetailComponent,
     DisplayProductComponent,
-    ValidationComponent,
+    ValidationDemandeComponent,
+    EmailContactComponent,    
     ContratDetailComponent,
     DisplayContratComponent,
     UsersTableComponent
-    
-
-
    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,  //Général filProjet kol yjibhom
+    FormsModule, //Général filProjet kol yjibhom
     ReactiveFormsModule,
    BrowserAnimationsModule,
     MatButtonModule, 
     MatTabsModule,MatSelectModule,MatOptionModule,
     MatFormFieldModule,MatIconModule,
     HttpClientModule,MatCheckboxModule, MatInputModule,MatCardModule,
+    MatAutocompleteModule,MatDatepickerModule,
+    HttpClientModule,
+    MaterialModule,MatProgressBarModule,
+     MatDividerModule, MatTableModule,
     LayoutModule,
     MatToolbarModule,
     MatSidenavModule,
@@ -159,13 +163,14 @@ import { UsersTableComponent } from './users-table/users-table.component';
     MatSortModule,
     MatTableModule,
     MatAutocompleteModule,
-    CdkStepperModule,
-   
-    
+    CdkStepperModule,    
     MatAutocompleteModule,
     HttpClientModule,
+    MaterialModule,MatProgressBarModule, MatDividerModule,
+    GoogleChartsModule.forRoot(),
+       MatAutocompleteModule,
+    HttpClientModule,
     MaterialModule,MatProgressBarModule, MatDividerModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]
