@@ -25,3 +25,9 @@ table {
 .mat-tab-group {
   margin-bottom: 48px;
 }
+
+
+
+.small-table{
+  overflow-x: scroll !important;
+}

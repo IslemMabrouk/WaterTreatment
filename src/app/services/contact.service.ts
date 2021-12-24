@@ -14,4 +14,8 @@ export class ContactService {
   contacter(contact:any){
     return this.httpClient.post<{message : any;}>(this.SERVER_URL + '/api/contactCons/', contact)
   }
+
+  contactsAll (){
+    return this.httpClient.get<{contacts:any}> (this.SERVER_URL + '/api/contactCons')
+  }
 }

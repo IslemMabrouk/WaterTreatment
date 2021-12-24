@@ -14,8 +14,32 @@
     </mat-grid-tile>
     <!--Table-->
     <mat-grid-tile [colspan]="( cardLayout | async )?.table.cols" [rowspan]="( cardLayout | async )?.table.rows">
-    <mat-card>
+    <mat-card style="margin-top: 20px">
    <app-users-table></app-users-table>
+   </mat-card>
+   </mat-grid-tile> 
+   
+   <mat-grid-tile [colspan]="( cardLayout | async )?.table.cols" [rowspan]="( cardLayout | async )?.table.rows">
+    <mat-card style="margin-top: 20px">
+  <app-demande-table></app-demande-table>
+   </mat-card>
+   </mat-grid-tile> 
+   
+   <mat-grid-tile [colspan]="( cardLayout | async )?.table.cols" [rowspan]="( cardLayout | async )?.table.rows">
+    <mat-card style="margin-top: 20px" class="small-table">
+ <app-products-table></app-products-table>
+   </mat-card>
+   </mat-grid-tile>
+   
+   <mat-grid-tile [colspan]="( cardLayout | async )?.table.cols" [rowspan]="( cardLayout | async )?.table.rows">
+    <mat-card style="margin-top: 20px" >
+<app-mesures-table></app-mesures-table>
+   </mat-card>
+   </mat-grid-tile> 
+   
+   <mat-grid-tile [colspan]="( cardLayout | async )?.table.cols" [rowspan]="( cardLayout | async )?.table.rows">
+    <mat-card style="margin-top: 20px" >
+<app-contacts-table></app-contacts-table>
    </mat-card>
    </mat-grid-tile>
   </mat-grid-list>

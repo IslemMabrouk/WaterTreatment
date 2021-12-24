@@ -29,8 +29,9 @@ const routes: Routes = [
 children :[
   {path: 'addProduct' , component: AddProductComponent },
   
-  {path: 'dash' , component: DashComponent},
-  {path: '' , component: UsersTableComponent},
+  {path: 'dashboard' , component: DashComponent},
+  {path: 'addAdmin' , component: AddAdminComponent},
+  {path: 'addMesure' , component: AddMesureComponent},  
   { path: '**', redirectTo: '' },
 ], 
 
@@ -42,14 +43,14 @@ children :[
     {path: '' , component: HomeComponent},
    
   {path: 'registration' , component: RegistrationComponent},
-  {path: 'addAdmin' , component: AddAdminComponent},  
+  
   {path: 'adoucisseurs' , component: AdoucisseursComponent},
   {path: 'purificateurs' , component: PurificateursComponent},
   {path: 'aboutUs' , component: AboutUsComponent},
   {path: 'entretien' , component: EntretienComponent},
   {path: 'contact' , component: ContactComponent},
   {path: 'espaceClient' , component: EspaceClientComponent},
-  {path: 'addMesure' , component: AddMesureComponent},
+  
   {path: 'emailContact' , component: EmailContactComponent},
 
   //Path Dynamique
@@ -57,6 +58,8 @@ children :[
   { path: 'validation/achat/:id' , component: ValidationDemandeComponent},
   { path: 'validation/devis/:id' , component: ValidationDemandeComponent},
    {path: 'displayContrat/:id' , component:DisplayContratComponent },
+   {path: 'editUser/:id', component: AddAdminComponent},
+
   {path: 'addContrat' , component: AddContratComponent},
   { path: '**', redirectTo: '' },
   ],
