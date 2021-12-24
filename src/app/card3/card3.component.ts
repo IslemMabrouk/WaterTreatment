@@ -1,12 +1,12 @@
-import { Component, OnInit , Input} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MesureService } from '../services/mesure.service';
 
 @Component({
-  selector: 'app-card',
-  templateUrl: './card.component.html',
-  styleUrls: ['./card.component.css']
+  selector: 'app-card3',
+  templateUrl: './card3.component.html',
+  styleUrls: ['./card3.component.css']
 })
-export class CardComponent implements OnInit {
+export class Card3Component implements OnInit {
   @Input() title: string;
 
   myType = 'PieChart';

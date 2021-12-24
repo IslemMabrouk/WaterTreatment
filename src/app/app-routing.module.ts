@@ -52,13 +52,17 @@ children :[
   {path: 'addMesure' , component: AddMesureComponent},
   {path: 'emailContact' , component: EmailContactComponent},
 
+
   //Path Dynamique
   {path: 'displayProduct/:id' , component: DisplayProductComponent},
   { path: 'validation/achat/:id' , component: ValidationDemandeComponent},
   { path: 'validation/devis/:id' , component: ValidationDemandeComponent},
    {path: 'displayContrat/:id' , component:DisplayContratComponent },
   {path: 'addContrat' , component: AddContratComponent},
+  {path: 'editContact/:id' , component: ContactComponent},
+
   { path: '**', redirectTo: '' },
+
   ],
   },
   

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
+import { ContactService } from 'src/app/services/contact.service';
 import { DemandeService } from 'src/app/services/demande.service';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -19,10 +21,13 @@ export class EspaceClientComponent implements OnInit {
   connectedUser:any;
   demandes:any;
   myDemande:any=[];
+  myContacts:any=[];
   products:any;
 
   constructor(private demandeService : DemandeService,
-              private productService : ProductService) { }
+              private productService : ProductService,
+              private contactService : ContactService,
+              private router : Router) { }
 
   ngOnInit() {
 
@@ -34,35 +39,64 @@ export class EspaceClientComponent implements OnInit {
     this.myDemande = data.myDemandes
       })
 
-  //  this.demandeService.getAllDemandes().subscribe(
-  //     (data)=>{
-  //       this.demandes = data.demandes;
-  //     console.log( this.demandes);
-
-  //       for (let i = 0; i < this.demandes.length; i++) {  
-  //         if (this.demandes[i].idClient == this.connectedUser._id) {
-            
-  //           this.myDemande.push(this.demandes[i]);
-  //           console.log(this.myDemande);
-            
-  //         }
-          
-  //       }  
-        
-  //     }
-  //   )
-
-
   this.productService.getAllProducts().subscribe(
     (data) => {
       console.log('Here data from BE');
       this.products=data.products;
       
-    }
-  )
+    })
+
+    this.contactService.getmyContacts(this.connectedUser._id).subscribe(
+      (data) => {
+        console.log('Here data from BE');
+        this.myContacts= data.myContacts;
+        
+      })
+
+
 
 
 
   }
+
+
+
+  deleteDemande(id:any){
+    this.demandeService.deleteDemnde(id).subscribe(
+(data)=> {
+  console.log(data.message);
+  
+  //Refresh Table without Reloading
+  this.demandeService.getmyDemandes(this.connectedUser._id).subscribe(
+    (data)=>{
+      this.myDemande= data.myDemandes
+    })
+}
+
+    ) }
+
+
+    deleteMyContact(id:any){
+
+      this.contactService.deleteMyContact(id).subscribe(
+        (data)=> {
+          console.log(data.message);
+          
+          //Refresh Table without Reloading
+          this.contactService.getmyContacts(this.connectedUser._id).subscribe(
+            (data)=>{
+              this.myContacts= data.myContacts
+            }
+          )
+
+    })
+  }
+
+  editMyContact(id:any){
+    this.router.navigate([`editContact/${id}`]);
+  }
+  
+  
+
 
 }

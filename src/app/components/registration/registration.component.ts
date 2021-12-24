@@ -17,6 +17,7 @@ export class RegistrationComponent implements OnInit {
   user: any = {};
   loginForm: FormGroup;
   findedUser: any;
+  error:any;
 
   constructor(private fb :FormBuilder,
               private userService :UserService, private router : Router) { }
@@ -56,6 +57,7 @@ login(){
   this.userService.login(this.user).subscribe(
     (data)=>{
       console.log("findedUser",data.findedUser);
+      this.error = data.findedUser;
       
       if (data.findedUser.role) {
         localStorage.setItem("connectedUser", JSON.stringify(data.findedUser));

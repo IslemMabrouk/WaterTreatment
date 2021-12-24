@@ -81,6 +81,8 @@ import { ContratDetailComponent } from './components/contrat-detail/contrat-deta
 import { DisplayContratComponent } from './components/display-contrat/display-contrat.component';
 import { UsersTableComponent } from './users-table/users-table.component';
 import { GoogleChartsModule } from 'angular-google-charts';
+import { Card2Component } from './card2/card2.component';
+import { Card3Component } from './card3/card3.component';
 
 
 
@@ -117,7 +119,9 @@ import { GoogleChartsModule } from 'angular-google-charts';
     EmailContactComponent,    
     ContratDetailComponent,
     DisplayContratComponent,
-    UsersTableComponent
+    UsersTableComponent,
+    Card2Component,
+    Card3Component
    
   ],
   imports: [

@@ -25,13 +25,13 @@
     <!--/.container-->
 </section>
 
-<section style="margin-top: -100px;" >
-    <div class="container">
+<section style="margin-top: -70px;" >
+    <div class="container" style="margin-left: 250px; ">
        
         <div class="row" >
             
             <div
-                class="col-lg-8 px-lg-5 py-lg-6 p-4 my-lg-0 background-white radius-bl-secondary radius-bl-lg-0 radius-br-secondary radius-br-lg-0 radius-tr-lg-secondary" >
+                class="col-lg-12 px-lg-5 py-lg-6 p-4 my-lg-0 background-white radius-bl-secondary radius-bl-lg-0 radius-br-secondary radius-br-lg-0 radius-tr-lg-secondary" >
                 <div class="d-flex align-items-center h-100">
                     <div data-zanim-timeline="{}" data-zanim-trigger="scroll">
                         <h3 class="text-center fs-2 fs-lg-3" style="line-height: 1.1;">Nous sommes disponibles pour vous conseiller</h3>
@@ -39,7 +39,7 @@
                 data-zanim='{"from":{"opacity":0,"width":0},"to":{"opacity":1,"width":"4.20873rem"},"duration":0.8}'
                 data-zanim-trigger="scroll">
                        
-                        <div class="overflow-hidden">
+                        <div class="overflow-hidden" style="margin-top: 100px;">
                             <div class="row" data-zanim='{"delay":0.2}'>
                                 <div class="col-lg-6">
                                     <mat-card   class="card human-resources col-12" (click)="toggleShow1()" type="checkbox" >
@@ -63,17 +63,7 @@
                     </div>
                 </div>
             </div>
-                <div class="col-4" data-zanim-timeline="{}" data-zanim-trigger="scroll">
-                    <div class="background-white p-5 radius-tl-secondary radius-tr-secondary">
-                  
-                        <div class="row my-5"   >
-                            <div class="col-2 text-center"><img 
-                                    data-zanim='{"delay":0.1}' src="assets/images/6.jpg"
-                                    style="min-width: 400px; height: 300px;" alt=""></div>
-                           
-                        </div>
-                    </div>
-                </div>
+             
                 <div class="col-lg-5 px-lg-5 py-lg-6 p-4 my-lg-0 background-white radius-bl-secondary radius-bl-lg-0 radius-br-secondary radius-br-lg-0 radius-tr-lg-secondary" >
                     <form #contactConsForm="ngForm" (ngSubmit)="contacterCons()">
                     <div *ngIf="isShown1" class="row container-fluid"  id="divshow1" style="margin-top: -100px; margin-left: -70px;" >
@@ -87,7 +77,7 @@
                             min="2021-21-12T00:00" style="color: rgba(2, 2, 29, 0.726);" [(ngModel)]="contact.date" [ngModelOptions]="{standalone:true}">
                     
                             <button  class="btn btn-warning mt-3 text-center" style=" margin: 30px 0px 30px 70px ; font-size: 15px;" (click)="openOtherDialog()">
-                                Valider mon RDV
+                                {{title}}
                             </button>
                     </div>
                 </form>
@@ -103,7 +93,7 @@
                             min="2021-21-12T00:00" style="color: rgba(2, 2, 29, 0.726);" [(ngModel)]="contact.date" [ngModelOptions]="{standalone:true}">
 
                             <button  class="btn btn-warning mt-3 text-center" style=" margin: 30px 0px 30px 80px ; font-size: 15px;" (click)="openOtherDialog()">
-                                Valider mon RDV
+                                {{title}}
                             </button>
                     </div>
                 </form>

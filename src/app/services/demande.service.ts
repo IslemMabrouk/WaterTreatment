@@ -11,7 +11,6 @@ export class DemandeService {
   constructor(private httpClient : HttpClient) { }
 
  
-
   valider(demande:any){
     return this.httpClient.post<{message : string}>(this.SERVER_URL + '/api/demande', demande)
   }  
@@ -22,6 +21,11 @@ export class DemandeService {
 
  getmyDemandes(idClient){
   return this.httpClient.get<{myDemandes : any}>(`${this.SERVER_URL + '/api/myDemandes'}/${idClient}`);
+}
+
+deleteDemnde(idClient){
+  return this.httpClient.delete<{message : string}>(`${this.SERVER_URL + '/api/myDemandes'}/${idClient}`)
+
 }
 
 
