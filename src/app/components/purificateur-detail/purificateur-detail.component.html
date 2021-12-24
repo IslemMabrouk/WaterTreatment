@@ -1,44 +1,21 @@
 
-    <mat-card-header>
+    <mat-card-header style="background-color: #0a2868;height: 50px;padding: 10px;">
         <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title> <h3> <strong>{{p.type}}</strong> </h3> </mat-card-title>
+        <mat-card-title> <h3 style="color: white;"> <strong>{{p.type}}</strong> </h3> </mat-card-title>
       </mat-card-header>
       <img mat-card-image [src]="p.img" alt="Image Indisponible">
       <mat-card-content>
           <mat-card-subtitle>Prix sans engagement</mat-card-subtitle>
           <mat-card-title> <h3> <strong>{{p.price}} Dt</strong> </h3> </mat-card-title>
       </mat-card-content>
-      <mat-divider inset ></mat-divider>
-      <mat-card-content style="margin:20px;">
-          <mat-card-subtitle><strong> Chlore, mauvais goûts et mauvaises odeurs de l'eau</strong> </mat-card-subtitle>
-      </mat-card-content>
-      <mat-divider inset></mat-divider>
-      <mat-card-content style="margin:20px;">
-          <mat-card-subtitle><strong>Matières organiques et COV</strong> </mat-card-subtitle>
-      </mat-card-content>
-      <mat-divider inset></mat-divider>
-      <mat-card-content style="margin:20px;">
-          <mat-card-subtitle><strong>Pesticides</strong> </mat-card-subtitle>
-      </mat-card-content>
-      <mat-divider inset></mat-divider>
-      <mat-card-content style="margin:20px;">
-          <mat-card-subtitle><strong>Métaux lourds : Plomb, mercure et zinc</strong> </mat-card-subtitle>
-      </mat-card-content>
-      <mat-divider inset style="margin-bottom: 30;"></mat-divider>
-      <mat-card-content style="margin:20px;">
-        <mat-card-subtitle><strong>Résidus médicamenteux</strong> </mat-card-subtitle>
+      <mat-card-content style="margin:20px;" *ngFor="let link of list" >
+        <mat-card-subtitle > <mat-divider inset></mat-divider> <strong>{{ link }}</strong>  <mat-icon style="margin: 0px 0px 0px 100px ;color: green;">check_circle</mat-icon>  </mat-card-subtitle>
+        
     </mat-card-content>
-    <mat-divider inset style="margin-bottom: 30;"></mat-divider>
-    <mat-card-content style="margin:20px;">
-        <mat-card-subtitle><strong>Aluminium, fluor</strong> </mat-card-subtitle>
-    </mat-card-content>
-    <mat-divider inset style="margin-bottom: 30;"></mat-divider>
-    <mat-card-content style="margin:20px;">
-        <mat-card-subtitle><strong> Nitrates / Nitrites</strong> </mat-card-subtitle>
-    </mat-card-content>
+      
     <mat-divider inset style="margin-bottom: 30;"></mat-divider>
   
-      <button type="button" class="btn btn-warning mt-3 text-center" style=" margin: 30px 0px 30px 75px ;" (click)="displayProduct(p._id)">
+      <button type="button" class="btn btn-warning mt-3 text-center" style=" margin: 30px 0px 30px 30px ;" (click)="displayProduct(p._id)">
           Voir le produit
       </button>
       

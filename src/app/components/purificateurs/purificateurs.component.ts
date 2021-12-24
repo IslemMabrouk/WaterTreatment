@@ -15,6 +15,7 @@ purificateurs: any=[];
   constructor( private productService : ProductService ) { }
 
   ngOnInit(): void {
+
     this.productService.getAllProducts().subscribe(
       (data) => {
         console.log('Here data from BE');

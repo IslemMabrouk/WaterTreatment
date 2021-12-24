@@ -9,9 +9,12 @@ import { Router } from '@angular/router';
 export class PurificateurDetailComponent implements OnInit {
   @Input() p : any;
   id:any;
+  list:any;
   constructor(private router : Router) { }
 
   ngOnInit(): void {
+    this.list= this.p.list.split(";");
+
   }
 
   displayProduct(id:any){
