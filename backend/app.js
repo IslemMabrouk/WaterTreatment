@@ -96,8 +96,74 @@ app.use((req, res, next) => {
 
 
 var emailRouter = require('./routes/emailRoute');
+const contact = require('./models/contact');
 app.use('/email',emailRouter);
 
+// Traitement  de get user by id
+app.get('/api/users/:id', (req, res) => {
+    console.log("here in function get user by id");
+
+    // etape 1
+    let id = req.params.id;
+    console.log("id user to search", id);
+
+
+    // etape 2
+    User.findOne({ _id: id }).then(
+        (doc) => {
+            console.log("finded User", doc);
+            res.status(200).json({
+                user: doc
+            })
+        }
+    )
+})
+
+// traitement edit user
+
+app.put('/api/users/:id', (req,res) =>{
+    console.log("here in function edit user");
+    
+    let user = {
+        _id :req.body._id,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        password: req.body.password,
+        tel: req.body.tel,
+        role: req.body.role
+    
+    };
+    User.updateOne({_id : req.body._id},user).then(
+    (result)=>{
+    
+        console.log("result update", result);
+        res.status(200).json({
+            message : "edited with success"
+        });
+    }
+    
+    
+    )
+    } )
+// traitement de delete User
+app.delete('/api/users/:id', (req, res) => {
+    let id = req.params.id;
+    console.log("here in fucntion delete user");
+
+    User.deleteOne({_id:id}).then(
+        (result) => {
+            console.log("delete result", result);
+
+            if (result) {
+                // success
+                res.status(200).json({
+                    message: "User deleted with success"
+                })
+            }
+
+        })
+})
 
 //:::::::::::::::::::::::::::::::::::::::::::::::::://
 //:::::::::::::::::CRUD Products::::::::::::::::::::::://
@@ -151,6 +217,7 @@ app.post('/api/addProduct', multer({ storage: storage }).single('img'), (req, re
 
 
 });
+
 
 
 //Traitement get Products
@@ -241,7 +308,7 @@ app.post("/api/login", (req, res) => {
             console.log("resultEmail", resultEmail);
             if (!resultEmail) {
                 res.status(200).json({
-                    findedUser: "Wrong Email"
+                    findedUser: "incorrect"
                 });
             }
             return bcrypt.compare(req.body.password, resultEmail.password);
@@ -251,7 +318,7 @@ app.post("/api/login", (req, res) => {
                 console.log("resultPwd", resultPwd);
                 if (!resultPwd) {
                     res.status(200).json({
-                        findedUser: "Wrong password"
+                        findedUser: "incorrect"
                     });
                 }
                 else {
@@ -269,23 +336,23 @@ app.post("/api/login", (req, res) => {
 
 // Traitement de get All Users
 
-app.get('/api/users', (req, res) => {
-    console.log('hello in be to get all Users');
+// app.get('/api/users', (req, res) => {
+//     console.log('hello in be to get all Users');
 
-    // Etape 1
-    User.find((err, docs) => {
-        if (err) {
-            console.log('error in DB');
-        }
-        else {
-            // succes
-            res.status(200).json({
-                users: docs
-            });
-        }
+//     // Etape 1
+//     User.find((err, docs) => {
+//         if (err) {
+//             console.log('error in DB');
+//         }
+//         else {
+//             // succes
+//             res.status(200).json({
+//                 users: docs
+//             });
+//         }
 
-    });
-});
+//     });
+// });
 // Traitement  de get user by id
 app.get('/api/users/:id', (req, res) => {
     console.log("here in function get user by id");
@@ -469,6 +536,34 @@ app.get('/api/AllMesures', (req, res) => {
 
 })
 
+//Traitement de search Mesure
+app.post('/api/search', (req, res) => {
+ 
+    console.log('Hello in search ');
+
+    //Etape 1 : Récupération du searchValue
+    let searchValue = req.body.searchValue;
+    console.log('searchValue',searchValue);
+
+    //Etape 2 : Recherche 
+    Mesure.find({
+        $or : [ {region : { $regex : `.*${searchValue}`}},
+                {region : { $regex : `.*${searchValue}`}}
+        ]
+    }).then(
+        (docs) =>{
+            if (docs) {
+                console.log('resuly',docs);
+                res.status(200).json({
+                    mesure : docs
+                })
+            }
+        }
+    )
+
+
+})
+
 //:::::::::::::::::::::::::::::::::::::::::::::::::://
 //:::::::::::::::::CRUD Demande:::::::::::::::::::://
 //:::::::::::::::::::::::::::::::::::::::::::::::::://
@@ -488,6 +583,7 @@ app.post('/api/demande', (req,res)=>{
     console.log(demande);
 
     demande.save();
+    
 
     res.status(200).json({
         message: 'demande added with  success'
@@ -530,6 +626,31 @@ app.get('/api/myDemandes/:id', (req, res) => {
     })
 })
 
+//Traitement de delete demande 
+app.delete('/api/myDemandes/:id', (req, res) => {
+    console.log("Here in function delete demande");
+
+    //Etape 1
+    let id = req.params.id;
+    console.log("demande id to delete:", id);
+
+    //Etape 2
+    Demande.deleteOne({ _id: id }).then(
+        (result) => {
+            console.log("delete result", result);
+
+            if (result) {
+                //Success
+                res.status(200).json({
+                    message: "Demande deleted with success"
+                })
+            }
+
+        })
+
+
+})
+
 //:::::::::::::::::::::::::::::::::::::::::::::::::://
 //:::::::::::::::::CRUD Contact:::::::::::::::::::://
 //:::::::::::::::::::::::::::::::::::::::::::::::::://
@@ -540,7 +661,8 @@ app.post('/api/contactCons', (req,res)=>{
         idClient: req.body.idClient,
         client: req.body.client,
         type: req.body.type,
-        date: req.body.date
+        date: req.body.date,
+        etat:req.body.etat
     })
     console.log(contact);
 
@@ -568,6 +690,96 @@ app.get('/api/contactCons', (req,res)=>{
    
    
 })
+
+//Traitemment delete myContact
+app.get('/api/mycontact/:id', (req, res) => {
+    console.log('Here in getmyContacts');
+
+    let id = req.params.id
+    Contact.find({ idClient: id }, (err, docs) => {
+        if (err) {
+            console.log("Error in DB");
+        } else {
+            res.status(200).json({
+                myContacts: docs
+            })
+        }
+    })
+})
+
+//Traitement de delete contact 
+app.delete('/api/mycontact/:id', (req, res) => {
+    console.log("Here in function delete contact");
+
+    //Etape 1
+    let id = req.params.id;
+    console.log("contact id to delete:", id);
+
+    //Etape 2
+    Contact.deleteOne({ _id: id }).then(
+        (result) => {
+            console.log("delete result", result);
+
+            if (result) {
+                //Success
+                res.status(200).json({
+                    message: "contact deleted with success"
+                })
+            }
+
+        })
+
+
+})
+
+//Traitement de get Contact by Id
+app.get('/api/Contact/:id', (req, res) => {
+    console.log("Here in function get Contact by id");
+
+    //Etape 1
+    let id = req.params.id;
+    console.log("id Contact to search:", id);
+
+    //Etape 2
+    Contact.findOne({ _id: id }).then(
+        (doc) => {
+            console.log("finded Contact", doc);
+            res.status(200).json({
+                contact: doc
+            })
+        }
+    )
+
+})
+
+//Traitement Edit contact
+app.put('/api/mycontact/:id', (req, res) => {
+    console.log('Here in function Edit Contact');
+    //Etape 1
+    let contact = {
+        _id: req.body._id,  // Kn ma n7otouhec ya5l9 'id' jdid
+        type: req.body.type,
+        date: req.body.date,
+        etat: req.body.etat,
+        idClient: req.body.idClient
+    };
+
+    //Etape 2 
+    Contact.updateOne({ _id: req.body._id }, contact).then(
+        (result) => {
+            console.log('Result Update', result);
+
+            res.status(200).json({
+                message: 'contact edited with success'
+            });
+        }
+    )
+
+
+
+
+})
+
 
 //Export App
 module.exports = app;

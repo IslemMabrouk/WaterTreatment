@@ -85,6 +85,8 @@ import { DemandeTableComponent } from './components/demande-table/demande-table.
 import { ProductsTableComponent } from './components/products-table/products-table.component';
 import { MesuresTableComponent } from './components/mesures-table/mesures-table.component';
 import { ContactsTableComponent } from './components/contacts-table/contacts-table.component';
+import { Card2Component } from './card2/card2.component';
+import { Card3Component } from './card3/card3.component';
 
 
 
@@ -126,6 +128,8 @@ import { ContactsTableComponent } from './components/contacts-table/contacts-tab
     ProductsTableComponent,
     MesuresTableComponent,
     ContactsTableComponent,
+    Card2Component,
+    Card3Component
    
   ],
   imports: [

@@ -27,8 +27,12 @@
                             <!-- Weight Column -->
                             <ng-container matColumnDef="etat">
                               <th mat-header-cell *matHeaderCellDef style="text-align: center;" > Etat </th>
-                              <td mat-cell *matCellDef="let element"> {{element.etat}} </td>
+                              <td mat-cell *matCellDef="let element"> {{element.etat}} 
+                                  <mat-icon color='warn' type='button' style="margin-left: 20px;"  (click)="deleteDemande(element._id)" >delete</mat-icon>
+                              </td>
+                             
                             </ng-container>
+
                           
                            
 
@@ -38,11 +42,42 @@
                               
 
                         </mat-tab>
-                        <mat-tab label="RDV">  <div class="login-space">
-                            <div class="sign-up-form" style="margin-top: 30px;">
-                              
-                            </div>
-                        </div></mat-tab>
+                        <mat-tab label="RDV">  
+
+                          <table mat-table [dataSource]="myContacts" class="mat-elevation-z8" style="width:1000px; margin-top: 50px; margin-left: 20px; " >
+
+                            <!--- Note that these columns can be defined in any order.
+                                  The actual rendered columns are set as a property on the row definition" -->
+                          
+                            <!-- Position Column -->
+                            <ng-container matColumnDef="validation" >
+                              <th mat-header-cell *matHeaderCellDef style="text-align: center;">Type </th>
+                              <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+                            </ng-container>
+                          
+                            <!-- Name Column -->
+                            <ng-container matColumnDef="idProduct" >
+                              <th mat-header-cell *matHeaderCellDef style="text-align: center;" > Date </th>
+                              <td mat-cell *matCellDef="let element" > {{element.date}} </td>
+                            </ng-container>
+                          
+                            <!-- Weight Column -->
+                            <ng-container matColumnDef="etat">
+                              <th mat-header-cell *matHeaderCellDef style="text-align: center;" > Etat </th>
+                              <td mat-cell *matCellDef="let element"> {{element.etat}} 
+                                <mat-icon  type='button' style="margin-left: 20px;"  (click)="editMyContact(element._id)" >edit</mat-icon>
+                                <mat-icon color='warn' type='button'  (click)="deleteMyContact(element._id)" >delete</mat-icon>
+                              </td>
+                             
+                            </ng-container>
+                          
+                           
+
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                          </table>
+
+                      </mat-tab>
                     </mat-tab-group>
 
 
@@ -55,3 +90,5 @@
     </div>
     <!--/.container-->
 </section>
+
+

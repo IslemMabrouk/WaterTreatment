@@ -6,6 +6,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { UserService } from '../services/user.service';
+import { MesureService } from '../services/mesure.service';
 export interface User {
   firstName : String,
 lastName : String,
@@ -13,6 +14,7 @@ email : String,
 password : String,
 tel : String,
 role:String
+
 
 }
 
@@ -25,6 +27,8 @@ role:String
 })
 export class DashComponent {
   /** Based on the screen size, switch from standard to one column per row */
+
+   
 
 
 
@@ -55,7 +59,8 @@ cardLayout = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
  );
 
   constructor(private breakpointObserver: BreakpointObserver,
-    private router: Router, private userServices :UserService) {}
+    private router: Router, private userServices :UserService,
+   ) {}
 
     ngOnInit(): void {
 
@@ -66,7 +71,11 @@ cardLayout = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
           console.log(data.users);
           this.users=data.users;});
 
+         
+          
+
 
     }
   
+    
 }

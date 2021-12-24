@@ -20,7 +20,7 @@
                         </div>
                         <form  #validationForm="ngForm" (ngSubmit)="valider()">
                     <div style="margin-top:20px ; margin-left: 50px;">
-                        <button  class="btn btn-warning mt-3 text-center" style=" margin: 30px 0px 30px 100px ; font-size: 15px;">
+                        <button  class="btn btn-warning mt-3 text-center" style=" margin: 30px 0px 30px 100px ; font-size: 15px;"  (click)="openOtherDialog()">
                             Valider ma commande
                         </button>
                     </div>
@@ -52,3 +52,12 @@
     </div>
 </section>
 
+
+<ng-template #secondDialog > 
+    <mat-icon  class="material-icons-outlined" style="color: green; font-size: 100px; margin-left: 37%;">check_circle_outline</mat-icon >
+        <h2 matDialogTitle style="text-align: center;">Merci, votre Demande a bien été prise en compte !</h2>
+    
+  <p matDialogContent style="text-align: center;">Un Conseiller HydroCare vous contactera très prochainement.</p>
+  <mat-dialog-actions align="end">
+    <button mat-button matDialogClose style="margin-top:20px ;">OK</button>
+  </mat-dialog-actions>

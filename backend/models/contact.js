@@ -5,7 +5,8 @@ const contactSchema = mongoose.Schema({
     idClient: String,
     client: String,
     type: String,
-    date: String
+    date: String,
+    etat: String
 
 
 });

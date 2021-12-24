@@ -8,7 +8,6 @@ import { User } from '../components/add-mesure/add-mesure.component';
 import { UserService } from '../services/user.service';
 
 
-
 @Component({
   selector: 'app-users-table',
   templateUrl: './users-table.component.html',

@@ -53,6 +53,7 @@ children :[
   
   {path: 'emailContact' , component: EmailContactComponent},
 
+
   //Path Dynamique
   {path: 'displayProduct/:id' , component: DisplayProductComponent},
   { path: 'validation/achat/:id' , component: ValidationDemandeComponent},
@@ -61,7 +62,10 @@ children :[
    {path: 'editUser/:id', component: AddAdminComponent},
 
   {path: 'addContrat' , component: AddContratComponent},
+  {path: 'editContact/:id' , component: ContactComponent},
+
   { path: '**', redirectTo: '' },
+
   ],
   },
   

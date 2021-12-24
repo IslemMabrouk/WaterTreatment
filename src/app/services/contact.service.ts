@@ -18,4 +18,22 @@ export class ContactService {
   contactsAll (){
     return this.httpClient.get<{contacts:any}> (this.SERVER_URL + '/api/contactCons')
   }
+  getmyContacts(idClient){
+    return this.httpClient.get<{myContacts : any}>(`${this.SERVER_URL + '/api/mycontact'}/${idClient}`);
+  
+  }
+
+  getContactId(contactId){
+    return this.httpClient.get<{contact : any}>(`${this.SERVER_URL + '/api/Contact'}/${contactId}`);
+  }
+
+  deleteMyContact(idClient){
+    return this.httpClient.delete<{message : string}>(`${this.SERVER_URL + '/api/mycontact'}/${idClient}`)
+  
+  }
+  
+   updateContact(contact: any){
+    return this.httpClient.put<{message : string}>(`${this.SERVER_URL + '/api/mycontact'}/${contact._id}`,contact)
+  }
+
 }

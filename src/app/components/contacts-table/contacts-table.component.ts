@@ -9,7 +9,7 @@ import { ContactService } from 'src/app/services/contact.service';
 })
 export class ContactsTableComponent implements OnInit {
   contacts:any=[];
-  displayedColumns=['client', 'type', 'date','actions'];
+  displayedColumns=['client', 'type', 'date','etat','actions'];
 
   constructor(private contactService :ContactService,private router :Router
     ) { }

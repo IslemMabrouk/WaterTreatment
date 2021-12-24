@@ -41,14 +41,7 @@ return this.httpClient.post<{message : string}>(this.userURL, userObj);
   }
 
 
-
-
 }
-
-
-
-
-
 
 
 

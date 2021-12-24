@@ -1,6 +1,7 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ActivatedRoute } from '@angular/router';
 import { ContactService } from 'src/app/services/contact.service';
 
 @Component({
@@ -16,8 +17,11 @@ export class ContactComponent implements OnInit {
   contactClientForm: FormGroup;
   contact:any={};
   connectedUser:any;
+  id:any;
+  title:any;
   constructor( private fb :FormBuilder,
-              private contacService : ContactService,
+              private contactService : ContactService,
+              private activatedRoute : ActivatedRoute,
               private dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -25,18 +29,43 @@ export class ContactComponent implements OnInit {
       idClient : [''],
       client : [''],
       type: [''],
-      date: ['']
+      date: [''],
+      etat: [''],
+
     });
 
     this.contactClientForm = this.fb.group({
       idClient : [''],
       type: [''],
       client: [''],
-      date: ['']
+      date: [''],
+      etat: [''],
     });
 
     this.connectedUser = JSON.parse(localStorage.getItem("connectedUser"));
     console.log(this.connectedUser);
+
+//::::::::::::Edit Contact:::::::::::::::::://
+    this.id = this.activatedRoute.snapshot.paramMap.get('id');
+    console.log( this.id);
+    
+    if (this.id) {
+     this.title = 'Edit RDV'
+      this.contactService.getContactId(this.id).subscribe(
+        (data) =>{
+          this.contact = data.contact
+          console.log( this.contact
+            );
+          
+        })
+    }
+    else
+    {
+      this.title = 'Valider mon RDV'
+    }
+
+
+
   }
 
 
@@ -51,33 +80,63 @@ export class ContactComponent implements OnInit {
       this.isShown2 = ! this.isShown2;
 
     }
+
+ //:::::::::::Conseil Client::::::::://
+
     contacterCons(){
+      if (this.id) {
+        //Edit
+        
+        this.contactService.updateContact(this.contact).subscribe(
+          (data) => {
+            console.log(data.message);
+            
+          }
+        )
+        
+      } else {
 this.contact.idClient = this.connectedUser._id;
 this.contact.client = this.connectedUser.firstName+" "+this.connectedUser.lastName;
 this.contact.type = "Conseil Client";
+this.contact.etat = "en attente";
 
-this.contacService.contacter(this.contact).subscribe(
+this.contactService.contacter(this.contact).subscribe(
   (data) =>{
     console.log(data.message);
    
     });
 
     }
+  }
 
+
+ //:::::::::::Service Client::::::::://
 
     contacterClient(){
+      if (this.id) {
+        //Edit
+        
+        this.contactService.updateContact(this.contact).subscribe(
+          (data) => {
+            console.log(data.message);
+            
+          }
+        )
+        
+      } else {
       this.contact.idClient = this.connectedUser._id;
       this.contact.client = this.connectedUser.firstName+" "+this.connectedUser.lastName;
 
       this.contact.type = "Service Client";
+      this.contact.etat = "en attente";
       
-      this.contacService.contacter(this.contact).subscribe(
+      this.contactService.contacter(this.contact).subscribe(
         (data) =>{
           console.log(data.message);
           });
     
           }
-
+        }
         
           openOtherDialog() {
             this.dialog.open(this.secondDialog);
