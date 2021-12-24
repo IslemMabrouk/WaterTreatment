@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { MesureService } from 'src/app/services/mesure.service';
@@ -19,11 +19,24 @@ export class WelcomeComponent implements OnInit {
   messageadd:any;
   filterValue:any;
   status:any;
-  constructor( 
+
+  searchForm: FormGroup;
+isDisplay : any;
+mesures : any;
+searchValue:any;
+  constructor(  private fb : FormBuilder,
                private mesureService : MesureService,
                ) { }
 
   ngOnInit(): void {
+
+//::::::::::::::search:::::::::::::://
+// this.searchForm = this.fb.group({
+//   searchValue : ['']
+// })
+
+//::::::::::::::::::::::::::::::::::::::://
+
 
  // inject your created service which makes the http-request
     this.filteredRegions = this.myControl.valueChanges.pipe(
@@ -35,6 +48,27 @@ export class WelcomeComponent implements OnInit {
 
 
   }
+
+  search(){
+    console.log("okkkkkk");
+    
+      // this.searchValue = this.region;
+      // console.log(this.searchValue);
+      
+      // this.mesureService.search(this.mesure).subscribe(
+      //   (data) => {
+      //     console.log(data.mesures);
+      //     this.isDisplay = !this.isDisplay;
+      //     console.log(this.isDisplay);
+          
+      //     this.mesure = data.mesures;
+      //     console.log(this.mesures);
+          
+          
+      //   }
+      // )
+    
+    }
 
   displayFn(user: User): string {
     return user &&  user.name ? user.name : ''  ;
@@ -55,6 +89,8 @@ selectedclient(event) {
      console.log(this.region);    
    }
 
+
+  
 
 
   }

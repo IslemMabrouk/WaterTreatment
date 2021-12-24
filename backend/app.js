@@ -326,7 +326,7 @@ app.post("/api/login", (req, res) => {
             console.log("resultEmail", resultEmail);
             if (!resultEmail) {
                 res.status(200).json({
-                    findedUser: "Adresse email incorrecte"
+                    findedUser: "incorrect"
                 });
             }
             return bcrypt.compare(req.body.password, resultEmail.password);
@@ -336,7 +336,7 @@ app.post("/api/login", (req, res) => {
                 console.log("resultPwd", resultPwd);
                 if (!resultPwd) {
                     res.status(200).json({
-                        findedUser: "Mot de passe incorrect"
+                        findedUser: "incorrect"
                     });
                 }
                 else {
@@ -517,6 +517,34 @@ app.get('/api/AllMesures', (req, res) => {
             })
         }
     })
+
+})
+
+//Traitement de search Mesure
+app.post('/api/search', (req, res) => {
+ 
+    console.log('Hello in search ');
+
+    //Etape 1 : Récupération du searchValue
+    let searchValue = req.body.searchValue;
+    console.log('searchValue',searchValue);
+
+    //Etape 2 : Recherche 
+    Mesure.find({
+        $or : [ {region : { $regex : `.*${searchValue}`}},
+                {region : { $regex : `.*${searchValue}`}}
+        ]
+    }).then(
+        (docs) =>{
+            if (docs) {
+                console.log('resuly',docs);
+                res.status(200).json({
+                    mesure : docs
+                })
+            }
+        }
+    )
+
 
 })
 

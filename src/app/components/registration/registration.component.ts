@@ -57,7 +57,9 @@ login(){
   this.userService.login(this.user).subscribe(
     (data)=>{
       console.log("findedUser",data.findedUser);
-      this.error = data.findedUser;
+      if (data.findedUser=="incorrect") {
+        this.error = data.findedUser;    
+      }
       
       if (data.findedUser.role) {
         localStorage.setItem("connectedUser", JSON.stringify(data.findedUser));
