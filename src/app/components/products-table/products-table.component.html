@@ -1,0 +1,90 @@
+
+  
+  <mat-tab-group>
+    <mat-tab label="Listes des produits">
+      <table mat-table [dataSource]="products" class="mat-elevation-z8 table" >
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="type" >
+      <th mat-header-cell *matHeaderCellDef><b>type</b>  </th>
+      <td mat-cell *matCellDef="let user" > {{user.type}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef> price </th>
+      <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="volume">
+      <th mat-header-cell *matHeaderCellDef> volume </th>
+      <td mat-cell *matCellDef="let element"> {{element.volume}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="pression">
+      <th mat-header-cell *matHeaderCellDef> pression </th>
+      <td mat-cell *matCellDef="let element"> {{element.pression}} </td>
+    </ng-container>
+    
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="economie">
+      <th mat-header-cell *matHeaderCellDef> economie </th>
+      <td mat-cell *matCellDef="let element"> {{element.economie}} </td>
+    </ng-container>
+    
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="list">
+      <th mat-header-cell *matHeaderCellDef> economie </th>
+      <td mat-cell *matCellDef="let element"> {{element.list}} </td>
+    </ng-container>
+    
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="conception">
+      <th mat-header-cell *matHeaderCellDef> conception </th>
+      <td mat-cell *matCellDef="let element"> {{element.conception}} </td>
+    </ng-container> 
+    
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef> description </th>
+      <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+    </ng-container> 
+    
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="role">
+      <th mat-header-cell *matHeaderCellDef> role </th>
+      <td mat-cell *matCellDef="let element"> {{element.role}} </td>
+    </ng-container>
+
+      <!-- Symbol Column -->
+    <ng-container matColumnDef="img">
+      <th mat-header-cell *matHeaderCellDef> image </th>
+      <td mat-cell *matCellDef="let element"> <img [src]="element.img" > </td>
+    </ng-container>
+  
+       <!-- Symbol Column -->
+    <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let element"  > 
+          
+        	<mat-icon type="button" (click)="editUser(element._id)" color="green" style="margin-right: 20px;">edit</mat-icon>
+          <mat-icon type="button" (click)="deleteUser(element._id)"  color="warn">delete</mat-icon>
+        </td>
+      </ng-container>
+
+     
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+  showFirstLastButtons 
+  aria-label="Select page of periodic elements">
+</mat-paginator>
+</mat-tab>
+  
+  </mat-tab-group>
