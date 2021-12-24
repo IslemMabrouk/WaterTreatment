@@ -23,6 +23,7 @@ export class ContactComponent implements OnInit {
   ngOnInit(): void {
     this.contactConsForm= this.fb.group({
       idClient : [''],
+      client : [''],
       type: [''],
       date: ['']
     });
@@ -30,6 +31,7 @@ export class ContactComponent implements OnInit {
     this.contactClientForm = this.fb.group({
       idClient : [''],
       type: [''],
+      client: [''],
       date: ['']
     });
 
@@ -51,11 +53,13 @@ export class ContactComponent implements OnInit {
     }
     contacterCons(){
 this.contact.idClient = this.connectedUser._id;
+this.contact.client = this.connectedUser.firstName+" "+this.connectedUser.lastName;
 this.contact.type = "Conseil Client";
 
 this.contacService.contacter(this.contact).subscribe(
   (data) =>{
     console.log(data.message);
+   
     });
 
     }
@@ -63,6 +67,8 @@ this.contacService.contacter(this.contact).subscribe(
 
     contacterClient(){
       this.contact.idClient = this.connectedUser._id;
+      this.contact.client = this.connectedUser.firstName+" "+this.connectedUser.lastName;
+
       this.contact.type = "Service Client";
       
       this.contacService.contacter(this.contact).subscribe(
