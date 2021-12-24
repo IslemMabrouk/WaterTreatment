@@ -286,6 +286,29 @@ app.post("/api/login", (req, res) => {
             })
 });
 
+// Traitement de get All Users
+
+app.get('/api/users', (req, res) => {
+    console.log('hello in be to get all Users');
+
+    // Etape 1
+    User.find((err, docs) => {
+        if (err) {
+            console.log('error in DB');
+        }
+        else {
+            // succes
+            res.status(200).json({
+                users: docs
+            });
+        }
+
+    });
+});
+
+
+=======
+>>>>>>> 5025d94a461cd410c1d53a8ea73e82b364d516ae
 //:::::::::::::::::::::::::::::::::::::::::::::::::://
 //:::::::::::::::::CRUD Contrats:::::::::::::::::::://
 //:::::::::::::::::::::::::::::::::::::::::::::::::://
@@ -362,6 +385,7 @@ console.log("here in contract", req.body);
 
 
 let contrat = new Contrat({
+
   type : req.body.type,
   nombreVisites : req.body.nombreVisites,
   analyseEau : req.body.analyseEau ,

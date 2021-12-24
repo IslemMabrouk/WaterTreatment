@@ -42,8 +42,8 @@ export class DisplayContratComponent implements OnInit {
 
 
   
-  valider(id:any){
-    this.router.navigate([`validation/${id}`]);
+  valider(){
+    this.router.navigate(['contact']);
     
   }
 
