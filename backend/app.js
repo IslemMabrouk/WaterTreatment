@@ -285,7 +285,6 @@ app.post("/api/login", (req, res) => {
             })
 });
 
-<<<<<<< HEAD
 // Traitement de get All Users
 
 app.get('/api/users', (req, res) => {

@@ -35,7 +35,9 @@ export class ValidationDemandeComponent implements OnInit {
 
     this.validationForm = this.formBuilder.group({
       idClient : [''],
+      client : [''],
       idProduct : [''],
+      product : [''],
       validation : [''],
       etat : ['']
     
@@ -74,9 +76,12 @@ export class ValidationDemandeComponent implements OnInit {
   
   this.demande.etat= "En attente";
   this.demande.idClient= this.connectedUser._id;
+  this.demande.client= this.connectedUser.firstName+" "+this.connectedUser.lastName;
   console.log( this.connectedUser._id);
   
   this.demande.idProduct = this.product._id;
+  this.demande.product = this.product.role+" Type: "+this.product.type;
+ 
 
   this.demandeService.valider(this.demande).subscribe(
     (data) => {
