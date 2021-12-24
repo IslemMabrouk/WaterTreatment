@@ -18,15 +18,7 @@
                         <p  class="mt-3 px-lg-3" style="margin-bottom: 25px; text-align: left;">{{product.description}}</p>
                        
                         <h6 class="fs-0 fs-lg-1"  >Specification:</h6>
-                        <ul class="mt-3 px-lg-3"  [innerHtml]="list[3]" >
-                            <li>Amet, consectetur</li>
-                            <li>Adipiscing elit,set</li>
-                            <li>Duis aute irure</li>
-                            <li>Ut enim ad minim</li>
-                            <li>Dolore magna aliqua</li>
-                            <li>Excepteur sint</li>
-                        </ul>
-                    
+                        <a mat-list-item *ngFor="let link of list"> {{ link }} </a>
                         <button href="#offr" type="button" class="btn btn-warning mt-3 text-center" style=" margin: 30px 0px 30px 100px ; font-size: 15px;">
                             Voir nos offres
                         </button>
