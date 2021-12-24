@@ -99,6 +99,71 @@ var emailRouter = require('./routes/emailRoute');
 const contact = require('./models/contact');
 app.use('/email',emailRouter);
 
+// Traitement  de get user by id
+app.get('/api/users/:id', (req, res) => {
+    console.log("here in function get user by id");
+
+    // etape 1
+    let id = req.params.id;
+    console.log("id user to search", id);
+
+
+    // etape 2
+    User.findOne({ _id: id }).then(
+        (doc) => {
+            console.log("finded User", doc);
+            res.status(200).json({
+                user: doc
+            })
+        }
+    )
+})
+
+// traitement edit user
+
+app.put('/api/users/:id', (req,res) =>{
+    console.log("here in function edit user");
+    
+    let user = {
+        _id :req.body._id,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        password: req.body.password,
+        tel: req.body.tel,
+        role: req.body.role
+    
+    };
+    User.updateOne({_id : req.body._id},user).then(
+    (result)=>{
+    
+        console.log("result update", result);
+        res.status(200).json({
+            message : "edited with success"
+        });
+    }
+    
+    
+    )
+    } )
+// traitement de delete User
+app.delete('/api/users/:id', (req, res) => {
+    let id = req.params.id;
+    console.log("here in fucntion delete user");
+
+    User.deleteOne({_id:id}).then(
+        (result) => {
+            console.log("delete result", result);
+
+            if (result) {
+                // success
+                res.status(200).json({
+                    message: "User deleted with success"
+                })
+            }
+
+        })
+})
 
 //:::::::::::::::::::::::::::::::::::::::::::::::::://
 //:::::::::::::::::CRUD Products::::::::::::::::::::::://
@@ -152,6 +217,7 @@ app.post('/api/addProduct', multer({ storage: storage }).single('img'), (req, re
 
 
 });
+
 
 
 //Traitement get Products
@@ -288,23 +354,23 @@ app.post("/api/login", (req, res) => {
 
 // Traitement de get All Users
 
-app.get('/api/users', (req, res) => {
-    console.log('hello in be to get all Users');
+// app.get('/api/users', (req, res) => {
+//     console.log('hello in be to get all Users');
 
-    // Etape 1
-    User.find((err, docs) => {
-        if (err) {
-            console.log('error in DB');
-        }
-        else {
-            // succes
-            res.status(200).json({
-                users: docs
-            });
-        }
+//     // Etape 1
+//     User.find((err, docs) => {
+//         if (err) {
+//             console.log('error in DB');
+//         }
+//         else {
+//             // succes
+//             res.status(200).json({
+//                 users: docs
+//             });
+//         }
 
-    });
-});
+//     });
+// });
 
 
 //:::::::::::::::::::::::::::::::::::::::::::::::::://
