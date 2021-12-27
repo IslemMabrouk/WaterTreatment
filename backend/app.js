@@ -484,7 +484,6 @@ app.post('/api/addMesure', (req,res)=>{
 
                 let mesure  = new Mesure({
                     region : req.body.region,
-                    annee : req.body.annee,
                     chlore : req.body.chlore,
                     calcaire : req.body.calcaire,
                     residu : req.body.residu

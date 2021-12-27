@@ -19,7 +19,7 @@ export class MesureService {
   }
 
   search(mesure:any){
-    return this.httpClient.post<{mesures : any}>(this.SERVER_URL + '/api/search', mesure);
+    return this.httpClient.post<{mesure : any}>(this.SERVER_URL + '/api/search', mesure);
   }
 
 
