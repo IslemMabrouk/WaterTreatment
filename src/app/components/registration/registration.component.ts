@@ -66,7 +66,7 @@ login(){
         //Redirection
         switch (data.findedUser.role) {
           case 'admin':
-            this.router.navigate(['dashboardAdmin'])
+            this.router.navigate(['admin'])
             break;
           
           case 'client':

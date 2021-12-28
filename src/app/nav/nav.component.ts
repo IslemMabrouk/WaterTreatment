@@ -12,7 +12,7 @@ import { Router, Routes } from '@angular/router';
 export class NavComponent {
 // nav.component.ts
 
-menuItems = ['dashboard', 'addProduct','addAdmin','addMesure', 'customers', 'products'];
+menuItems = ['dashboard', 'addProduct','addAdmin','addMesure'];
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),

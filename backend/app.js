@@ -334,25 +334,25 @@ app.post("/api/login", (req, res) => {
             })
 });
 
-// Traitement de get All Users
+//Tritement de get All Users
 
-// app.get('/api/users', (req, res) => {
-//     console.log('hello in be to get all Users');
+app.get('/api/users', (req, res) => {
+    console.log('hello in be to get all Users');
 
-//     // Etape 1
-//     User.find((err, docs) => {
-//         if (err) {
-//             console.log('error in DB');
-//         }
-//         else {
-//             // succes
-//             res.status(200).json({
-//                 users: docs
-//             });
-//         }
+    // Etape 1
+    User.find((err, docs) => {
+        if (err) {
+            console.log('error in DB');
+        }
+        else {
+            // succes
+            res.status(200).json({
+                users: docs
+            });
+        }
 
-//     });
-// });
+    });
+});
 // Traitement  de get user by id
 app.get('/api/users/:id', (req, res) => {
     console.log("here in function get user by id");
@@ -575,6 +575,7 @@ app.post('/api/demande', (req,res)=>{
     let demande = new Demande({
         idClient : req.body.idClient,
         client : req.body.client,
+        email : req.body.email,
         idProduct : req.body.idProduct,
         product : req.body.product,
         validation : req.body.validation,
@@ -776,6 +777,39 @@ app.put('/api/mycontact/:id', (req, res) => {
     )
 
 
+
+
+})
+
+
+
+//traitement search 
+
+
+app.post('/api/search', (req, res) => {
+    console.log('here in search value',);
+
+    //etape 1 : recuperation de la valeur 
+    let searchValue = req.body.searchValue;
+
+    console.log("searchValue", searchValue);
+
+    //etape 2 : la recherche
+
+    Mesure.find({  region: {$regex: `.*${searchValue}` },
+
+    }).then(
+        (docs) => {
+            if (docs) {
+                console.log("result", docs);
+                res.status(200).json({
+                    mesures: docs
+                })
+
+            }
+        }
+
+    )
 
 
 })

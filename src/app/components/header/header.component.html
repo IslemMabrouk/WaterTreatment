@@ -29,14 +29,16 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav fs-0 fw-700">
                     <li> <a href="" style="width: 76px;"> Accueil</a> </li>
-                    <li> <a href="" >À Propos de Nous</a> </li>
-                    <li> <a href="" style="width: 130px;"> Adoucisseurs </a> </li>
-                    <li> <a href="" style="width: 130px;"> Purificateurs </a> </li>
-                    <li ><a class="d-block mr-md-9" href="contact.html" style="width: 50px;">Entretien</a></li>
+                    <li> <a href="" routerLink="adoucisseurs" style="width: 130px;"> Adoucisseurs </a> </li>
+                    <li> <a href="" style="width: 130px;" routerLink="purificateurs"> Purificateurs </a> </li>
+                    <li ><a class="d-block mr-md-9"  style="width: 50px;" routerLink="entretien">Entretien</a></li>
+                    <li *ngIf="connectedUser">  <a   routerLink="espace-client" >Mes Demandes</a> </li>
+                    <li *ngIf="connectedUser">  <a type="button" (click)="logout"  >LogOut</a> </li>
+
                 </ul>
                 <ul class="navbar-nav ml-lg-auto">
-                    <li><a class="btn btn-outline-primary btn-capsule btn-sm border-2x fw-700" href="" target="_blank" ><strong> Inscription </strong></a></li>
-                    <li><button class="btn btn-outline-warning " type="submit" style="border-radius:50px; height: 35px; margin-left: 10px;"> <h6 style="margin-top:-6px; font-size: 14px;"> <strong>Contact</strong> </h6> </button></li>
+                    <li><a class="btn btn-outline-primary btn-capsule btn-sm border-2x fw-700" href=""  routerLink="registration" ><strong> Inscription </strong></a></li>
+                    <li><button class="btn btn-outline-warning " type="submit" style="border-radius:50px; height: 35px; margin-left: 10px;"> <h6 style="margin-top:-6px; font-size: 14px;" routerLink="contact"> <strong>Contact</strong> </h6> </button></li>
                      
                                 
                 </ul>

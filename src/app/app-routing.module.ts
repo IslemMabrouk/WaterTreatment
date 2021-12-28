@@ -20,6 +20,7 @@ import { Home2Component } from './home2/home2.component';
 import { NavComponent } from './nav/nav.component';
 import { DisplayContratComponent } from './components/display-contrat/display-contrat.component';
 import { UsersTableComponent } from './users-table/users-table.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
 
 
 const routes: Routes = [
@@ -43,6 +44,7 @@ children :[
     {path: '' , component: HomeComponent},
    
   {path: 'registration' , component: RegistrationComponent},
+  {path: 'welcome' , component: WelcomeComponent},
   
   {path: 'adoucisseurs' , component: AdoucisseursComponent},
   {path: 'purificateurs' , component: PurificateursComponent},
