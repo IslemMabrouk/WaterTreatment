@@ -24,12 +24,35 @@ export class WelcomeComponent implements OnInit {
 isDisplay : any;
 mesures : any;
 searchValue:any;
+<<<<<<< HEAD
+=======
+//::::::::Search::::::::::://
+
+chloreIsBon:any;
+chloreIsDouce:any;
+chloreIsMed:any;
+//****************/
+calcaireIsBon:any;
+calcaireIsDouce:any;
+calcaireIsMed:any;
+//****************/
+residuIsBon:any;
+residuIsDouce:any;
+residuIsMed:any;
+
+quality:any;
+
+>>>>>>> 7f7e9144676971df746a7f8ebe959b830b5f26c2
   constructor(  private fb : FormBuilder,
                private mesureService : MesureService,
                ) { }
 
   ngOnInit(): void {
 
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 7f7e9144676971df746a7f8ebe959b830b5f26c2
 //::::::::::::::search:::::::::::::://
 // this.searchForm = this.fb.group({
 //   searchValue : ['']
@@ -47,6 +70,7 @@ searchValue:any;
     );
 
 
+<<<<<<< HEAD
   }
 
   search(){
@@ -75,6 +99,65 @@ searchValue:any;
   
   }
 
+=======
+  }
+
+  search(){
+    console.log("okkkkkk");
+    
+      this.mesure.searchValue = this.region;
+      console.log(this.mesure.searchValue);
+      
+      this.mesureService.search(this.mesure).subscribe(
+        (data) => {
+          console.log(data.mesure);
+          
+          this.mesure = data.mesure;
+          for (let i = 0; i < this.mesure.length; i++) {
+              if (this.mesure[i].chlore < 600) {
+               this.chloreIsBon =!this.chloreIsBon;               
+              } else if (this.mesure[i].chlore < 650) {
+                this.chloreIsDouce =! this.chloreIsDouce;               
+              }else{
+                this.chloreIsMed= !this.chloreIsMed ;              
+              }
+
+//:::::::::::::Calcaire::::::::::::::::::::::::://
+              if (this.mesure[i].calcaire < 300) {
+                this.calcaireIsBon =!this.calcaireIsBon;               
+               } else if (this.mesure[i].calcaire < 350) {
+                 this.calcaireIsDouce =! this.calcaireIsDouce;               
+               }else{
+                 this.calcaireIsMed= !this.calcaireIsMed ;              
+               }
+//:::::::::::::Résidu Sec::::::::::::::::::::::::://
+if (this.mesure[i].residu < 2500) {
+  this.residuIsBon =!this.residuIsBon;               
+ } else if (this.mesure[i].residu < 2550) {
+   this.residuIsDouce =! this.residuIsDouce;               
+ }else{
+   this.residuIsMed= !this.residuIsMed ;              
+ }
+
+ if (this.chloreIsBon || this.chloreIsDouce || this.calcaireIsDouce || this.calcaireIsBon || this.residuIsBon || this.residuIsDouce ) {
+   this.quality=!this.quality;
+ }
+            
+
+          }
+          
+          
+        }
+      )
+    
+    }
+
+  displayFn(user: User): string {
+    return user &&  user.name ? user.name : ''  ;
+  
+  }
+
+>>>>>>> 7f7e9144676971df746a7f8ebe959b830b5f26c2
 
     // filter and return the values
   private _filter(name: string): User[] {

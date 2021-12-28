@@ -3,10 +3,13 @@
   <h1 class="mat-h1">Dashboard</h1>
   <mat-grid-list cols="{{ ( cardLayout | async )?.columns }}" rowHeight="200px">
     <!--Mini Cards-->
-    <mat-grid-tile *ngFor="let i of [1, 2, 3, 4]" [colspan]="( cardLayout | async )?.miniCard.cols"
-      [rowspan]="( cardLayout | async )?.miniCard.rows">
-      <app-card title="Card {{i}}"><div>Mini Card Content Here</div></app-card>
+   
+    <!--Charts 1-->
+    <mat-grid-tile  [colspan]="( cardLayout | async )?.chart.cols"
+      [rowspan]="( cardLayout | async )?.chart.rows">
+      <app-card title="Chlore"> </app-card>
     </mat-grid-tile>
+<<<<<<< HEAD
     <!--Charts 1-->
     <mat-grid-tile  [colspan]="( cardLayout | async )?.chart.cols"
       [rowspan]="( cardLayout | async )?.chart.rows">
@@ -24,6 +27,20 @@
       [rowspan]="( cardLayout | async )?.chart.rows">
       <app-card3 title="Residu Sec"> </app-card3>
     </mat-grid-tile>
+=======
+   
+    <!--Charts 2-->
+    <mat-grid-tile  [colspan]="( cardLayout | async )?.chart.cols"
+    [rowspan]="( cardLayout | async )?.chart.rows">
+    <app-card2 title="Calcaire"> </app-card2>
+  </mat-grid-tile>
+    
+    <!--Charts 2-->
+        <mat-grid-tile  [colspan]="( cardLayout | async )?.chart.cols"
+      [rowspan]="( cardLayout | async )?.chart.rows">
+      <app-card3 title="Residu Sec"> </app-card3>
+    </mat-grid-tile>
+>>>>>>> 7f7e9144676971df746a7f8ebe959b830b5f26c2
     
     <!--Table-->
     <mat-grid-tile [colspan]="( cardLayout | async )?.table.cols" [rowspan]="( cardLayout | async )?.table.rows">
@@ -34,25 +51,41 @@
    
    <mat-grid-tile [colspan]="( cardLayout | async )?.table.cols" [rowspan]="( cardLayout | async )?.table.rows">
     <mat-card style="margin-top: 20px">
+<<<<<<< HEAD
   <app-demande-table></app-demande-table>
+=======
+  <!-- <app-demande-table></app-demande-table> -->
+>>>>>>> 7f7e9144676971df746a7f8ebe959b830b5f26c2
    </mat-card>
    </mat-grid-tile> 
    
    <mat-grid-tile [colspan]="( cardLayout | async )?.table.cols" [rowspan]="( cardLayout | async )?.table.rows">
     <mat-card style="margin-top: 20px" class="small-table">
+<<<<<<< HEAD
  <app-products-table></app-products-table>
+=======
+ <!-- <app-products-table></app-products-table> -->
+>>>>>>> 7f7e9144676971df746a7f8ebe959b830b5f26c2
    </mat-card>
    </mat-grid-tile>
    
    <mat-grid-tile [colspan]="( cardLayout | async )?.table.cols" [rowspan]="( cardLayout | async )?.table.rows">
     <mat-card style="margin-top: 20px" >
+<<<<<<< HEAD
 <app-mesures-table></app-mesures-table>
+=======
+<!-- <app-mesures-table></app-mesures-table> -->
+>>>>>>> 7f7e9144676971df746a7f8ebe959b830b5f26c2
    </mat-card>
    </mat-grid-tile> 
    
    <mat-grid-tile [colspan]="( cardLayout | async )?.table.cols" [rowspan]="( cardLayout | async )?.table.rows">
     <mat-card style="margin-top: 20px" >
+<<<<<<< HEAD
 <app-contacts-table></app-contacts-table>
+=======
+<!-- <app-contacts-table></app-contacts-table> -->
+>>>>>>> 7f7e9144676971df746a7f8ebe959b830b5f26c2
    </mat-card>
    </mat-grid-tile>
   </mat-grid-list>

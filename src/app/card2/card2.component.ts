@@ -35,10 +35,17 @@ export class Card2Component implements OnInit {
         
         for (let i = 0; i < this.mesures.length; i++) {
           console.log(this.mesures[i].calcaire);
+<<<<<<< HEAD
           if (this.mesures[i].calcaire < 300) {
           c1 = c1 + 1;
             
           } else if (this.mesures[i].calcaire < 400){
+=======
+          if (this.mesures[i].calcaire < 500) {
+          c1 = c1 + 1;
+            
+          } else if (this.mesures[i].calcaire < 600){
+>>>>>>> 7f7e9144676971df746a7f8ebe959b830b5f26c2
             c2 = c2 + 1;
             
           }

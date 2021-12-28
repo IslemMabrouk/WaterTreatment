@@ -336,23 +336,23 @@ app.post("/api/login", (req, res) => {
 
 //Tritement de get All Users
 
-app.get('/api/users', (req, res) => {
-    console.log('hello in be to get all Users');
+// app.get('/api/users', (req, res) => {
+//     console.log('hello in be to get all Users');
 
-    // Etape 1
-    User.find((err, docs) => {
-        if (err) {
-            console.log('error in DB');
-        }
-        else {
-            // succes
-            res.status(200).json({
-                users: docs
-            });
-        }
+//     // Etape 1
+//     User.find((err, docs) => {
+//         if (err) {
+//             console.log('error in DB');
+//         }
+//         else {
+//             // succes
+//             res.status(200).json({
+//                 users: docs
+//             });
+//         }
 
-    });
-});
+//     });
+// });
 // Traitement  de get user by id
 app.get('/api/users/:id', (req, res) => {
     console.log("here in function get user by id");
@@ -500,7 +500,6 @@ app.post('/api/addMesure', (req,res)=>{
 
                 let mesure  = new Mesure({
                     region : req.body.region,
-                    annee : req.body.annee,
                     chlore : req.body.chlore,
                     calcaire : req.body.calcaire,
                     residu : req.body.residu

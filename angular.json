@@ -123,5 +123,8 @@
       }
     }
   },
-  "defaultProject": "WaterProject"
+  "defaultProject": "WaterProject",
+  "cli": {
+    "analytics": "c54325de-65c5-4b88-b4fa-540307195ce0"
+  }
 }

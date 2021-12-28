@@ -51,6 +51,7 @@
       
     </div>
    
+<<<<<<< HEAD
 
     <div class=" form-group col-md-6" style="margin-left:25% ;">
         <mat-form-field class="example-full-width" appearance="fill" class="col-md-12">
@@ -86,4 +87,328 @@
         </tr>
     </table>
   </div>
+=======
+
+    <div class=" form-group col-md-6" style="margin-left:25% ;">
+        <mat-form-field class="example-full-width" appearance="fill" class="col-md-12">
+            <mat-label>Saisissez votre région</mat-label>
+            <input type="text" matInput   [formControl]="myControl" [matAutocomplete]="auto"   required  >
+            <mat-autocomplete #auto="matAutocomplete"  [displayWith]="displayFn"  (optionSelected)="selectedclient($event)">
+              <mat-option *ngFor="let region of filteredRegions | async" [value]="region"  >
+                {{region.name}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+          <button type="button" class="btn btn-warning mt-3 text-center" style=" margin: 30px 0px 30px 220px ;" (click)="search()">
+            Analyser mon eau
+        </button>
+    </div>
+
+
+    <!--/.Affiche Chlore Médiocre-->
+    <div *ngIf="chloreIsMed" >
+        <div *ngFor="let c of mesure">
+            <mat-card class="example-card col-md-7 " style="padding: 30px; margin-left: 300px;" >
+                <mat-card-title-group>
+                  <mat-card-title><h1> <strong>Chlore</strong> </h1></mat-card-title>
+                  <mat-card-content>
+                   <p style="font-size: 17px;" > Médiocre <mat-icon style="color: rgba(255, 0, 0, 0.802); font-size: 17px;" >circle</mat-icon></p> 
+                  </mat-card-content>
+                </mat-card-title-group>
+                <mat-card-content>
+                   <p style="font-size: 17px;">Une trop forte concentration de chlore dans l'eau modifie son goût, son odeur et peut altérer le goût des aliments.</p> 
+                </mat-card-content>
+              </mat-card>
+        </div>
+
+        <section>
+            <div class="container" >
+                <div class="row mb-6">
+                    <div class="col">
+                        <h6 class="text-center fs-2 fs-lg-3  ">Pour améliorer la qualité de l'eau, HydroCare vous recommande</h6>
+                        <hr class="short"
+                            data-zanim='{"from":{"opacity":0,"width":0},"to":{"opacity":1,"width":"4.20873rem"},"duration":0.8}'
+                            data-zanim-trigger="scroll">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Purificateurs -->
+            
+            <section style="background-color: #0a3eae">
+            <div class="container" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+            <div class="row" style="margin-left: 160px;">
+             <div class="col-md-4" >
+                <img  src="assets/images/purif.png" alt="" height="200px">
+            </div>
+            <div class="col-md-6"   >
+                <p  data-zanim='{"delay":0.1}'  style="margin-left: 20px; text-align:justify; color: white;text-align: justify;">
+                    DITES STOP AUX BOUTEILLES PLASTIQUES !
+                </p>
+                <h1  style="margin-left: 20px; color: white; font-size: 30px; text-align: justify;">
+                   <strong>Purificateurs</strong> </h1>
+                <p  data-zanim='{"delay":0.1}'  style="margin-left: 20px; text-align:justify; color: white;text-align: justify;">
+                    Supprimez de l'eau de votre robinet le chlore, les traces de pesticides, nitrates et résidus médicamenteux*
+                </p>
+                <button  class="btn btn-warning r" style=" margin: 30px 0px 30px 100px ; font-size: 15px; text-align: justify;"  routerLink="purificateurs">
+                    Découvrir
+                </button>
+
+            </div>
+            </div>
+            </div>
+        </section>
+            </section>
+    
+      </div>
+
+
+        <!--/.Affiche Calcaire Médiocre-->
+    <div *ngIf="calcaireIsMed" >
+        <div *ngFor="let c of mesure">
+            <mat-card class="example-card col-md-7 " style="padding: 30px; margin-left: 300px;" >
+                <mat-card-title-group>
+                  <mat-card-title><h1> <strong>Calcaire</strong> </h1></mat-card-title>
+                  <mat-card-content>
+                   <p style="font-size: 17px;" > Eau très dure <mat-icon style="color: rgba(255, 0, 0, 0.802); font-size: 17px;" >circle</mat-icon></p> 
+                  </mat-card-content>
+                </mat-card-title-group>
+                <mat-card-content>
+                   <p style="font-size: 17px;">Une eau très calcaire détériore vos appareils ménagers et votre robinetterie. Elle provoque également une irritation de la peau. Elle génère tous les jours des dépenses inutiles en produits d'entretien.</p> 
+                </mat-card-content>
+              </mat-card>
+        </div>
+
+        <section>
+            <div class="container" >
+                <div class="row mb-6">
+                    <div class="col">
+                        <h6 class="text-center fs-2 fs-lg-3  ">Pour améliorer la qualité de l'eau, HydroCare vous recommande</h6>
+                        <hr class="short"
+                            data-zanim='{"from":{"opacity":0,"width":0},"to":{"opacity":1,"width":"4.20873rem"},"duration":0.8}'
+                            data-zanim-trigger="scroll">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Purificateurs -->
+            
+            <section style="background-color: #0a3eae">
+            <div class="container" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+            <div class="row" style="margin-left: 160px;">
+             <div class="col-md-4" >
+                <img  src="assets/images/adoucis.png" alt="" height="200px">
+            </div>
+            <div class="col-md-6"   >
+                <p data-zanim='{"delay":0.1}'  style="margin-left: 20px; text-align:justify; color: white;text-align: justify;">
+                    DITES STOP AU CALCAIRE !
+                </p>
+               
+                <h1  style="margin-left: 20px; color: white; font-size: 30px; text-align: justify;">
+                   <strong>Adoucisseurs</strong> </h1>
+                <p data-zanim='{"delay":0.1}'  style="margin-left: 20px; text-align:justify; color: white;text-align: justify;">
+                    Eliminez durablement le calcaire et profitez d'une eau adoucie dans toute votre maison*
+                </p>
+                <button  class="btn btn-warning " style=" margin: 30px 0px 30px 100px ; font-size: 15px; text-align: justify;"  routerLink="adoucisseurs">
+                    Découvrir
+                </button>
+
+            </div>
+            </div>
+            </div>
+        </section>
+            </section>
+    
+      </div>
+
+              <!--/.Affiche Calcaire Médiocre-->
+    <div *ngIf="residuIsMed" >
+        <div *ngFor="let c of mesure">
+            <mat-card class="example-card col-md-7 " style="padding: 30px; margin-left: 300px;" >
+                <mat-card-title-group>
+                  <mat-card-title><h1> <strong>Résidu à Sec</strong> </h1></mat-card-title>
+                  <mat-card-content>
+                   <p style="font-size: 17px;" > Eau très dure <mat-icon style="color: rgba(255, 0, 0, 0.802); font-size: 17px;" >circle</mat-icon></p> 
+                  </mat-card-content>
+                </mat-card-title-group>
+                <mat-card-content>
+                   <p style="font-size: 17px;">Une forte concentration du résidu à sec détériore vos appareils ménagers et votre robinetterie. Elle provoque également une irritation de la peau. Elle génère tous les jours des dépenses inutiles en produits d'entretien.</p> 
+                </mat-card-content>
+              </mat-card>
+        </div>
+
+        <section>
+            <div class="container" >
+                <div class="row mb-6">
+                    <div class="col">
+                        <h6 class="text-center fs-2 fs-lg-3  ">Pour améliorer la qualité de l'eau, HydroCare vous recommande</h6>
+                        <hr class="short"
+                            data-zanim='{"from":{"opacity":0,"width":0},"to":{"opacity":1,"width":"4.20873rem"},"duration":0.8}'
+                            data-zanim-trigger="scroll">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Purificateurs -->
+            
+            <section style="background-color: #0a3eae">
+            <div class="container" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+            <div class="row" style="margin-left: 200px;">
+                <div class="col-md-4"   >
+                    <img  src="assets/images/purif.png" alt="" height="200px">
+
+                    <p  data-zanim='{"delay":0.1}'  style="margin-left: 20px; text-align:justify; color: white;text-align: justify;">
+                        DITES STOP AUX BOUTEILLES PLASTIQUES !
+                    </p>
+                    <h1  style="margin-left: 20px; color: white; font-size: 30px; text-align: justify;">
+                       <strong>Purificateurs</strong> </h1>
+                    <p  data-zanim='{"delay":0.1}'  style="margin-left: 20px; text-align:justify; color: white;text-align: justify;">
+                        Supprimez de l'eau de votre robinet le chlore, les traces de pesticides, nitrates et résidus médicamenteux*
+                    </p>
+                    <button  class="btn btn-warning r" style=" margin: 30px 0px 30px 100px ; font-size: 15px; text-align: justify;"  routerLink="purificateurs">
+                        Découvrir
+                    </button>
+    
+                </div>
+            <div class="col-md-4" style="margin-left:60px ;"   >
+                <img  src="assets/images/adoucis.png" alt="" height="200px">
+
+                <p data-zanim='{"delay":0.1}'  style="margin-left: 20px; text-align:justify; color: white;text-align: justify;">
+                    DITES STOP AU CALCAIRE !
+                </p>
+               
+                <h1  style="margin-left: 20px; color: white; font-size: 30px; text-align: justify;">
+                   <strong>Adoucisseurs</strong> </h1>
+                <p data-zanim='{"delay":0.1}'  style="margin-left: 20px; text-align:justify; color: white;text-align: justify;">
+                    Eliminez durablement le calcaire et profitez d'une eau adoucie dans toute votre maison*
+                </p>
+                <button  class="btn btn-warning " style=" margin: 30px 0px 30px 100px ; font-size: 15px; text-align: justify;"  routerLink="adoucisseurs">
+                    Découvrir
+                </button>
+
+            </div>
+            </div>
+            </div>
+        </section>
+            </section>
+    
+      </div>
+
+<!-- Affiche qualité bon ou moyenne  -->
+      <section>
+        <div class="row mb-6" *ngIf="quality">
+            <div class="col">
+                <h6 class="text-center fs-2 fs-lg-3  ">Votre eau est conforme aux normes de potabilité</h6>
+                <hr class="short"
+                    data-zanim='{"from":{"opacity":0,"width":0},"to":{"opacity":1,"width":"4.20873rem"},"duration":0.8}'
+                    data-zanim-trigger="scroll">
+            </div>
+        </div>
+      <div *ngIf="chloreIsBon" >
+        <div *ngFor="let c of mesure">
+            <mat-card class="example-card col-md-7 " style="padding: 30px; margin-left: 300px;" >
+                <mat-card-title-group>
+                  <mat-card-title><h1> <strong>Chlore</strong> </h1></mat-card-title>
+                  <mat-card-content>
+                   <p style="font-size: 17px;" > Bon <mat-icon style="color: green; font-size: 17px;" >circle</mat-icon></p> 
+                  </mat-card-content>
+                </mat-card-title-group>
+                <mat-card-content>
+                   <p style="font-size: 17px;">La quantité de chlore présents dans votre eau est inférieure à 0.6 microgrammes par litre (0.6 µg/L). Le goût et l'odeur de votre eau sont préservés.</p> 
+                </mat-card-content>
+              </mat-card>
+        </div>
+    
+      </div>
+
+      <div *ngIf="chloreIsDouce"  >
+        <div *ngFor="let c of mesure">
+            <mat-card class="example-card col-md-7 " style="padding: 30px; margin-left: 300px;" >
+                <mat-card-title-group>
+                  <mat-card-title><h1> <strong>Chlore</strong> </h1></mat-card-title>
+                  <mat-card-content>
+                   <p style="font-size: 17px;" > Eau Douce <mat-icon style="color: green; font-size: 17px;" >circle</mat-icon></p> 
+                  </mat-card-content>
+                </mat-card-title-group>
+                <mat-card-content>
+                   <p style="font-size: 17px;">Il y a peu de Chlore dans votre eau. Votre maison est ainsi protégée et votre bien-être est préservé.</p> 
+                </mat-card-content>
+              </mat-card>
+        </div>
+    
+      </div>
+
+      <div *ngIf="calcaireIsBon" style="margin-top:50px ;" >
+        <div *ngFor="let c of mesure">
+            <mat-card class="example-card col-md-7 " style="padding: 30px; margin-left: 300px;" >
+                <mat-card-title-group>
+                  <mat-card-title><h1> <strong>Calcaire</strong> </h1></mat-card-title>
+                  <mat-card-content>
+                   <p style="font-size: 17px;" > Bon <mat-icon style="color: green; font-size: 17px;" >circle</mat-icon></p> 
+                  </mat-card-content>
+                </mat-card-title-group>
+                <mat-card-content>
+                   <p style="font-size: 17px;">La quantité de calcaire présents dans votre eau est inférieure à 0.3 microgrammes par litre (0.3 µg/L), ce qui est conforme aux normes sanitaires.</p> 
+                </mat-card-content>
+              </mat-card>
+        </div>
+    
+      </div>
+
+      <div *ngIf="calcaireIsDouce" style="margin-top:50px ;" >
+        <div *ngFor="let c of mesure">
+            <mat-card class="example-card col-md-7 " style="padding: 30px; margin-left: 300px;" >
+                <mat-card-title-group>
+                  <mat-card-title><h1> <strong>Calcaire</strong> </h1></mat-card-title>
+                  <mat-card-content>
+                   <p style="font-size: 17px;" > Eau Douce <mat-icon style="color: green; font-size: 17px;" >circle</mat-icon></p> 
+                  </mat-card-content>
+                </mat-card-title-group>
+                <mat-card-content>
+                   <p style="font-size: 17px;">Il y a peu de calcaire dans votre eau. Votre maison est ainsi protégée et votre bien-être est préservé.</p> 
+                </mat-card-content>
+              </mat-card>
+        </div>
+    
+      </div>
+
+      <div *ngIf="residuIsBon" style="margin-top:50px ;" >
+        <div *ngFor="let c of mesure">
+            <mat-card class="example-card col-md-7 " style="padding: 30px; margin-left: 300px;" >
+                <mat-card-title-group>
+                  <mat-card-title><h1> <strong>Résidu à Sec</strong> </h1></mat-card-title>
+                  <mat-card-content>
+                   <p style="font-size: 17px;" > Bon <mat-icon style="color: green; font-size: 17px;" >circle</mat-icon></p> 
+                  </mat-card-content>
+                </mat-card-title-group>
+                <mat-card-content>
+                   <p style="font-size: 17px;">La quantité de résidu à sec présents dans votre eau est inférieure à 2.5 microgrammes par litre (2.5 µg/L), ce qui est conforme aux normes sanitaires.</p> 
+                </mat-card-content>
+              </mat-card>
+        </div>
+    
+      </div>
+
+      <div *ngIf="residuIsDouce" style="margin-top:50px ;" >
+        <div *ngFor="let c of mesure">
+            <mat-card class="example-card col-md-7 " style="padding: 30px; margin-left: 300px;" >
+                <mat-card-title-group>
+                  <mat-card-title><h1> <strong>Résidu à Sec</strong> </h1></mat-card-title>
+                  <mat-card-content>
+                   <p style="font-size: 17px;" > Eau Douce <mat-icon style="color: green; font-size: 17px;" >circle</mat-icon></p> 
+                  </mat-card-content>
+                </mat-card-title-group>
+                <mat-card-content>
+                   <p style="font-size: 17px;">Il y a peu de résidu à sec dans votre eau. Votre maison est ainsi protégée et votre bien-être est préservé.</p> 
+                </mat-card-content>
+              </mat-card>
+        </div>
+    
+      </div>
+    </section>
+      
+</section>
+
+
+>>>>>>> 7f7e9144676971df746a7f8ebe959b830b5f26c2
 
