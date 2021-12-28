@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ContactService } from 'src/app/services/contact.service';
 import { DemandeService } from 'src/app/services/demande.service';
 import { ProductService } from 'src/app/services/product.service';
@@ -23,13 +23,27 @@ export class EspaceClientComponent implements OnInit {
   myDemande:any=[];
   myContacts:any=[];
   products:any;
+  id:any;
+  product:any;
 
   constructor(private demandeService : DemandeService,
               private productService : ProductService,
               private contactService : ContactService,
-              private router : Router) { }
+              private router : Router,
+              private activatedRoute : ActivatedRoute) { }
 
   ngOnInit() {
+
+    this.id = this.activatedRoute.snapshot.paramMap.get('id');
+    console.log(this.id);
+ 
+    this.productService.getProdcut(this.id).subscribe(
+      (data) =>{
+        this.product = data.product;
+        console.log(this.product);
+
+      }
+    )
 
     this.connectedUser = JSON.parse(localStorage.getItem("connectedUser"));
     console.log(this.connectedUser);
@@ -39,12 +53,12 @@ export class EspaceClientComponent implements OnInit {
     this.myDemande = data.myDemandes
       })
 
-  this.productService.getAllProducts().subscribe(
-    (data) => {
-      console.log('Here data from BE');
-      this.products=data.products;
+  // this.productService.getAllProducts().subscribe(
+  //   (data) => {
+  //     console.log('Here data from BE');
+  //     this.products=data.products;
       
-    })
+  //   })
 
     this.contactService.getmyContacts(this.connectedUser._id).subscribe(
       (data) => {

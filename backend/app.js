@@ -558,6 +558,7 @@ app.post('/api/demande', (req,res)=>{
     let demande = new Demande({
         idClient : req.body.idClient,
         idProduct : req.body.idProduct,
+        product : req.body.product,
         validation : req.body.validation,
         etat : req.body.etat
     });

@@ -14,38 +14,59 @@
                             <div class="sign-up-form" style="margin-top: 30px;">
                                 <form #addAdminForm="ngForm" (ngSubmit)="addAdmin()">
                                 <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <input type="text" class="form-control" id=""  placeholder="Prénom *" 
-                                        [(ngModel)]="user.firstName" [ngModelOptions]="{standalone:true}" >
-                                    </div>
+                                    <div class="form-group col-md-6"> 
+                                        <mat-form-field appearance="fill" class="col-md-12">
+                                           <mat-label> Prénom</mat-label>
+                                           <input matInput type="text"  required [(ngModel)]="user.firstName" [ngModelOptions]="{standalone:true}">
+                                       </mat-form-field>
+                                       </div>
+                                   
+                                       <div class="form-group col-md-6"> 
+                                        <mat-form-field appearance="fill" class="col-md-12">
+                                           <mat-label>Nom de famille </mat-label>
+                                           <input matInput type="text"  required [(ngModel)]="user.lastName" [ngModelOptions]="{standalone:true}">
+                                       </mat-form-field>
+                                       </div>
+                                   
     
-                                    <div class="form-group col-md-6">
-                                        <input type="text" class="form-control" id="" placeholder="Nom de famille *"
-                                        [(ngModel)]="user.lastName" [ngModelOptions]="{standalone:true}"  >
-                                    </div>
     
                                 </div>
+
                                         <div class="input-group">
-                                           <input class="form-control" type="email" placeholder="E-mail *" aria-label="Text input with dropdown button" 
-                                           [(ngModel)]="user.email" [ngModelOptions]="{standalone:true}"                       />
+                                            <mat-form-field appearance="fill"  class="col-md-12">
+                                                <mat-label>Entrer votre Email</mat-label>
+                                                <input type="email" matInput placeholder="Ex. pat@example.com" required
+                                                    [(ngModel)]="user.email" [ngModelOptions]="{standalone:true}">
+                                                    
+                                            </mat-form-field>
                                         </div>
     
                                         <div class="form-row" style="margin-top:15px;">
                                             <div class="form-group col-md-6">
-                                                <input type="password" class="form-control" id="" placeholder="Mot de passe *"
-                                                [(ngModel)]="user.password" [ngModelOptions]="{standalone:true}" >
+                                                <mat-form-field appearance="fill" class="col-md-12"  >
+                                                    <mat-label>Mot de passe</mat-label>
+                                                    <input matInput type="password" [(ngModel)]="user.password" [ngModelOptions]="{standalone:true}" required   >
+                                                </mat-form-field>    
                                             </div>
     
                                             <div class="form-group col-md-6">
-                                                <input type="password" class="form-control" id="" placeholder="Confirmer mot de passe *"  
-                                                [(ngModel)]="user.confirmPassword" [ngModelOptions]="{standalone:true}">
+                                                <mat-form-field appearance="fill" class="col-md-12"  >
+                                                    <mat-label>Confirmer mot de passe</mat-label>
+                                                    <input matInput type="password" [(ngModel)]="user.confirmPassword" [ngModelOptions]="{standalone:true}" required   >
+                                                </mat-form-field> 
                                             </div>
                                             
                             
                                         </div>
-                                    <div class="input-group">
-                                       <input class="form-control" type="tel"   placeholder="Numéro de mobile *" aria-label="Text input with dropdown button" 
-                                       [(ngModel)]="user.tel" [ngModelOptions]="{standalone:true}" />
+                                    <div class="input-group col-md-12" >
+                                        <mat-form-field class="example-full-width" appearance="fill"  class="col-md-12" >
+                                            <mat-label>Telephone</mat-label>
+                                            <span matPrefix>+216 &nbsp;</span>
+                                            <input type="tel" matInput placeholder="55 555 555" [(ngModel)]="user.tel" [ngModelOptions]="{standalone:true}" 
+                                                required>
+                                            <mat-icon matSuffix>mode_edit</mat-icon>
+                                        </mat-form-field>
+                                     
                                     </div>
     
                                 <div class="row align-items-center mt-3">

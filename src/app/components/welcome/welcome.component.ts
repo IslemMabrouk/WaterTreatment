@@ -21,24 +21,23 @@ export class WelcomeComponent implements OnInit {
   status:any;
 
   searchForm: FormGroup;
-isDisplay : any;
 mesures : any;
 searchValue:any;
 //::::::::Search::::::::::://
 
-chloreIsBon:any;
-chloreIsDouce:any;
-chloreIsMed:any;
+chloreIsBon:any=false;
+chloreIsDouce:any=false;
+chloreIsMed:any=false;
 //****************/
-calcaireIsBon:any;
-calcaireIsDouce:any;
-calcaireIsMed:any;
+calcaireIsBon:any=false;
+calcaireIsDouce:any=false;
+calcaireIsMed:any=false;
 //****************/
-residuIsBon:any;
-residuIsDouce:any;
-residuIsMed:any;
+residuIsBon:any=false;
+residuIsDouce:any=false;
+residuIsMed:any=false;
 
-quality:any;
+quality:any=false;
 
   constructor(  private fb : FormBuilder,
                private mesureService : MesureService,

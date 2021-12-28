@@ -2,6 +2,7 @@ const mongoose = require ('mongoose');
 const demandeSchema = mongoose.Schema({
     idClient : String,
     idProduct : String,
+    product:String,
     validation : String,
     etat : String
 });
