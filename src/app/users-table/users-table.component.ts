@@ -1,6 +1,13 @@
-import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute, Router } from "@angular/router";
-import { UserService } from "../services/user.service";
+import { CollectionViewer, DataSource } from '@angular/cdk/collections';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { User } from '../components/add-mesure/add-mesure.component';
+import { UserService } from '../services/user.service';
+
+
 
 @Component({
   selector: 'app-users-table',

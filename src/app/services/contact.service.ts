@@ -15,6 +15,9 @@ export class ContactService {
     return this.httpClient.post<{message : any;}>(this.SERVER_URL + '/api/contactCons/', contact)
   }
 
+  contactsAll (){
+    return this.httpClient.get<{contacts:any}> (this.SERVER_URL + '/api/contactCons')
+  }
   getmyContacts(idClient){
     return this.httpClient.get<{myContacts : any}>(`${this.SERVER_URL + '/api/mycontact'}/${idClient}`);
   

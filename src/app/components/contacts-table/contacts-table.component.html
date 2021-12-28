@@ -1,15 +1,16 @@
 
   
-
-      <table mat-table [dataSource]="demandes" class="mat-elevation-z8 table">
+  <mat-tab-group>
+    <mat-tab label="Listes des contacts avec clients">
+      <table mat-table [dataSource]="contacts" class="mat-elevation-z8 table" style="width:1200px" >
 
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
   
    <!-- Position Column -->
-   <ng-container matColumnDef="validation" >
+   <ng-container matColumnDef="type" >
     <th mat-header-cell *matHeaderCellDef style="text-align: center;">Type </th>
-    <td mat-cell *matCellDef="let element"> {{element.validation}} </td>
+    <td mat-cell *matCellDef="let element"> {{element.type}} </td>
   </ng-container>
 <!-- Position Column -->
    <ng-container matColumnDef="client" >
@@ -17,29 +18,31 @@
     <td mat-cell *matCellDef="let element"> {{element.client}} </td>
   </ng-container>
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="product" >
-    <th mat-header-cell *matHeaderCellDef style="text-align: center;" > Produit </th>
-    <td mat-cell *matCellDef="let element" > {{element.product}}  </td>
-  </ng-container>
 
   <!-- Weight Column -->
-  <ng-container matColumnDef="etat">
-    <th mat-header-cell *matHeaderCellDef style="text-align: center;" > Etat </th>
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef style="text-align: center;" > date </th>
+    <td mat-cell *matCellDef="let element"> {{element.date | date:'medium'}} </td>
+  </ng-container>
+
+    
+  <!-- Position Column -->
+  <ng-container matColumnDef="etat" >
+    <th mat-header-cell *matHeaderCellDef style="text-align: center;">etat </th>
     <td mat-cell *matCellDef="let element"> {{element.etat}} </td>
   </ng-container>
+
        <!-- Symbol Column -->
-       <form [formGroup]="nodeMailerForm" >
     <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef> Actions </th>
         <td mat-cell *matCellDef="let element"  > 
           
-        	<mat-icon type="button" (click)="sendEmail(element.email)"  style="margin-right: 20px;color: green;">check</mat-icon>
+        	<mat-icon type="button"  style="margin-right: 20px;color: green;">check</mat-icon>
           <mat-icon type="button"  color="warn">close</mat-icon>
         </td>
       </ng-container>
 
-    </form>
+     
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
@@ -47,3 +50,6 @@
   showFirstLastButtons 
   aria-label="Select page of periodic elements">
 </mat-paginator>
+</mat-tab>
+  
+  </mat-tab-group>

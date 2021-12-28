@@ -26,26 +26,21 @@ return this.httpClient.post<{message : string}>(this.userURL, userObj);
    getUsers(){
      return this.httpClient.get<{users: any}>(this.userURL)
    }
-
+   
    getUserId(userId){
-    return this.httpClient.get<{user: any}>(`${this.userURL}/${userId}`)
-  } 
-  deleteUser(userId){
-    console.log("here in services deleteUSer");
-    
-    return this.httpClient.delete<{message: any}>(`${this.userURL}/${userId}`)
-  }
+     return this.httpClient.get<{user: any}>(`${this.userURL}/${userId}`)
+   } 
+   deleteUser(userId){
+     console.log("here in services deleteUSer");
+     
+     return this.httpClient.delete<{message: any}>(`${this.userURL}/${userId}`)
+   }
 
    updateUser(user: any){
    return this.httpClient.put<{message : string}>(`${this.userURL}/${user._id}`, user)
  }
 
 }
-
-
-
-
-
 
 
 

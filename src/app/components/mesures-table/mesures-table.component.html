@@ -1,1 +1,52 @@
-<p>mesures-table works!</p>
+
+  
+  <mat-tab-group>
+    <mat-tab label="Listes des mesures">
+      <table mat-table [dataSource]="mesures" class="mat-elevation-z8 table" style="width:1200px" >
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="region" >
+      <th mat-header-cell *matHeaderCellDef><b>region</b>  </th>
+      <td mat-cell *matCellDef="let user" > {{user.region}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="annee">
+      <th mat-header-cell *matHeaderCellDef> année </th>
+      <td mat-cell *matCellDef="let element"> {{element.annee}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="chlore">
+      <th mat-header-cell *matHeaderCellDef> chlore </th>
+      <td mat-cell *matCellDef="let element"> {{element.chlore}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="calcaire">
+      <th mat-header-cell *matHeaderCellDef> calcaire </th>
+      <td mat-cell *matCellDef="let element"> {{element.calcaire}} </td>
+    </ng-container>
+  
+     <!-- Symbol Column -->
+     <ng-container matColumnDef="residu">
+        <th mat-header-cell *matHeaderCellDef> residu </th>
+        <td mat-cell *matCellDef="let element"> {{element.residu}} </td>
+      </ng-container>
+      
+  
+
+     
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+  showFirstLastButtons 
+  aria-label="Select page of periodic elements">
+</mat-paginator>
+</mat-tab>
+  
+  </mat-tab-group>

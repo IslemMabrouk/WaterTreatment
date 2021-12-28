@@ -20,6 +20,7 @@ import { Home2Component } from './home2/home2.component';
 import { NavComponent } from './nav/nav.component';
 import { DisplayContratComponent } from './components/display-contrat/display-contrat.component';
 import { UsersTableComponent } from './users-table/users-table.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
 
 
 const routes: Routes = [
@@ -29,8 +30,9 @@ const routes: Routes = [
 children :[
   {path: 'addProduct' , component: AddProductComponent },
   
-  {path: 'dash' , component: DashComponent},
-  {path: '' , component: UsersTableComponent},
+  {path: 'dashboard' , component: DashComponent},
+  {path: 'addAdmin' , component: AddAdminComponent},
+  {path: 'addMesure' , component: AddMesureComponent},  
   { path: '**', redirectTo: '' },
 ], 
 
@@ -42,14 +44,15 @@ children :[
     {path: '' , component: HomeComponent},
    
   {path: 'registration' , component: RegistrationComponent},
-  {path: 'addAdmin' , component: AddAdminComponent},  
+  {path: 'welcome' , component: WelcomeComponent},
+  
   {path: 'adoucisseurs' , component: AdoucisseursComponent},
   {path: 'purificateurs' , component: PurificateursComponent},
   {path: 'aboutUs' , component: AboutUsComponent},
   {path: 'entretien' , component: EntretienComponent},
   {path: 'contact' , component: ContactComponent},
   {path: 'espaceClient' , component: EspaceClientComponent},
-  {path: 'addMesure' , component: AddMesureComponent},
+  
   {path: 'emailContact' , component: EmailContactComponent},
 
 
@@ -58,6 +61,8 @@ children :[
   { path: 'validation/achat/:id' , component: ValidationDemandeComponent},
   { path: 'validation/devis/:id' , component: ValidationDemandeComponent},
    {path: 'displayContrat/:id' , component:DisplayContratComponent },
+   {path: 'editUser/:id', component: AddAdminComponent},
+
   {path: 'addContrat' , component: AddContratComponent},
   {path: 'editContact/:id' , component: ContactComponent},
 

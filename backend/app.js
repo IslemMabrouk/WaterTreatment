@@ -299,24 +299,6 @@ app.post('/api/users', (req, res) => {
       
     });
 
-//get allusers
-app.get('/api/users', (req, res) => {
-    console.log("Here in function get All Users");
-
-    //Etape 1
-    User.find((err, docs) => {
-        if (err) {
-            console.log("Error in DB");
-        } else {
-            //Success
-            res.status(200).json({
-                users: docs
-            })
-        }
-    })
-
-})
-
 
 //traitement de login
 app.post("/api/login", (req, res) => {
@@ -352,26 +334,90 @@ app.post("/api/login", (req, res) => {
             })
 });
 
-// Traitement de get All Users
+//Tritement de get All Users
 
-// app.get('/api/users', (req, res) => {
-//     console.log('hello in be to get all Users');
+app.get('/api/users', (req, res) => {
+    console.log('hello in be to get all Users');
 
-//     // Etape 1
-//     User.find((err, docs) => {
-//         if (err) {
-//             console.log('error in DB');
-//         }
-//         else {
-//             // succes
-//             res.status(200).json({
-//                 users: docs
-//             });
-//         }
+    // Etape 1
+    User.find((err, docs) => {
+        if (err) {
+            console.log('error in DB');
+        }
+        else {
+            // succes
+            res.status(200).json({
+                users: docs
+            });
+        }
 
-//     });
-// });
+    });
+});
+// Traitement  de get user by id
+app.get('/api/users/:id', (req, res) => {
+    console.log("here in function get user by id");
 
+    // etape 1
+    let id = req.params.id;
+    console.log("id user to search", id);
+
+
+    // etape 2
+    User.findOne({ _id: id }).then(
+        (doc) => {
+            console.log("finded User", doc);
+            res.status(200).json({
+                user: doc
+            })
+        }
+    )
+})
+
+// traitement edit user
+
+app.put('/api/users/:id', (req,res) =>{
+    console.log("here in function edit user");
+    
+    let user = {
+        _id :req.body._id,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        password: req.body.password,
+        tel: req.body.tel,
+        role: req.body.role
+    
+    };
+    User.updateOne({_id : req.body._id},user).then(
+    (result)=>{
+    
+        console.log("result update", result);
+        res.status(200).json({
+            message : "edited with success"
+        });
+    }
+    
+    
+    )
+    } )
+// traitement de delete User
+app.delete('/api/users/:id', (req, res) => {
+    let id = req.params.id;
+    console.log("here in fucntion delete user");
+
+    User.deleteOne({_id:id}).then(
+        (result) => {
+            console.log("delete result", result);
+
+            if (result) {
+                // success
+                res.status(200).json({
+                    message: "User deleted with success"
+                })
+            }
+
+        })
+})
 
 //:::::::::::::::::::::::::::::::::::::::::::::::::://
 //:::::::::::::::::CRUD Contrats:::::::::::::::::::://
@@ -441,37 +487,7 @@ app.post("/api/contrat" , (req,res) =>{
     })
 
 
-//traitement de add contract
-app.post("/api/contract" , (req,res) =>{
 
-console.log("here in contract", req.body);
-
-
-
-let contrat = new Contrat({
-
-  type : req.body.type,
-  nombreVisites : req.body.nombreVisites,
-  analyseEau : req.body.analyseEau ,
-  désinfectionAppareil : req.body.désinfectionAppareil,
-  contrôleRéglage : req.body.contrôleRéglage,
-  sel : req.body.sel,
-  filtres  : req.body.filtres,
-  dépannageMain : req.body.dépannageMain,
-  dépannagePrioritaire : req.body.dépannagePrioritaire,
-  piècesDétachées : req.body.piècesDétachées,
-});
-  contrat.save();
-            
-    // etape 3
-
-    res.status(200).json({
-        message: 'Contrat added with sucess'
-    })
-
-
-
-})
 
   
 //:::::::::::::::::::::::::::::::::::::::::::::::::://
@@ -557,6 +573,8 @@ app.post('/api/demande', (req,res)=>{
 
     let demande = new Demande({
         idClient : req.body.idClient,
+        client : req.body.client,
+        email : req.body.email,
         idProduct : req.body.idProduct,
         product : req.body.product,
         validation : req.body.validation,
@@ -587,6 +605,8 @@ app.get('/api/AllDemandes', (req, res) => {
             })
         }
     })
+
+    //Etape 2
 
 })
 
@@ -639,6 +659,7 @@ app.post('/api/contactCons', (req,res)=>{
 
     let contact = new Contact({
         idClient: req.body.idClient,
+        client: req.body.client,
         type: req.body.type,
         date: req.body.date,
         etat:req.body.etat
@@ -650,6 +671,24 @@ app.post('/api/contactCons', (req,res)=>{
     res.status(200).json({
         message: 'Contact send with  success'
     })
+})
+
+//get all contacts
+app.get('/api/contactCons', (req,res)=>{
+    console.log('Here in get contacts');
+
+    Contact.find((err, docs) => {
+        if (err) {
+            console.log("Error in DB");
+        } else {
+            //Success
+            res.status(200).json({
+                contacts : docs
+            })
+        }
+    })
+   
+   
 })
 
 //Traitemment delete myContact
@@ -737,6 +776,39 @@ app.put('/api/mycontact/:id', (req, res) => {
     )
 
 
+
+
+})
+
+
+
+//traitement search 
+
+
+app.post('/api/search', (req, res) => {
+    console.log('here in search value',);
+
+    //etape 1 : recuperation de la valeur 
+    let searchValue = req.body.searchValue;
+
+    console.log("searchValue", searchValue);
+
+    //etape 2 : la recherche
+
+    Mesure.find({  region: {$regex: `.*${searchValue}` },
+
+    }).then(
+        (docs) => {
+            if (docs) {
+                console.log("result", docs);
+                res.status(200).json({
+                    mesures: docs
+                })
+
+            }
+        }
+
+    )
 
 
 })

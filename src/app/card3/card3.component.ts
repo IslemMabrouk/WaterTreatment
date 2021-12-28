@@ -36,10 +36,10 @@ export class Card3Component implements OnInit {
         
         for (let i = 0; i < this.mesures.length; i++) {
           console.log(this.mesures[i].residu);
-          if (this.mesures[i].residu < 60) {
+          if (this.mesures[i].residu < 2500) {
           r1 = r1 + 1;
             
-          } else if (this.mesures[i].residu < 70){
+          } else if (this.mesures[i].residu < 2600){
             r2 = r2 + 1;
             
           }

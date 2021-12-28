@@ -27,7 +27,7 @@ export class EmailContactComponent implements OnInit {
 
 
   sendEmail(){
-    alert("jjj");
+    alert("Votre email a été envoyer");
     let email  = this.nodeMailerForm.value.email;
     let reqObj = {
       email:email

@@ -40,6 +40,7 @@ export class ValidationDemandeComponent implements OnInit {
     this.validationForm = this.formBuilder.group({
       idClient : [''],
       client : [''],
+      email : [''],
       idProduct : [''],
       product : [''],
       validation : [''],
@@ -80,6 +81,7 @@ export class ValidationDemandeComponent implements OnInit {
   
   this.demande.etat= "En attente";
   this.demande.idClient= this.connectedUser._id;
+  this.demande.email= this.connectedUser.email;
   this.demande.client= this.connectedUser.firstName+" "+this.connectedUser.lastName;
   console.log( this.connectedUser._id);
   

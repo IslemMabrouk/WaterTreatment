@@ -1,3 +1,20 @@
-table {
+table,th,ng-container,mat-header-cell {
     width: 100%;
+    width: 32px;
+    border-right: 1px solid currentColor;
+    padding-right: 24px;
+    text-align: center;
+    font-weight: bold; 
+    font-size:18px ;
   }
+  .green{
+    color: green;
+    font-size: 20px;
+}
+
+
+/* class for the clients */
+.blue{
+    color: blue;
+    font-size: 20px;
+}
