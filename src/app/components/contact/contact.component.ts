@@ -37,10 +37,7 @@ export class ContactComponent implements OnInit {
     this.contactClientForm = this.fb.group({
       idClient : [''],
       type: [''],
-<<<<<<< HEAD
       client: [''],
-=======
->>>>>>> 7f7e9144676971df746a7f8ebe959b830b5f26c2
       date: [''],
       etat: [''],
     });
@@ -111,10 +108,7 @@ this.contactService.contacter(this.contact).subscribe(
 
     }
   }
-<<<<<<< HEAD
 
-=======
->>>>>>> 7f7e9144676971df746a7f8ebe959b830b5f26c2
 
  //:::::::::::Service Client::::::::://
 

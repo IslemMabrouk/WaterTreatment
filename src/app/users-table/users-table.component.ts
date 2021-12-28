@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { CollectionViewer, DataSource } from '@angular/cdk/collections';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
@@ -8,11 +7,7 @@ import { Observable } from 'rxjs';
 import { User } from '../components/add-mesure/add-mesure.component';
 import { UserService } from '../services/user.service';
 
-=======
-import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute, Router } from "@angular/router";
-import { UserService } from "../services/user.service";
->>>>>>> 7f7e9144676971df746a7f8ebe959b830b5f26c2
+
 
 @Component({
   selector: 'app-users-table',

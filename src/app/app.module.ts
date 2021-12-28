@@ -81,13 +81,10 @@ import { ContratDetailComponent } from './components/contrat-detail/contrat-deta
 import { DisplayContratComponent } from './components/display-contrat/display-contrat.component';
 import { UsersTableComponent } from './users-table/users-table.component';
 import { GoogleChartsModule } from 'angular-google-charts';
-<<<<<<< HEAD
 import { DemandeTableComponent } from './components/demande-table/demande-table.component';
 import { ProductsTableComponent } from './components/products-table/products-table.component';
 import { MesuresTableComponent } from './components/mesures-table/mesures-table.component';
 import { ContactsTableComponent } from './components/contacts-table/contacts-table.component';
-=======
->>>>>>> 7f7e9144676971df746a7f8ebe959b830b5f26c2
 import { Card2Component } from './card2/card2.component';
 import { Card3Component } from './card3/card3.component';
 
@@ -127,13 +124,10 @@ import { Card3Component } from './card3/card3.component';
     ContratDetailComponent,
     DisplayContratComponent,
     UsersTableComponent,
-<<<<<<< HEAD
     DemandeTableComponent,
     ProductsTableComponent,
     MesuresTableComponent,
     ContactsTableComponent,
-=======
->>>>>>> 7f7e9144676971df746a7f8ebe959b830b5f26c2
     Card2Component,
     Card3Component
    

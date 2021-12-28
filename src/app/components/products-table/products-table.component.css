@@ -1,3 +1,12 @@
 .small-table{
     overflow-x: scroll !important;
   }
+
+td,td,mat-header-cell,ng-container {
+  border-right: 1px solid currentColor;
+  width: 100%;
+    width: 32px;
+    border-right: 1px solid currentColor;
+    padding-right: 24px;
+    text-align: center;
+}

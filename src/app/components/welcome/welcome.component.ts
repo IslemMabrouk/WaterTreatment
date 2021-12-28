@@ -24,35 +24,29 @@ export class WelcomeComponent implements OnInit {
 isDisplay : any;
 mesures : any;
 searchValue:any;
-<<<<<<< HEAD
-=======
 //::::::::Search::::::::::://
 
-chloreIsBon:any;
-chloreIsDouce:any;
-chloreIsMed:any;
+chloreIsBon:any=false;
+chloreIsDouce:any=false;
+chloreIsMed:any=false;
 //****************/
-calcaireIsBon:any;
-calcaireIsDouce:any;
-calcaireIsMed:any;
+calcaireIsBon:any=false;
+calcaireIsDouce:any=false;
+calcaireIsMed:any=false;
 //****************/
-residuIsBon:any;
-residuIsDouce:any;
-residuIsMed:any;
+residuIsBon:any=false;
+residuIsDouce:any=false;
+residuIsMed:any=false;
 
-quality:any;
+quality:any=false;
 
->>>>>>> 7f7e9144676971df746a7f8ebe959b830b5f26c2
   constructor(  private fb : FormBuilder,
                private mesureService : MesureService,
                ) { }
 
   ngOnInit(): void {
 
-<<<<<<< HEAD
-=======
     
->>>>>>> 7f7e9144676971df746a7f8ebe959b830b5f26c2
 //::::::::::::::search:::::::::::::://
 // this.searchForm = this.fb.group({
 //   searchValue : ['']
@@ -70,36 +64,6 @@ quality:any;
     );
 
 
-<<<<<<< HEAD
-  }
-
-  search(){
-    console.log("okkkkkk");
-    
-      // this.searchValue = this.region;
-      // console.log(this.searchValue);
-      
-      // this.mesureService.search(this.mesure).subscribe(
-      //   (data) => {
-      //     console.log(data.mesures);
-      //     this.isDisplay = !this.isDisplay;
-      //     console.log(this.isDisplay);
-          
-      //     this.mesure = data.mesures;
-      //     console.log(this.mesures);
-          
-          
-      //   }
-      // )
-    
-    }
-
-  displayFn(user: User): string {
-    return user &&  user.name ? user.name : ''  ;
-  
-  }
-
-=======
   }
 
   search(){
@@ -157,7 +121,6 @@ if (this.mesure[i].residu < 2500) {
   
   }
 
->>>>>>> 7f7e9144676971df746a7f8ebe959b830b5f26c2
 
     // filter and return the values
   private _filter(name: string): User[] {
