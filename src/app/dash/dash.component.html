@@ -28,18 +28,19 @@
     </mat-grid-tile>
     
     <!--Table-->
-    <mat-grid-tile [colspan]="( cardLayout | async )?.table.cols" [rowspan]="( cardLayout | async )?.table.rows">
-    <mat-card style="margin-top: 20px">
-      <mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4" backgroundColor="primary" >
-        <mat-tab label="Users/Admins"> <app-users-table></app-users-table></mat-tab>
+    <mat-grid-tile [colspan]="( cardLayout | async )?.table.cols" [rowspan]="( cardLayout | async )?.table.rows" >
+    
+      <mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4" backgroundColor="primary" style="width: 1200px;height: 900px;margin-top: 200px;">
+       <mat-tab label="Utilisateurs/Admins"> <app-users-table></app-users-table></mat-tab>
         <mat-tab label="Demandes clients"><app-demande-table></app-demande-table> </mat-tab>
-        <mat-tab label="Third" >  <app-products-table></app-products-table></mat-tab>
-        <mat-tab label="Third"> <app-mesures-table></app-mesures-table></mat-tab>
-        <mat-tab label="Third"> <app-contacts-table></app-contacts-table>
+        <mat-tab label="Produits" >  <app-products-table></app-products-table></mat-tab>
+        <mat-tab label="Mesures"> <app-mesures-table></app-mesures-table></mat-tab>
+        <mat-tab label="Contacts"> <app-contacts-table></app-contacts-table>
+        
         </mat-tab>
       </mat-tab-group>
    
-   </mat-card>
+ 
    </mat-grid-tile>   
   
   </mat-grid-list>

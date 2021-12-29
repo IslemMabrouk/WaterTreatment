@@ -2,3 +2,15 @@
     overflow-x: scroll !important;
   }
 
+table{
+  width:50%;
+
+}
+table,th,ng-container,mat-header-cell {
+  width: 100%;
+  width: 32px;
+  border-right: 1px solid currentColor;
+  padding-right: 24px;
+  text-align: center;
+
+}
