@@ -26,7 +26,8 @@
   <!-- Weight Column -->
   <ng-container matColumnDef="etat">
     <th mat-header-cell *matHeaderCellDef style="text-align: center;" > Etat </th>
-    <td mat-cell *matCellDef="let element"> {{element.etat}} </td>
+    <td mat-cell *matCellDef="let element" [ngClass]="{'green':element.etat=='Traitée', 
+    'red' :element.etat=='En attente'}" > {{element.etat}} </td>
   </ng-container>
        <!-- Symbol Column -->
        <form [formGroup]="nodeMailerForm" >

@@ -17,7 +17,7 @@ import { ProductService } from 'src/app/services/product.service';
 
 
 export class EspaceClientComponent implements OnInit { 
-  displayedColumns=['validation', 'idProduct', 'etat'];
+  displayedColumns=['validation', 'idProduct', 'etat', 'actions'];
   connectedUser:any;
   demandes:any;
   myDemande:any=[];

@@ -28,5 +28,10 @@ deleteDemnde(idClient){
 
 }
 
+getDemande(demandeID){
+  return this.httpClient.get<{demande:any}>(`${this.SERVER_URL + '/api/AllDemandes'}/${demandeID}`);
+
+}
+
 
 }

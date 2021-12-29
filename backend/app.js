@@ -651,6 +651,25 @@ app.delete('/api/myDemandes/:id', (req, res) => {
 
 })
 
+  //Traitement get demande by ID
+app.get('/api/AllDemandes/:id', (req,res)=>{
+    console.log('Here in Deamande get by ID');
+
+    let id = req.params.id;
+    console.log('id contrat by id', id);
+
+    Demande.findOne({_id : id}).then(
+        (doc)=>{
+            console.log('finded contrat', doc);
+            res.status(200).json({
+                demande:doc
+            })
+        }
+    )
+
+})
+
+
 //:::::::::::::::::::::::::::::::::::::::::::::::::://
 //:::::::::::::::::CRUD Contact:::::::::::::::::::://
 //:::::::::::::::::::::::::::::::::::::::::::::::::://

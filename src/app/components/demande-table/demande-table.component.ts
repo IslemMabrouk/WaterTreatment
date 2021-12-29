@@ -16,6 +16,7 @@ export class DemandeTableComponent implements OnInit {
   displayedColumns=['validation','client', 'product', 'etat','actions'];
   title = 'nodeMailerApp';
   nodeMailerForm :FormGroup;
+  demande:any;
   constructor(private demandeService : DemandeService,
     private productService : ProductService,private fB : FormBuilder ,
     private emailService : EmailService,private userService :UserService) { }
@@ -49,6 +50,7 @@ export class DemandeTableComponent implements OnInit {
 
   sendEmail(mail:any){
     alert("jjj");
+
    
     let email  = mail;
     console.log(email);

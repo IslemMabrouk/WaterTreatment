@@ -47,14 +47,16 @@ export class AddAdminComponent implements OnInit {
 
   addAdmin() {
     if (this.id) {
-      this.userService.updateUser(this.user).subscribe((data) => {
+      this.userService.updateUser(this.user).subscribe(
+        (data) => {
         console.log(data.message);
         this.router.navigate([`admin/dash`])
       });
     } else {
       this.user.role = 'admin';
 
-      this.userService.addUser(this.user).subscribe((data) => {
+      this.userService.addUser(this.user).subscribe(
+        (data) => {
         console.log(data.message);
       });
     }

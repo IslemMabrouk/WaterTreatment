@@ -70,11 +70,6 @@ cardLayout = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
           
           console.log(data.users);
           this.users=data.users;});
-
-         
-          
-
-
     }
   
     

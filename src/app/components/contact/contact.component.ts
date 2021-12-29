@@ -98,7 +98,7 @@ export class ContactComponent implements OnInit {
 this.contact.idClient = this.connectedUser._id;
 this.contact.client = this.connectedUser.firstName+" "+this.connectedUser.lastName;
 this.contact.type = "Conseil Client";
-this.contact.etat = "en attente";
+this.contact.etat = "En attente";
 
 this.contactService.contacter(this.contact).subscribe(
   (data) =>{

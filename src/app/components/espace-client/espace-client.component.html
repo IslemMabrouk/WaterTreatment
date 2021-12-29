@@ -14,26 +14,33 @@
                           
                             <!-- Position Column -->
                             <ng-container matColumnDef="validation" >
-                              <th mat-header-cell *matHeaderCellDef style="text-align: center;">Type </th>
+                              <th mat-header-cell *matHeaderCellDef style="text-align: center;"> <b> Type</b> </th>
                               <td mat-cell *matCellDef="let element"> {{element.validation}} </td>
                             </ng-container>
                           
                             <!-- Name Column -->
                             <ng-container matColumnDef="idProduct" >
-                              <th mat-header-cell *matHeaderCellDef style="text-align: center;" > Produit </th>
+                              <th mat-header-cell *matHeaderCellDef style="text-align: center;" ><b>Produit</b>  </th>
                               <td mat-cell *matCellDef="let element" > {{element.product}} </td>
                             </ng-container>
                           
                             <!-- Weight Column -->
                             <ng-container matColumnDef="etat">
-                              <th mat-header-cell *matHeaderCellDef style="text-align: center;" > Etat </th>
-                              <td mat-cell *matCellDef="let element"> {{element.etat}} 
-                                  <mat-icon color='warn' type='button' style="margin-left: 20px;"  (click)="deleteDemande(element._id)" >delete</mat-icon>
+                              <th mat-header-cell *matHeaderCellDef style="text-align: center;" > <b>Etat</b>  </th>
+                              <td mat-cell *matCellDef="let element" [ngClass]="{'green':element.etat=='Traitée', 
+                              'red' :element.etat=='En attente'}"> {{element.etat}} 
                               </td>
                              
                             </ng-container>
 
-                          
+                                                   <!-- Symbol Column -->
+                          <ng-container matColumnDef="actions">
+                            <th mat-header-cell *matHeaderCellDef style="text-align: center;"> <b>Actions</b>  </th>
+                            <td mat-cell *matCellDef="let element"  >         
+                             <mat-icon color='warn' type='button' style="margin-left: 20px;"  (click)="deleteDemande(element._id)" >delete</mat-icon>
+                                                    </td>
+                          </ng-container>
+
                            
 
                             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -51,25 +58,35 @@
                           
                             <!-- Position Column -->
                             <ng-container matColumnDef="validation" >
-                              <th mat-header-cell *matHeaderCellDef style="text-align: center;">Type </th>
+                              <th mat-header-cell *matHeaderCellDef style="text-align: center;"> <b> Type</b> </th>
                               <td mat-cell *matCellDef="let element"> {{element.type}} </td>
                             </ng-container>
                           
                             <!-- Name Column -->
                             <ng-container matColumnDef="idProduct" >
-                              <th mat-header-cell *matHeaderCellDef style="text-align: center;" > Date </th>
+                              <th mat-header-cell *matHeaderCellDef style="text-align: center;" > <b>Date</b>  </th>
                               <td mat-cell *matCellDef="let element" > {{element.date | date:'medium'}} </td>
                             </ng-container>
                           
                             <!-- Weight Column -->
                             <ng-container matColumnDef="etat">
-                              <th mat-header-cell *matHeaderCellDef style="text-align: center;" > Etat </th>
-                              <td mat-cell *matCellDef="let element"> {{element.etat}} 
-                                <mat-icon  type='button' style="margin-left: 20px;"  (click)="editMyContact(element._id)" >edit</mat-icon>
-                                <mat-icon color='warn' type='button'  (click)="deleteMyContact(element._id)" >delete</mat-icon>
+                              <th mat-header-cell *matHeaderCellDef style="text-align: center;" > <b>Etat</b>  </th>
+                              <td mat-cell *matCellDef="let element" [ngClass]="{'green':element.etat=='Traitée', 
+                              'red' :element.etat=='En attente'}"> {{element.etat}} 
                               </td>
-                             
                             </ng-container>
+
+                             <!-- Weight Column -->
+                                                   <!-- Symbol Column -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef style="text-align: center;"> <b>Actions </b> </th>
+      <td mat-cell *matCellDef="let element"  > 
+        
+                                <mat-icon  type='button'   (click)="editMyContact(element._id)" >edit</mat-icon>
+                                <mat-icon color='warn' type='button'   (click)="deleteMyContact(element._id)" >delete</mat-icon>
+      </td>
+    </ng-container>
+
                           
                            
 

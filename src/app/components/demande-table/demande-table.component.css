@@ -6,3 +6,14 @@ th,ng-container {
     text-align: center;
     font-weight: bold; 
   }
+  .green{
+    color: green;
+   
+}
+
+
+/* class for the clients */
+.red{
+    color: red;
+  
+}

@@ -24,7 +24,7 @@ emailRouter.route('/')
     secure: true,
     auth: {
       user: 'im.hydrocare@gmail.com',//replace with your email
-      pass: 'hydroCare123'//replace with your password
+      pass: 'islemmed123'//replace with your password
     }
   }); 
 
