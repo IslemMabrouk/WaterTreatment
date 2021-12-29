@@ -70,7 +70,8 @@ login(){
             break;
           
           case 'client':
-            this.router.navigate([''])
+            this.router.navigate(['']);
+           
              break;
 
              default:
