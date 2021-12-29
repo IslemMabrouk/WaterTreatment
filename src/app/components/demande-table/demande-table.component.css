@@ -1,7 +1,6 @@
 th,ng-container {
    
     
-    border-right: 1px solid currentColor;
     
     text-align: center;
     font-weight: bold; 
@@ -17,3 +16,5 @@ th,ng-container {
     color: red;
   
 }
+  th,mat-header-cell{font-weight:900;
+  }

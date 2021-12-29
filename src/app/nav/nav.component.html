@@ -10,6 +10,7 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar style="background-color: #0a2868;">
+      
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -19,8 +20,17 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span style="color: white;">I.M. HydroCare</span>
+
+      <button class="border border-5 rounded-circle" mat-button [matMenuTriggerFor]="belowMenu"
+        style="color: white;font-size: xx-large;background-color: rgb(255, 38, 0);border-width: thick;margin-left: 80%;height: 50px;">{{first}}</button>
+        <mat-menu #belowMenu="matMenu" yPosition="below">
+          <button mat-menu-item>{{connectedUser.email}}</button>
+          <button mat-menu-item (click)="logout()">LogOut</button>
+        </mat-menu>
+      
     </mat-toolbar>
     <!-- Add Content Here -->
+    
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
