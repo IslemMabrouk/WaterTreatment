@@ -4,5 +4,5 @@ table,th,tr,ng-container {
     border-right: 1px solid currentColor;
     padding-right: 24px;
     text-align: center;
-    font-weight: bold; 
+   
   }

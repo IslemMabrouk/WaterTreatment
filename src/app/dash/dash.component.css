@@ -19,12 +19,15 @@
 .dashboard-card-content {
   text-align: center;
 }
-table {
+/* table {
   width: 100%;
 }
 .mat-tab-group {
   margin-bottom: 48px;
+} */
+
+
+.small-table{
+  overflow-x: scroll !important;
 }
-
-
 

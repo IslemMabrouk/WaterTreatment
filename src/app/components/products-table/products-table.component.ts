@@ -8,7 +8,7 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductsTableComponent implements OnInit {
   products:any=[];
-  displayedColumns=['type','price','volume','pression','economie','list','conception','description', 'role', 'img','actions'];
+  displayedColumns=['type','price','volume','pression','economie','list','conception','role', 'img','actions'];
 
   constructor(
     private productService : ProductService) { }
