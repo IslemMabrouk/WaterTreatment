@@ -37,8 +37,8 @@ emailRouter.route('/')
   var mailOptions = {
     from: 'im.hydrocare@gmail.com',//replace with your email
     to: req.body.email,//replace with your email
-    subject: `Confirmation Demande`,
-    html:`Votre demande a été prise en compte, nous vous contacterons très prochainemet`
+    subject: req.body.sub,
+    html: req.body.resp
   };
   
   /* Here comes the important part, sendMail is the method which actually sends email, it takes mail options and

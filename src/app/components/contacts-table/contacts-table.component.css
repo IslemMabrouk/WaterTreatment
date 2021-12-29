@@ -6,3 +6,14 @@ table,th,tr,ng-container {
     text-align: center;
    
   }
+
+  .green{
+    color: green;
+   
+}
+
+
+.red{
+    color: red;
+  
+}

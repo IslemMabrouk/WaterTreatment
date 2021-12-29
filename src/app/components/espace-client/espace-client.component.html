@@ -34,10 +34,10 @@
                             </ng-container>
 
                                                    <!-- Symbol Column -->
-                          <ng-container matColumnDef="actions">
+                          <ng-container matColumnDef="actions" >
                             <th mat-header-cell *matHeaderCellDef style="text-align: center;"> <b>Actions</b>  </th>
                             <td mat-cell *matCellDef="let element"  >         
-                             <mat-icon color='warn' type='button' style="margin-left: 20px;"  (click)="deleteDemande(element._id)" >delete</mat-icon>
+                             <mat-icon *ngIf="element.etat == 'En attente'"  color='warn' type='button' style="margin-left: 20px;" (click)="deleteDemande(element._id)" >delete</mat-icon>
                                                     </td>
                           </ng-container>
 
@@ -82,8 +82,8 @@
       <th mat-header-cell *matHeaderCellDef style="text-align: center;"> <b>Actions </b> </th>
       <td mat-cell *matCellDef="let element"  > 
         
-                                <mat-icon  type='button'   (click)="editMyContact(element._id)" >edit</mat-icon>
-                                <mat-icon color='warn' type='button'   (click)="deleteMyContact(element._id)" >delete</mat-icon>
+                                <mat-icon  type='button'   (click)="editMyContact(element._id)" *ngIf="element.etat == 'En attente'"  >edit</mat-icon>
+                                <mat-icon color='warn' type='button'   (click)="deleteMyContact(element._id)" *ngIf="element.etat == 'En attente'"  >delete</mat-icon>
       </td>
     </ng-container>
 

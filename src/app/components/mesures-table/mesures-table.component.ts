@@ -8,7 +8,7 @@ import { MesureService } from 'src/app/services/mesure.service';
   styleUrls: ['./mesures-table.component.css']
 })
 export class MesuresTableComponent implements OnInit {
-  displayedColumns=['region', 'annee', 'chlore', 'calcaire', 'residu'];
+  displayedColumns=['region',  'chlore', 'calcaire', 'residu'];
 mesures:any=[];
   
   constructor(private activatedRoute : ActivatedRoute, private router :Router,private mesureService :MesureService) { }

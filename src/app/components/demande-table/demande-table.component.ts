@@ -52,11 +52,27 @@ export class DemandeTableComponent implements OnInit {
   
     
     alert("Envoyer");
-   
+
+    this.demandeService.updateDemande(demande).subscribe((data)=>{
+    
+      console.log("update", data);
+      })
+      
+      this.demandeService.getAllDemandes().subscribe(
+        (data)=>{
+      this.demandes = data.demandes;
+      console.log(this.demandes);
+        })
+      
+
+
     let email  = mail;
+
     
     let reqObj = {
-      email:email
+      email:email,
+      sub : 'Demande-HydroCare',
+      resp : 'HydroCare vous informe que votre demande a été confirmé, un conseiller HydroCare vous contactera au sujet de votre demande dans les 48 heures.'
     }
     this.emailService.sendMessage(reqObj).subscribe(data=>{
       console.log(data);
@@ -64,21 +80,39 @@ export class DemandeTableComponent implements OnInit {
 //
 
 
-  this.demandeService.updateDemande(demande).subscribe((data)=>{
-    
-console.log("update", data);
-})
-
-this.demandeService.getAllDemandes().subscribe(
-  (data)=>{
-this.demandes = data.demandes;
-console.log(this.demandes);
-  })
 
 
   }
 
 
+
+  deletedemande(id: any,mail:any) {
+    console.log(id);
+    
+    this.demandeService.deleteDemandes(id).subscribe(
+      (data) => {
+      console.log(data.message);
+      this.demandeService.getAllDemandes().subscribe(
+        (data)=>{
+      this.demandes = data.demandes;
+      console.log(this.demandes);
+        })
+    });
+
+
+    let email  = mail;
+
+    
+    let reqObj = {
+      email:email,
+      sub : 'Demande-HydroCare',
+      resp : "HydroCare vous informe que votre demande n'a pas été encore confirmé, nous vous invitons à le confirmer directement avec le service client au 70235456 ."
+    }
+    this.emailService.sendMessage(reqObj).subscribe(data=>{
+      console.log(data);
+    })
+
+  }
 
 }
 

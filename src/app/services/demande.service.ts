@@ -40,5 +40,8 @@ updateDemande(demande: any){
   return this.httpClient.put<{message : string}>(`${this.SERVER_URL + '/api/AllDemandes'}/${demande._id}`, demande)
 }
 
+deleteDemandes(demandID){
+  return this.httpClient.delete<{message : any}>(`${this.SERVER_URL + '/api/demande'}/${demandID}`)
+}
 
 }

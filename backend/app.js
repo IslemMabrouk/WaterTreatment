@@ -628,7 +628,7 @@ app.get('/api/myDemandes/:id', (req, res) => {
 
 //Traitement de delete demande 
 app.delete('/api/myDemandes/:id', (req, res) => {
-    console.log("Here in function delete demande");
+    console.log("Here in function delete my demande");
 
     //Etape 1
     let id = req.params.id;
@@ -650,6 +650,28 @@ app.delete('/api/myDemandes/:id', (req, res) => {
 
 
 })
+
+//Traitement delete demande
+app.delete('/api/demande/:id', (req,res)=>{
+    console.log('Here in function delete demande');
+
+    let id = req.params.id;
+    console.log("demande id to delete:", id);
+
+    Demande.deleteOne({_id : id}).then(
+        (result) =>{
+            console.log("delete result", result);
+
+            if (result) {
+                res.status(200).json({
+                    message:"Demande deleted with success"
+                })
+                
+            }
+        }
+    )
+})
+
 
   //Traitement get demande by ID
 app.get('/api/AllDemandes/:id', (req,res)=>{
@@ -727,6 +749,7 @@ app.post('/api/contactCons', (req,res)=>{
     let contact = new Contact({
         idClient: req.body.idClient,
         client: req.body.client,
+        email : req.body.email,
         type: req.body.type,
         date: req.body.date,
         etat:req.body.etat
@@ -774,7 +797,8 @@ app.get('/api/mycontact/:id', (req, res) => {
     })
 })
 
-//Traitement de delete contact 
+
+//Traitement de delete mycontact 
 app.delete('/api/mycontact/:id', (req, res) => {
     console.log("Here in function delete contact");
 
@@ -799,27 +823,7 @@ app.delete('/api/mycontact/:id', (req, res) => {
 
 })
 
-//Traitement de get Contact by Id
-app.get('/api/Contact/:id', (req, res) => {
-    console.log("Here in function get Contact by id");
-
-    //Etape 1
-    let id = req.params.id;
-    console.log("id Contact to search:", id);
-
-    //Etape 2
-    Contact.findOne({ _id: id }).then(
-        (doc) => {
-            console.log("finded Contact", doc);
-            res.status(200).json({
-                contact: doc
-            })
-        }
-    )
-
-})
-
-//Traitement Edit contact
+//Traitement Edit Mycontact
 app.put('/api/mycontact/:id', (req, res) => {
     console.log('Here in function Edit Contact');
     //Etape 1
@@ -842,10 +846,83 @@ app.put('/api/mycontact/:id', (req, res) => {
         }
     )
 
-
+    //edit contact
+    app.put('/api/contactCons/:id', (req,res) =>{
+        console.log("here in function edit contact");
+        
+        let contact = {
+            _id: req.body._id,  // Kn ma n7otouhec ya5l9 'id' jdid
+            type: req.body.type,
+            date: req.body.date,
+            etat: req.body.etat,
+            idClient: req.body.idClient,
+            email:req.body.email,
+            client : req.body.client,
+        
+        };
+        Contact.updateOne({_id : req.body._id},{etat:"Traitée"},contact).then(
+        (result)=>{
+        
+            console.log("result update", result);
+            res.status(200).json({
+                message : "edited with success"
+            });
+        }
+        
+        
+        )
+        } )
 
 
 })
+
+//Traitement de get Contact by Id
+app.get('/api/Contact/:id', (req, res) => {
+    console.log("Here in function get Contact by id");
+
+    //Etape 1
+    let id = req.params.id;
+    console.log("id Contact to search:", id);
+
+    //Etape 2
+    Contact.findOne({ _id: id }).then(
+        (doc) => {
+            console.log("finded Contact", doc);
+            res.status(200).json({
+                contact: doc
+            })
+        }
+    )
+
+})
+
+//Traitement de delete contact 
+app.delete('/api/allContacts/:id', (req, res) => {
+    console.log("Here in function delete contact");
+
+    //Etape 1
+    let id = req.params.id;
+    console.log("contact id to delete:", id);
+
+    //Etape 2
+    Contact.deleteOne({ _id: id }).then(
+        (result) => {
+            console.log("delete result", result);
+
+            if (result) {
+                //Success
+                res.status(200).json({
+                    message: "contact deleted with success"
+                })
+            }
+
+        })
+
+
+})
+
+
+
 
 
 

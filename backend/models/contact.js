@@ -4,6 +4,7 @@ const contactSchema = mongoose.Schema({
 
     idClient: String,
     client: String,
+    email : String,
     type: String,
     date: String,
     etat: String

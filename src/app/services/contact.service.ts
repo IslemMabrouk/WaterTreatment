@@ -32,8 +32,17 @@ export class ContactService {
   
   }
   
-   updateContact(contact: any){
+   updateMyContact(contact: any){
     return this.httpClient.put<{message : string}>(`${this.SERVER_URL + '/api/mycontact'}/${contact._id}`,contact)
+  }
+
+  deleteContact(idContact){
+    return this.httpClient.delete<{message : string}>(`${this.SERVER_URL + '/api/allContacts'}/${idContact}`)
+  
+  }
+
+  updateContact(contact: any){
+    return this.httpClient.put<{message : string}>(`${this.SERVER_URL + '/api/contactCons'}/${contact._id}`,contact)
   }
 
 }

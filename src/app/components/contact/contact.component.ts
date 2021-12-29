@@ -87,7 +87,7 @@ export class ContactComponent implements OnInit {
       if (this.id) {
         //Edit
         
-        this.contactService.updateContact(this.contact).subscribe(
+        this.contactService.updateMyContact(this.contact).subscribe(
           (data) => {
             console.log(data.message);
             
@@ -96,6 +96,7 @@ export class ContactComponent implements OnInit {
         
       } else {
 this.contact.idClient = this.connectedUser._id;
+this.contact.email = this.connectedUser.email;
 this.contact.client = this.connectedUser.firstName+" "+this.connectedUser.lastName;
 this.contact.type = "Conseil Client";
 this.contact.etat = "En attente";
@@ -118,7 +119,7 @@ this.contactService.contacter(this.contact).subscribe(
       if (this.id) {
         //Edit
         
-        this.contactService.updateContact(this.contact).subscribe(
+        this.contactService.updateMyContact(this.contact).subscribe(
           (data) => {
             console.log(data.message);
             
@@ -127,10 +128,14 @@ this.contactService.contacter(this.contact).subscribe(
         
       } else {
       this.contact.idClient = this.connectedUser._id;
+      this.contact.email = this.connectedUser.email;
+      console.log(this.contact.email );
+      
+
       this.contact.client = this.connectedUser.firstName+" "+this.connectedUser.lastName;
 
       this.contact.type = "Service Client";
-      this.contact.etat = "en attente";
+      this.contact.etat = "En attente";
       
       this.contactService.contacter(this.contact).subscribe(
         (data) =>{
