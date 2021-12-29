@@ -58,7 +58,7 @@
                             <!-- Name Column -->
                             <ng-container matColumnDef="idProduct" >
                               <th mat-header-cell *matHeaderCellDef style="text-align: center;" > Date </th>
-                              <td mat-cell *matCellDef="let element" > {{element.date}} </td>
+                              <td mat-cell *matCellDef="let element" > {{element.date | date:'medium'}} </td>
                             </ng-container>
                           
                             <!-- Weight Column -->

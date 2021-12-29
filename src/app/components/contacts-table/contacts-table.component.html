@@ -9,37 +9,37 @@
   
    <!-- Position Column -->
    <ng-container matColumnDef="type" >
-    <th mat-header-cell *matHeaderCellDef style="text-align: center;">Type </th>
-    <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+    <td mat-header-cell *matHeaderCellDef style="text-align: center;">Type </td>
+    <th mat-cell *matCellDef="let element"> {{element.type}} </th>
   </ng-container>
 <!-- Position Column -->
    <ng-container matColumnDef="client" >
-    <th mat-header-cell *matHeaderCellDef style="text-align: center;">Client </th>
-    <td mat-cell *matCellDef="let element"> {{element.client}} </td>
+    <td mat-header-cell *matHeaderCellDef style="text-align: center;">Client </td>
+    <th mat-cell *matCellDef="let element"> {{element.client}} </th>
   </ng-container>
 
 
   <!-- Weight Column -->
   <ng-container matColumnDef="date">
-    <th mat-header-cell *matHeaderCellDef style="text-align: center;" > date </th>
-    <td mat-cell *matCellDef="let element"> {{element.date | date:'medium'}} </td>
+    <td mat-header-cell *matHeaderCellDef style="text-align: center;" > date </td>
+    <th mat-cell *matCellDef="let element"> {{element.date | date:'medium'}} </th>
   </ng-container>
 
     
   <!-- Position Column -->
   <ng-container matColumnDef="etat" >
-    <th mat-header-cell *matHeaderCellDef style="text-align: center;">etat </th>
-    <td mat-cell *matCellDef="let element"> {{element.etat}} </td>
+    <td mat-header-cell *matHeaderCellDef style="text-align: center;">etat </td>
+    <th mat-cell *matCellDef="let element"> {{element.etat}} </th>
   </ng-container>
 
        <!-- Symbol Column -->
     <ng-container matColumnDef="actions">
-        <th mat-header-cell *matHeaderCellDef> Actions </th>
-        <td mat-cell *matCellDef="let element"  > 
+        <td mat-header-cell *matHeaderCellDef> Actions </td>
+        <th mat-cell *matCellDef="let element"  > 
           
         	<mat-icon type="button"  style="margin-right: 20px;color: green;">check</mat-icon>
           <mat-icon type="button"  color="warn">close</mat-icon>
-        </td>
+        </th>
       </ng-container>
 
      
