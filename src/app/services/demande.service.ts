@@ -23,6 +23,10 @@ export class DemandeService {
   return this.httpClient.get<{myDemandes : any}>(`${this.SERVER_URL + '/api/myDemandes'}/${idClient}`);
 }
 
+getDemandeId(demandeId){
+  return this.httpClient.get<{demande: any}>(`${this.SERVER_URL +'/api/AllDemandes'}/${demandeId}`)
+} 
+
 deleteDemnde(idClient){
   return this.httpClient.delete<{message : string}>(`${this.SERVER_URL + '/api/myDemandes'}/${idClient}`)
 
@@ -30,7 +34,10 @@ deleteDemnde(idClient){
 
 getDemande(demandeID){
   return this.httpClient.get<{demande:any}>(`${this.SERVER_URL + '/api/AllDemandes'}/${demandeID}`);
+}
 
+updateDemande(demande: any){
+  return this.httpClient.put<{message : string}>(`${this.SERVER_URL + '/api/AllDemandes'}/${demande._id}`, demande)
 }
 
 

@@ -670,6 +670,54 @@ app.get('/api/AllDemandes/:id', (req,res)=>{
 })
 
 
+    //Traitement get demande by ID
+    app.get('/api/AllDemandes/:id', (req, res) =>{
+        console.log('Here in demande get by ID');
+    
+        let id = req.params.id;
+        console.log('id demande by id', id);
+    
+        Demande.findOne({_id : id}).then(
+            (doc) => {
+                console.log('finded demande', doc);
+                res.status(200).json({
+                    contrat:doc
+                })
+            }
+        )
+    })
+
+
+
+// traitement edit demande
+
+app.put('/api/AllDemandes/:id', (req,res) =>{
+    console.log("here in function edit demande");
+    
+    let demande = {
+        _id :req.body._id,
+        idClient : req.body.idClient,
+        client : req.body.client,
+        email : req.body.email,
+        idProduct : req.body.idProduct,
+        product : req.body.product,
+        validation : req.body.validation,
+        etat : req.body.etat
+    
+    
+    };
+    Demande.updateOne({_id : req.body._id},{etat:"Traitée"},demande).then(
+    (result)=>{
+    
+        console.log("result update", result);
+        res.status(200).json({
+            message : "edited with success"
+        });
+    }
+    
+    
+    )
+    } )
 //:::::::::::::::::::::::::::::::::::::::::::::::::://
 //:::::::::::::::::CRUD Contact:::::::::::::::::::://
 //:::::::::::::::::::::::::::::::::::::::::::::::::://

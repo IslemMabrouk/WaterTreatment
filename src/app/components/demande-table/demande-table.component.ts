@@ -12,11 +12,11 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class DemandeTableComponent implements OnInit {
   demandes:any=[];
+  demande:any;
   users:any;
   displayedColumns=['validation','client', 'product', 'etat','actions'];
   title = 'nodeMailerApp';
   nodeMailerForm :FormGroup;
-  demande:any;
   constructor(private demandeService : DemandeService,
     private productService : ProductService,private fB : FormBuilder ,
     private emailService : EmailService,private userService :UserService) { }
@@ -37,23 +37,23 @@ export class DemandeTableComponent implements OnInit {
     console.log(this.demandes);
       })
 
-      this.userService.getUsers().subscribe(
-        (data)=>{
+      // this.userService.getUsers().subscribe(
+      //   (data)=>{
           
           
-      this.users = data.users;
-      console.log(this.demandes);
-        })
+      // this.users = data.users;
+      // console.log(this.demandes);
+      //   })
   
 
   }
 
-  sendEmail(mail:any){
-    alert("jjj");
-
+  sendEmail(demande:any,mail:any){
+  
+    
+    alert("Envoyer");
    
     let email  = mail;
-    console.log(email);
     
     let reqObj = {
       email:email
@@ -61,6 +61,21 @@ export class DemandeTableComponent implements OnInit {
     this.emailService.sendMessage(reqObj).subscribe(data=>{
       console.log(data);
     })
+//
+
+
+  this.demandeService.updateDemande(demande).subscribe((data)=>{
+    
+console.log("update", data);
+})
+
+this.demandeService.getAllDemandes().subscribe(
+  (data)=>{
+this.demandes = data.demandes;
+console.log(this.demandes);
+  })
+
+
   }
 
 
