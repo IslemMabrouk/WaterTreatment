@@ -87,6 +87,10 @@ import { MesuresTableComponent } from './components/mesures-table/mesures-table.
 import { ContactsTableComponent } from './components/contacts-table/contacts-table.component';
 import { Card2Component } from './card2/card2.component';
 import { Card3Component } from './card3/card3.component';
+import { MiniCard1Component } from './mini-card1/mini-card1.component';
+import { MiniCard2Component } from './mini-card2/mini-card2.component';
+import { MiniCard3Component } from './mini-card3/mini-card3.component';
+import { MiniCard4Component } from './mini-card4/mini-card4.component';
 
 
 
@@ -129,7 +133,11 @@ import { Card3Component } from './card3/card3.component';
     MesuresTableComponent,
     ContactsTableComponent,
     Card2Component,
-    Card3Component
+    Card3Component,
+    MiniCard1Component,
+    MiniCard2Component,
+    MiniCard3Component,
+    MiniCard4Component,
    
   ],
   imports: [

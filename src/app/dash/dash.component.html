@@ -1,34 +1,31 @@
 <!--dash.component.html-->
 <div class="grid-container">
   <h1 class="mat-h1">Dashboard</h1>
-  <mat-grid-list cols="{{ ( cardLayout | async )?.columns }}" rowHeight="200px">
+  <mat-grid-list cols="{{ ( cardLayout | async )?.columns }}" rowHeight="200px" style="margin-top: -30px;">
     <!--Mini Cards-->
-   
-    <!--Charts 1-->
-    <mat-grid-tile  [colspan]="( cardLayout | async )?.chart.cols"
-      [rowspan]="( cardLayout | async )?.chart.rows">
-      <app-card title="Chlore"> </app-card>
-    </mat-grid-tile>
-    <!--Charts 1-->
-    <mat-grid-tile  [colspan]="( cardLayout | async )?.chart.cols"
-      [rowspan]="( cardLayout | async )?.chart.rows">
-      <app-card title="Chlore"> </app-card>
-    </mat-grid-tile>
-   
-    <!--Charts 2-->
-    <mat-grid-tile  [colspan]="( cardLayout | async )?.chart.cols"
-    [rowspan]="( cardLayout | async )?.chart.rows">
-    <app-card2 title="Calcaire"> </app-card2>
-  </mat-grid-tile>
-    
-    <!--Charts 2-->
-        <mat-grid-tile  [colspan]="( cardLayout | async )?.chart.cols"
-      [rowspan]="( cardLayout | async )?.chart.rows">
-      <app-card3 title="Residu Sec"> </app-card3>
-    </mat-grid-tile>
+    <mat-grid-tile  [colspan]="( cardLayout | async )?.miniCard.cols"
+      [rowspan]="( cardLayout | async )?.miniCard.rows">
+      <app-mini-card1 ><div>Mini Card Content Here</div></app-mini-card1>
+    </mat-grid-tile>   
+
+    <mat-grid-tile  [colspan]="( cardLayout | async )?.miniCard.cols"
+    [rowspan]="( cardLayout | async )?.miniCard.rows">
+    <app-mini-card2 ><div>Mini Card Content Here</div></app-mini-card2>
+  </mat-grid-tile> 
+
+  <mat-grid-tile  [colspan]="( cardLayout | async )?.miniCard.cols"
+  [rowspan]="( cardLayout | async )?.miniCard.rows">
+  <app-mini-card3 ><div>Mini Card Content Here</div></app-mini-card3>
+</mat-grid-tile> 
+
+<mat-grid-tile  [colspan]="( cardLayout | async )?.miniCard.cols"
+[rowspan]="( cardLayout | async )?.miniCard.rows">
+<app-mini-card4 ><div>Mini Card Content Here</div></app-mini-card4>
+</mat-grid-tile> 
+
     
     <!--Table-->
-    <mat-grid-tile [colspan]="( cardLayout | async )?.table.cols" [rowspan]="( cardLayout | async )?.table.rows" >
+    <mat-grid-tile [colspan]="( cardLayout | async )?.table.cols" [rowspan]="( cardLayout | async )?.table.rows" style="margin-top:-60px ;" >
     
       <mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4" backgroundColor="primary" style="width: 1200px;height: 900px;margin-top: 200px;">
        <mat-tab label="Utilisateurs/Admins"> <app-users-table></app-users-table></mat-tab>
@@ -42,6 +39,28 @@
    
  
    </mat-grid-tile>   
+       <!--Charts 1-->
+       <mat-grid-tile  [colspan]="( cardLayout | async )?.chart.cols"
+       [rowspan]="( cardLayout | async )?.chart.rows">
+       <app-card title="Chlore"> </app-card>
+     </mat-grid-tile>
+     <!--Charts 1-->
+     <mat-grid-tile  [colspan]="( cardLayout | async )?.chart.cols"
+       [rowspan]="( cardLayout | async )?.chart.rows">
+       <app-card title="Chlore"> </app-card>
+     </mat-grid-tile>
+    
+     <!--Charts 2-->
+     <mat-grid-tile  [colspan]="( cardLayout | async )?.chart.cols"
+     [rowspan]="( cardLayout | async )?.chart.rows">
+     <app-card2 title="Calcaire"> </app-card2>
+   </mat-grid-tile>
+     
+     <!--Charts 2-->
+         <mat-grid-tile  [colspan]="( cardLayout | async )?.chart.cols"
+       [rowspan]="( cardLayout | async )?.chart.rows">
+       <app-card3 title="Residu Sec"> </app-card3>
+     </mat-grid-tile>
   
   </mat-grid-list>
  </div>

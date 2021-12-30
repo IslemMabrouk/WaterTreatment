@@ -13,6 +13,7 @@ export class ContactsTableComponent implements OnInit {
   contacts:any=[];
   displayedColumns=['client', 'type', 'date','etat','actions'];
   nodeMailerForm:FormGroup;
+  etat:any=false;
   constructor(private contactService :ContactService,
               private router :Router,
               private fB : FormBuilder,
@@ -30,10 +31,13 @@ export class ContactsTableComponent implements OnInit {
 
     this.contactService.contactsAll().subscribe(
       (data)=>{
-        
-        
     this.contacts = data.contacts;
     console.log(this.contacts);
+    for (let i = 0; i < this.contacts.length; i++) {
+       if (this.contacts[i].etat == "En attente") {
+         this.etat=!this.etat;
+       }
+    }
       })
 
 

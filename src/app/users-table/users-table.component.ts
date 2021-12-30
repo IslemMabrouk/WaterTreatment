@@ -30,6 +30,8 @@ export class UsersTableComponent implements OnInit {
       (data)=>{
 
       this.users =data.users;
+      console.log(this.users);
+      
   
   
   });

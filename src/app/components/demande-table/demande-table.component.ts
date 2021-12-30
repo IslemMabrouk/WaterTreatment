@@ -17,6 +17,7 @@ export class DemandeTableComponent implements OnInit {
   displayedColumns=['validation','client', 'product', 'etat','actions'];
   title = 'nodeMailerApp';
   nodeMailerForm :FormGroup;
+  etat:any=false;
   constructor(private demandeService : DemandeService,
     private productService : ProductService,private fB : FormBuilder ,
     private emailService : EmailService,private userService :UserService) { }
@@ -31,10 +32,19 @@ export class DemandeTableComponent implements OnInit {
 
     this.demandeService.getAllDemandes().subscribe(
       (data)=>{
-        
-        
     this.demandes = data.demandes;
-    console.log(this.demandes);
+    for (let i = 0; i < this.demandes.length; i++) {
+            if (this.demandes[i].etat == "En attente"){
+                this.etat = true;
+     
+            }    
+            else{
+               this.etat = false;
+               break;
+             }
+  
+   }
+    
       })
 
       // this.userService.getUsers().subscribe(
