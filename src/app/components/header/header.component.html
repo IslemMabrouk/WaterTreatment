@@ -21,29 +21,47 @@
 <div class="znav-white znav-container sticky-top navbar-elixir" id="znav-container">
     <div class="container">
         <nav class="navbar navbar-expand-lg"><a class="navbar-brand overflow-hidden pr-3" href="index.html" ><img
-                    src="assets/images/logo-dark.gif" height="100px" alt="" /></a><button class="navbar-toggler" type="button"
+                    src="assets/images/logo-dark.gif" height="50px" alt="" /></a><button class="navbar-toggler" type="button"
                 data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
                 aria-expanded="false" aria-label="Toggle navigation">
                 
             </button>
+         
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav fs-0 fw-700">
                     <li> <a href="" style="width: 76px;"> Accueil</a> </li>
                     <li> <a href="" routerLink="adoucisseurs" style="width: 130px;"> Adoucisseurs </a> </li>
                     <li> <a href="" style="width: 130px;" routerLink="purificateurs"> Purificateurs </a> </li>
                     <li ><a class="d-block mr-md-9"  style="width: 50px;" routerLink="entretien">Entretien</a></li>
-                    <li *ngIf="connectedUser">  <a   routerLink="espace-client" >Mes Demandes</a> </li>
-                    <li *ngIf="connectedUser"  >  <a type="button" (click)="logout()"  >LogOut</a> </li>
-                   
-                   
+                    <!-- <li *ngIf="connectedUser!='' && connectedUser.role=='client' ">  <a   routerLink="espace-client" >Mes Demandes</a> </li>
+                    <li *ngIf="connectedUser!=''"  >  <a type="button" (click)="logout()"  >LogOut</a> </li>
+                     -->
+               
+                    <li [hidden]="connectedUser"><a  class="btn btn-outline-primary btn-capsule btn-sm border-2x fw-700" href=""  routerLink="registration"  ><strong> Inscription </strong></a></li>
+                    <li><button class="btn btn-outline-warning " type="submit" style="border-radius:50px; height: 35px; margin-left: 50px;"> <h6 style="margin-top:-6px; font-size: 14px;" routerLink="contact"> <strong>Contact</strong> </h6> </button></li>
+                                
+                
 
                 </ul>
-                <ul class="navbar-nav ml-lg-auto">
-                    <li><a class="btn btn-outline-primary btn-capsule btn-sm border-2x fw-700" href=""  routerLink="registration" ><strong> Inscription </strong></a></li>
-                    <li><button class="btn btn-outline-warning " type="submit" style="border-radius:50px; height: 35px; margin-left: 10px;"> <h6 style="margin-top:-6px; font-size: 14px;" routerLink="contact"> <strong>Contact</strong> </h6> </button></li>
-                                
+            
+                
+                  <ul *ngIf="connectedUser!=''"   style="margin-left: 210px;margin-top: 10px;" >
+                    <li> <button class="border border-5 rounded-circle" mat-button [matMenuTriggerFor]="afterMenu" type="button"
+                        style="color: white;font-size: xx-large;background-color: rgb(243, 104, 12);border-color: black;margin-left: 90%;height: 50px;">{{first}}</button>
+                        <mat-menu #afterMenu="matMenu" xPosition="after" >
+                          <button mat-menu-item style="padding: 60px;"><strong>{{connectedUser.email}}</strong> </button>
+                          <button mat-menu-item routerLink="espaceClient">Mon espace Client</button>
+                          <button mat-menu-item (click)="editUser(connectedUser._id)" >Mes coordonnées</button>
+                          <button mat-menu-item (click)="logout()">Se deconnecter</button>
+                        </mat-menu>
+                        
+                       </li>
+                   
                 </ul>
+
             </div>
+          
+          
         </nav>
     </div>
 </div>

@@ -92,6 +92,8 @@ app.use((req, res, next) => {
     );
     next();
 });
+
+
 //********************************************************************************************************* */
 
 
@@ -857,9 +859,10 @@ app.put('/api/mycontact/:id', (req, res) => {
             etat: req.body.etat,
             idClient: req.body.idClient,
             email:req.body.email,
-            client : req.body.client,
+            client : req.body.client
         
         };
+        
         Contact.updateOne({_id : req.body._id},{etat:"Traitée"},contact).then(
         (result)=>{
         

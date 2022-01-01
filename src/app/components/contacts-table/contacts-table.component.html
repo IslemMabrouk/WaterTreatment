@@ -40,7 +40,7 @@
     <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef> <b>Actions</b>  </th>
         <td mat-cell *matCellDef="let element" style="text-align: center;"  > 
-          <button mat-mini-fab color="basic" aria-label="Example icon button with a filter list icon"  *ngIf="element.etat == 'En attente'" style="margin-left: -100px;" (click)="valideContact(element,element.email)">
+          <button mat-mini-fab color="basic" aria-label="Example icon button with a filter list icon"  *ngIf="element.etat == 'En attente'" style="margin-left: -100px;" (click)="valideContact(element._id)">
             <mat-icon type="button"  style="color: green;"  >check</mat-icon>
           </button>
           <button mat-mini-fab color="basic" aria-label="Example icon button with a filter list icon"  *ngIf="element.etat == 'En attente'" style="margin-left: 15px;" (click)="deleteContact(element._id,element.email)">

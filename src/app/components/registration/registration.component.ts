@@ -18,7 +18,7 @@ export class RegistrationComponent implements OnInit {
   loginForm: FormGroup;
   findedUser: any;
   error:any;
-
+  messageAdd:any;
   constructor(private fb :FormBuilder,
               private userService :UserService, private router : Router) { }
 
@@ -49,6 +49,7 @@ export class RegistrationComponent implements OnInit {
    
     this.userService.addUser(s).subscribe(
       (data)=>{
+        this.messageAdd = data.message;
         console.log(data);
       })
     }
@@ -66,22 +67,26 @@ login(){
         //Redirection
         switch (data.findedUser.role) {
           case 'admin':
-            this.router.navigate(['admin'])
+            this.router.navigate(['admin/dashboard'])
             break;
           
           case 'client':
-            this.router.navigate(['']);
+              this.router.navigate(['']);
+              window.location.reload();
            
              break;
-
+            
              default:
             break;
+         
         }
         
       }
-  
+    
     }
   )
+
+  
   }
 
 
