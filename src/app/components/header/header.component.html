@@ -21,7 +21,7 @@
 <div class="znav-white znav-container sticky-top navbar-elixir" id="znav-container">
     <div class="container">
         <nav class="navbar navbar-expand-lg"><a class="navbar-brand overflow-hidden pr-3" href="index.html" ><img
-                    src="assets/images/logo-dark.gif" height="50px" alt="" /></a><button class="navbar-toggler" type="button"
+                    src="assets/images/logo-dark.png" height="110px" alt="" /></a><button class="navbar-toggler" type="button"
                 data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
                 aria-expanded="false" aria-label="Toggle navigation">
                 
@@ -47,7 +47,7 @@
                 
                   <ul *ngIf="connectedUser!=''"   style="margin-left: 210px;margin-top: 10px;" >
                     <li> <button class="border border-5 rounded-circle" mat-button [matMenuTriggerFor]="afterMenu" type="button"
-                        style="color: white;font-size: xx-large;background-color: rgb(243, 104, 12);border-color: black;margin-left: 90%;height: 50px;">{{first}}</button>
+                        style="color: white;font-size: xx-large;background-color: rgb(243, 104, 12);border-color: black;margin-left: 80%;height: 50px;">{{first}}</button>
                         <mat-menu #afterMenu="matMenu" xPosition="after" >
                           <button mat-menu-item style="padding: 60px;"><strong>{{connectedUser.email}}</strong> </button>
                           <button mat-menu-item routerLink="espaceClient">Mon espace Client</button>
