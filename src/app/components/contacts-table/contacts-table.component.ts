@@ -61,7 +61,7 @@ export class ContactsTableComponent implements OnInit {
       
 
 
-    // let email  = mail;
+    let email  = mail;
 
     
     // let reqObj = {

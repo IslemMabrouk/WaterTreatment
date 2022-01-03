@@ -50,6 +50,10 @@ export class UsersTableComponent implements OnInit {
   editUser(id: any) {
     this.router.navigate([`editUser/${id}`])
 }
+ 
+ add(id:any){
+  this.router.navigate([`suivi/${id}`])
+}
 
 
 }

@@ -22,7 +22,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button' ;
 import { MatTabsModule } from '@angular/material/tabs' ;
 import { MatSelectModule } from '@angular/material/select' ;
-import { MatOptionModule } from '@angular/material/core';
+import { MatNativeDateModule, MatOptionModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
@@ -91,7 +91,8 @@ import { MiniCard1Component } from './mini-card1/mini-card1.component';
 import { MiniCard2Component } from './mini-card2/mini-card2.component';
 import { MiniCard3Component } from './mini-card3/mini-card3.component';
 import { MiniCard4Component } from './mini-card4/mini-card4.component';
-
+import { ViewGraphComponent } from './view-graph/view-graph.component';
+import { SuiviComponent } from './components/suivi/suivi.component';
 
 
 
@@ -138,6 +139,9 @@ import { MiniCard4Component } from './mini-card4/mini-card4.component';
     MiniCard2Component,
     MiniCard3Component,
     MiniCard4Component,
+    ViewGraphComponent,
+    SuiviComponent,
+
    
   ],
   imports: [
@@ -150,7 +154,7 @@ import { MiniCard4Component } from './mini-card4/mini-card4.component';
     MatTabsModule,MatSelectModule,MatOptionModule,
     MatFormFieldModule,MatIconModule,
     HttpClientModule,MatCheckboxModule, MatInputModule,MatCardModule,
-    MatAutocompleteModule,MatDatepickerModule,
+    MatAutocompleteModule,
     HttpClientModule,
     MaterialModule,MatProgressBarModule,
      MatDividerModule, MatTableModule,
@@ -190,7 +194,9 @@ import { MiniCard4Component } from './mini-card4/mini-card4.component';
     GoogleChartsModule.forRoot(),
        MatAutocompleteModule,
     HttpClientModule,
-    MaterialModule,MatProgressBarModule, MatDividerModule
+    MaterialModule,MatProgressBarModule, MatDividerModule,
+    MatNativeDateModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

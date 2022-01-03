@@ -42,7 +42,9 @@ export class ContactService {
   }
 
   updateContact(contact: any){
-    return this.httpClient.put<{message : string}>(`${this.SERVER_URL + '/api/contactCons'}/${contact._id}`,contact)
+    return this.httpClient.put<{message : string}>(`${this.SERVER_URL + '/api/allContacts'}/${contact._id}`,contact)
   }
+
+  
 
 }

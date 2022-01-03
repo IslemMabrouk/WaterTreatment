@@ -18,3 +18,7 @@ table,th,tr,ng-container {
 }
   th,mat-header-cell{font-weight:900;
   }
+
+  .vert{
+    background-color: rgba(0, 128, 0, 0.871);
+  }

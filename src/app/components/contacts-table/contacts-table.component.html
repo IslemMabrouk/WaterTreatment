@@ -26,10 +26,10 @@
     
   <!-- Position Column -->
   <ng-container matColumnDef="etat" >
-    <th mat-header-cell *matHeaderCellDef style="text-align: center;"><b>Etat</b> </th>
+    <th mat-header-cell *matHeaderCellDef ><b>Etat</b> </th>
     <td mat-cell *matCellDef="let element"   >
       <mat-chip-list >
-        <mat-chip style="text-align: center;"   color="{{ element.etat == 'Traitée' ? 'primary' : ( element.etat == 'En attente' ? 'warn' : 'warn' ) }}" selected >
+        <mat-chip style="text-align: center; height: 40px; width: 73px;"   color="{{ element.etat == 'Traitée' ? 'primary' : ( element.etat == 'En attente' ? 'warn' : 'warn' ) }}" selected >
           {{element.etat}}
         </mat-chip>
       </mat-chip-list>
@@ -40,11 +40,11 @@
     <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef> <b>Actions</b>  </th>
         <td mat-cell *matCellDef="let element" style="text-align: center;"  > 
-          <button mat-mini-fab color="basic" aria-label="Example icon button with a filter list icon"  *ngIf="element.etat == 'En attente'" style="margin-left: -100px;" (click)="valideContact(element,element.email)">
-            <mat-icon type="button"  style="color: green;"  >check</mat-icon>
+          <button mat-mini-fab class="vert" aria-label="Example icon button with a filter list icon" [disabled]="element.etat == 'Traitée'" style="margin-left: -100px;" (click)="valideContact(element,element.email)">
+            <mat-icon type="button"   >check</mat-icon>
           </button>
-          <button mat-mini-fab color="basic" aria-label="Example icon button with a filter list icon"  *ngIf="element.etat == 'En attente'" style="margin-left: 15px;" (click)="deleteContact(element._id,element.email)">
-            <mat-icon type="button"  color="warn"   >close</mat-icon>
+          <button mat-mini-fab color="warn" aria-label="Example icon button with a filter list icon"  [disabled]="element.etat == 'Traitée'" style="margin-left: 15px;" (click)="deleteContact(element._id,element.email)">
+            <mat-icon type="button"    >close</mat-icon>
           </button>
         </td>
       

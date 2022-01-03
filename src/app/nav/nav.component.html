@@ -20,12 +20,12 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span style="color: white;">I.M. HydroCare</span>
-
-      <button class="border border-5 rounded-circle" mat-button [matMenuTriggerFor]="belowMenu"
-        style="color: white;font-size: xx-large;background-color: rgb(255, 38, 0);border-width: thick;margin-left: 80%;height: 50px;">{{first}}</button>
+        <button class="border border-5 rounded-circle" mat-mini-fab color="warn" aria-label="Example icon button with a filter list icon" [matMenuTriggerFor]="belowMenu"  style="color: rgb(5, 0, 99);font-size: xx-large;border-width: thick;margin-left: 80%; text-align: center;" >
+          {{first}}
+        </button>
         <mat-menu #belowMenu="matMenu" yPosition="below">
           <button mat-menu-item>{{connectedUser.email}}</button>
-          <button mat-menu-item (click)="logout()">LogOut</button>
+          <button mat-button class="col-12" (click)="logout()" color="warn" >DECONNEXION</button>
         </mat-menu>
       
     </mat-toolbar>

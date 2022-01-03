@@ -21,6 +21,7 @@ import { NavComponent } from './nav/nav.component';
 import { DisplayContratComponent } from './components/display-contrat/display-contrat.component';
 import { UsersTableComponent } from './users-table/users-table.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
+import { SuiviComponent } from './components/suivi/suivi.component';
 
 
 const routes: Routes = [
@@ -51,10 +52,9 @@ children :[
   {path: 'aboutUs' , component: AboutUsComponent},
   {path: 'entretien' , component: EntretienComponent},
   {path: 'contact' , component: ContactComponent},
-  {path: 'espaceClient' , component: EspaceClientComponent},
-  
+  {path: 'espaceClient' , component: EspaceClientComponent},  
   {path: 'emailContact' , component: EmailContactComponent},
-
+  {path: 'suivi' , component: SuiviComponent},
 
   //Path Dynamique
   {path: 'displayProduct/:id' , component: DisplayProductComponent},

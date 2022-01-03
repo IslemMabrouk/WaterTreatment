@@ -39,7 +39,7 @@ export class Card3Component implements OnInit {
           if (this.mesures[i].residu < 2500) {
           r1 = r1 + 1;
             
-          } else if (this.mesures[i].residu < 2600){
+          } else if (this.mesures[i].residu < 2550){
             r2 = r2 + 1;
             
           }

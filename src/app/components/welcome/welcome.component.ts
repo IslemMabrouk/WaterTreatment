@@ -66,6 +66,7 @@ quality:any=false;
   }
 
   search(){
+    
     console.log("okkkkkk");
     
       this.mesure.searchValue = this.region;

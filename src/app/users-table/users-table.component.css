@@ -17,3 +17,6 @@ th,ng-container,mat-header-cell {
     color: blue;
   
 }
+.vert{
+  background-color: rgba(0, 128, 0, 0.871);
+}

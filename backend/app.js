@@ -500,9 +500,12 @@ app.post('/api/addMesure', (req,res)=>{
 
                 let mesure  = new Mesure({
                     region : req.body.region,
+                    date : req.body.date,
                     chlore : req.body.chlore,
                     calcaire : req.body.calcaire,
-                    residu : req.body.residu
+                    residu : req.body.residu,
+                    role : req.body.role,
+                    idClient : req.body.idClient
 
                 });
                 console.log(mesure);
@@ -846,35 +849,34 @@ app.put('/api/mycontact/:id', (req, res) => {
         }
     )
 
-    //edit contact
-    app.put('/api/contactCons/:id', (req,res) =>{
-        console.log("here in function edit contact");
-        
-        let contact = {
-            _id: req.body._id,  // Kn ma n7otouhec ya5l9 'id' jdid
-            type: req.body.type,
-            date: req.body.date,
-            etat: req.body.etat,
-            idClient: req.body.idClient,
-            email:req.body.email,
-            client : req.body.client,
-        
-        };
-        Contact.updateOne({_id : req.body._id},{etat:"Traitée"},contact).then(
-        (result)=>{
-        
-            console.log("result update", result);
-            res.status(200).json({
-                message : "edited with success"
-            });
-        }
-        
-        
-        )
-        } )
-
-
 })
+  //edit contact
+  app.put('/api/allContacts/:id', (req,res) =>{
+    console.log("here in function edit contact");
+    
+    let contact = {
+        _id: req.body._id,  // Kn ma n7otouhec ya5l9 'id' jdid
+        type: req.body.type,
+        date: req.body.date,
+        etat: req.body.etat,
+        idClient: req.body.idClient,
+        email:req.body.email,
+        client : req.body.client,
+    
+    };
+    Contact.updateOne({_id : req.body._id},{etat:"Traitée"},contact).then(
+    (result)=>{
+    
+        console.log("result update", result);
+        res.status(200).json({
+            message : "edited with success"
+        });
+    }
+    
+    
+    )
+    } )
+
 
 //Traitement de get Contact by Id
 app.get('/api/Contact/:id', (req, res) => {

@@ -33,10 +33,10 @@ export class CardComponent implements OnInit {
         let s3=0;
         
         for (let i = 0; i < this.mesures.length; i++) {
-          if (this.mesures[i].chlore < 500) {
+          if (this.mesures[i].chlore < 600) {
           s1 = s1 + 1;
             
-          } else if (this.mesures[i].chlore < 600){
+          } else if (this.mesures[i].chlore < 650){
             s2 = s2 + 1;
             
           }

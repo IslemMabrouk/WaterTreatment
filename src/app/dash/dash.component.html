@@ -1,6 +1,6 @@
 <!--dash.component.html-->
 <div class="grid-container">
-  <h1 class="mat-h1">Dashboard</h1>
+  <h1 class="mat-h1">Tableau de bord</h1>
   <mat-grid-list cols="{{ ( cardLayout | async )?.columns }}" rowHeight="200px" style="margin-top: -30px;">
     <!--Mini Cards-->
     <mat-grid-tile  [colspan]="( cardLayout | async )?.miniCard.cols"
@@ -47,8 +47,8 @@
      <!--Charts 1-->
      <mat-grid-tile  [colspan]="( cardLayout | async )?.chart.cols"
        [rowspan]="( cardLayout | async )?.chart.rows">
-       <app-card title="Chlore"> </app-card>
-     </mat-grid-tile>
+       <app-view-graph  title="Courbe"></app-view-graph>
+           </mat-grid-tile>
     
      <!--Charts 2-->
      <mat-grid-tile  [colspan]="( cardLayout | async )?.chart.cols"
