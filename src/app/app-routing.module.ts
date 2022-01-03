@@ -39,6 +39,7 @@ children :[
 
 
 },
+
   {path: '' , 
   component: Home2Component,
   children :[

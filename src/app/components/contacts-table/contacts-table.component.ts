@@ -11,6 +11,7 @@ import { EmailService } from 'src/app/services/email.service';
 })
 export class ContactsTableComponent implements OnInit {
   contacts:any=[];
+
   displayedColumns=['client', 'type', 'date','etat','actions'];
   nodeMailerForm:FormGroup;
   etat:any=false;
@@ -44,13 +45,15 @@ export class ContactsTableComponent implements OnInit {
   }
 
 
-  valideContact(contact:any,mail:any){
+  valideContact(contact:any){
       
+    console.log(contact);
+    
     // alert("Envoyer");
 
     this.contactService.updateContact(contact).subscribe((data)=>{
     
-      console.log("update", data);
+      console.log(data);
       })
       
       this.contactService.contactsAll().subscribe(

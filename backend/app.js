@@ -505,7 +505,7 @@ app.post('/api/addMesure', (req,res)=>{
                     calcaire : req.body.calcaire,
                     residu : req.body.residu,
                     role : req.body.role,
-                    idClient : req.body.idClient
+                    idClient :
 
                 });
                 console.log(mesure);
@@ -850,9 +850,11 @@ app.put('/api/mycontact/:id', (req, res) => {
     )
 
 })
-  //edit contact
+ 
+
+//edit contact
   app.put('/api/allContacts/:id', (req,res) =>{
-    console.log("here in function edit contact");
+   console.log("here in function edit contact");
     
     let contact = {
         _id: req.body._id,  // Kn ma n7otouhec ya5l9 'id' jdid

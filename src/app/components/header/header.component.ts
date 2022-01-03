@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,15 +8,23 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   connectedUser :any;
-  constructor(private router:Router) { }
+first:any;
+  constructor(private router:Router, private activatedRoute :ActivatedRoute) {
+   
+   }
 
   ngOnInit(): void {
     this.connectedUser=JSON.parse(localStorage.getItem("connectedUser") || "[]");
-
+    this.first=this.connectedUser.firstName.substr(0,1).toUpperCase();
   }
   logout(){
     localStorage.removeItem("connectedUser");
-    this.router.navigate([''])
+    window.location.reload();
+   
     }
+    editUser(id: any) {
+      this.router.navigate([`editUser/${id}`])
+  }
+  
 }
 
