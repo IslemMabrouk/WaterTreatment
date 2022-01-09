@@ -19,7 +19,7 @@ first:any;
   }
   logout(){
     localStorage.removeItem("connectedUser");
-    window.location.reload();
+    window.location.replace('')
    
     }
     editUser(id: any) {

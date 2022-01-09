@@ -52,7 +52,7 @@ export class UsersTableComponent implements OnInit {
 }
  
  add(id:any){
-  this.router.navigate([`suivi/${id}`])
+  this.router.navigate([`admin/suivi/${id}`])
 }
 
 
