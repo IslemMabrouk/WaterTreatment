@@ -255,7 +255,57 @@ app.get('/api/allProducts/:id', (req, res) =>{
         }
     )
 })
+// traitement edit Product
 
+app.put('/api/allProducts/:id', multer({ storage: storage }).single('img'), (req,res) =>{
+    console.log("here in function edit product");
+   
+    let url = req.protocol + '://' + req.get('host');
+
+    let product = {
+        _id :req.body._id,
+        type: req.body.type,
+        price: req.body.price,
+        volume: req.body.volume,
+        pression:req.body.pression,
+        economie: req.body.economie,
+        conception :req.body.conception,
+        list: req.body.list,
+        description: req.body.description,
+        role : req.body.role,
+        img: req.body.img
+    
+    };
+    Product.updateOne({_id : req.body._id},product).then(
+    (result)=>{
+    
+        console.log("result update", result);
+        res.status(200).json({
+            message : "edited with success"
+        });
+    }
+    
+    
+    )
+    } )
+// traitement de delete Product
+app.delete('/api/allProducts/:id', (req, res) => {
+    let id = req.params.id;
+    console.log("here in fucntion delete product");
+
+    Product.deleteOne({_id:id}).then(
+        (result) => {
+            console.log("delete result", result);
+
+            if (result) {
+                // success
+                res.status(200).json({
+                    message: "Product deleted with success"
+                })
+            }
+
+        })
+})
 //:::::::::::::::::::::::::::::::::::::::::::::::::://
 //:::::::::::::::::CRUD Users::::::::::::::::::::::://
 //:::::::::::::::::::::::::::::::::::::::::::::::::://
