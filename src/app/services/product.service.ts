@@ -54,5 +54,12 @@ getProdcut(productID){
   return this.httpClient.get<{product:any}>(`${this.SERVER_URL + '/api/allProducts'}/${productID}`);
 
 }
+editProduct(product:any){
+  return this.httpClient.put<{message:string}>(`${this.SERVER_URL + '/api/allProducts'}/${product._id}`,product)
+}
+
+deleteProduct(productId){
+  return this.httpClient.delete<{message:any}>(`${this.SERVER_URL + '/api/allProducts'}/${productId}`)
+}
 
 }
