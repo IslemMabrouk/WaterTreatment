@@ -30,7 +30,7 @@ const routes: Routes = [
 children :[
   {path: 'addProduct' , component: AddProductComponent },
   {path: 'editProduct/:id' , component: AddProductComponent },
-  
+  {path: 'suivi/:id' , component: SuiviComponent},
   {path: 'dashboard' , component: DashComponent},
   {path: 'addAdmin' , component: AddAdminComponent},
   {path: 'addMesure' , component: AddMesureComponent},  
@@ -55,7 +55,7 @@ children :[
   {path: 'contact' , component: ContactComponent},
   {path: 'espaceClient' , component: EspaceClientComponent},  
   {path: 'emailContact' , component: EmailContactComponent},
-  {path: 'suivi' , component: SuiviComponent},
+
 
   //Path Dynamique
   {path: 'displayProduct/:id' , component: DisplayProductComponent},
