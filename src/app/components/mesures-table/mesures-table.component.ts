@@ -11,7 +11,9 @@ export class MesuresTableComponent implements OnInit {
   displayedColumns=['region',  'chlore', 'calcaire', 'residu', 'actions'];
 mesures:any=[];
   
-  constructor(private activatedRoute : ActivatedRoute, private router :Router,private mesureService :MesureService) { }
+  constructor(private activatedRoute : ActivatedRoute, 
+              private router :Router,
+              private mesureService :MesureService) { }
 
   ngOnInit(): void {
     this.mesureService.getAllMesures().subscribe(
@@ -22,8 +24,28 @@ mesures:any=[];
   
   });
 
-
-
   }
+
+
+deleteMesure(id:any){
+  console.log(id);
+
+  this.mesureService.deleteMesure(id).subscribe(
+    (data) => {
+      console.log(data.message);
+      this.mesureService.getAllMesures().subscribe(
+        (data) => {
+          this.mesures = data.mesures;
+        });
+      
+    });
+  
+
+}
+
+editMesure(id:any){
+  this.router.navigate([`editMesure/${id}`])
+}
+
 
 }

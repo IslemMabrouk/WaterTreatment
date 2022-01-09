@@ -495,19 +495,20 @@ app.post("/api/contrat" , (req,res) =>{
 //:::::::::::::::::::::::::::::::::::::::::::::::::://
 
 //traitement addMesure
-app.post('/api/addMesure', (req,res)=>{
+app.post('/api/mesure', (req,res)=>{
     console.log('Here in function addMesure');
 
                 let mesure  = new Mesure({
                     region : req.body.region,
+                    annee : req.body.annee,
                     date : req.body.date,
                     chlore : req.body.chlore,
                     calcaire : req.body.calcaire,
                     residu : req.body.residu,
                     role : req.body.role,
-                    idClient :
+                    idClient : req.body.idClient
 
-                });
+                })
                 console.log(mesure);
 
                 //Etape2
@@ -521,7 +522,7 @@ app.post('/api/addMesure', (req,res)=>{
 });
 
 //Traitement All Mesures
-app.get('/api/AllMesures', (req, res) => {
+app.get('/api/mesure', (req, res) => {
     console.log("Here in function get All Mesures");
 
     //Etape 1
@@ -537,6 +538,72 @@ app.get('/api/AllMesures', (req, res) => {
     })
 
 })
+
+//Traitement de delete Mesure
+app.delete('/api/mesure/:id', (req,res)=>{
+    console.log('Here in function delete mesure');
+
+    let id = req.params.id;
+    console.log("Mesure id to delete:", id);
+
+    Mesure.deleteOne({_id : id}).then(
+        (result)=>{
+            console.log("delete result", result);
+
+            if (result) {
+                res.status(200).json({
+                  message: "Mesure deleted with success"
+                })
+            }
+        }
+    )
+})
+
+//Traitement de get Mesure by Id
+app.get('/api/mesure/:id', (req,res)=>{
+    console.log('Here in Mesure get by ID');
+
+    let id = req.params.id;
+    console.log('id Mesure by id', id);
+
+    Mesure.findOne({_id : id}).then(
+        (doc)=>{
+            console.log('finded mesure', doc);
+            res.status(200).json({
+                mesure:doc
+            })
+        }
+    )
+
+})
+
+//Traitement edit Mesure 
+app.put('/api/mesure/:id', (req,res) =>{
+    console.log("here in function edit Mesure");
+    
+    let mesure = {
+        region : req.body.region,
+        date : req.body.date,
+        chlore : req.body.chlore,
+        calcaire : req.body.calcaire,
+        residu : req.body.residu,
+        role : req.body.role,
+        idClient : req.body.idClient
+    
+    
+    };
+    Mesure.updateOne({_id : req.body._id}, mesure).then(
+    (result)=>{
+    
+        console.log("result update", result);
+        res.status(200).json({
+            message : "edited with success"
+        });
+    }
+    
+    
+    )
+    })
 
 //Traitement de search Mesure
 app.post('/api/search', (req, res) => {
@@ -675,26 +742,6 @@ app.delete('/api/demande/:id', (req,res)=>{
     )
 })
 
-
-  //Traitement get demande by ID
-app.get('/api/AllDemandes/:id', (req,res)=>{
-    console.log('Here in Deamande get by ID');
-
-    let id = req.params.id;
-    console.log('id contrat by id', id);
-
-    Demande.findOne({_id : id}).then(
-        (doc)=>{
-            console.log('finded contrat', doc);
-            res.status(200).json({
-                demande:doc
-            })
-        }
-    )
-
-})
-
-
     //Traitement get demande by ID
     app.get('/api/AllDemandes/:id', (req, res) =>{
         console.log('Here in demande get by ID');
@@ -715,7 +762,6 @@ app.get('/api/AllDemandes/:id', (req,res)=>{
 
 
 // traitement edit demande
-
 app.put('/api/AllDemandes/:id', (req,res) =>{
     console.log("here in function edit demande");
     
@@ -921,8 +967,6 @@ app.delete('/api/allContacts/:id', (req, res) => {
             }
 
         })
-
-
 })
 
 

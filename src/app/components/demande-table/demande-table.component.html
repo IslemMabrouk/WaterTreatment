@@ -40,10 +40,10 @@
         <th mat-header-cell *matHeaderCellDef> Actions </th>
         <td mat-cell *matCellDef="let element" style="text-align: center;"  > 
           <button mat-mini-fab class="vert" aria-label="Example icon button with a filter list icon" [disabled]="element.etat == 'Traitée'" style="margin-left: -20px;"  (click)="sendEmail(element,element.email)">
-            <mat-icon type="button"   >check</mat-icon>
+            <mat-icon type="button" (click)="sendEmail(element,element.email)"   >check</mat-icon>
           </button>
           <button mat-mini-fab  color="warn" aria-label="Example icon button with a filter list icon"  [disabled]="element.etat == 'Traitée'" style="margin-left: 15px;" (click)="deletedemande(element._id,element.email)">
-            <mat-icon type="button"    >close</mat-icon>
+            <mat-icon type="button" (click)="deletedemande(element._id,element.email)"    >close</mat-icon>
           </button>
         </td>
       </ng-container>

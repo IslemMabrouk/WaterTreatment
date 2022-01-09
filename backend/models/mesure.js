@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const mesureSchema = mongoose.Schema({
     region : String,
+    annee : String,
     date :Date,
     chlore : String,
     calcaire : String,

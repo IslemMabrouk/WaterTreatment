@@ -4,15 +4,15 @@
         <div class="row align-items-center">
             <div class="col-auto d-none d-lg-block"><span
                     class="fa fa-map-marker color-warning fw-800 icon-position-fix"></span>
-                <p class="ml-2 mb-0 fs--1 d-inline color-white fw-700">1010 Avenue, New York, NY 10018 US. </p>
+                <p class="ml-2 mb-0 fs--1 d-inline color-white fw-700">Tunis, Tunisie </p>
             </div>
             <div class="col-auto ml-md-auto order-md-2 d-none d-sm-block"><span
                     class="fa fa-clock-o color-warning fw-800 icon-position-fix"></span>
-                <p class="ml-2 mb-0 fs--1 d-inline color-white fw-700">Mon-Sat, 8.00-18.00. Sunday CLOSED</p>
+                <p class="ml-2 mb-0 fs--1 d-inline color-white fw-700">Lun-Ven, 8.00-18.00</p>
             </div>
             <div class="col-auto"><span class="fa fa-phone color-warning fw-800 icon-position-fix"></span><a
-                    class="ml-2 mb-0 fs--1 d-inline color-white fw-700" href="tel:2123865575">212 386 5575, 212
-                    386 5576</a></div>
+                    class="ml-2 mb-0 fs--1 d-inline color-white fw-700" href="">+216 50 989 783 / +216 50 956 665
+                    </a></div>
         </div>
         <!--/.row-->
     </div>
@@ -32,13 +32,11 @@
                     <li> <a href="" style="width: 76px;"> Accueil</a> </li>
                     <li> <a href="" routerLink="adoucisseurs" style="width: 130px;"> Adoucisseurs </a> </li>
                     <li> <a href="" style="width: 130px;" routerLink="purificateurs"> Purificateurs </a> </li>
-                    <li ><a class="d-block mr-md-9"  style="width: 50px;" routerLink="entretien">Entretien</a></li>
-                    <!-- <li *ngIf="connectedUser!='' && connectedUser.role=='client' ">  <a   routerLink="espace-client" >Mes Demandes</a> </li>
-                    <li *ngIf="connectedUser!=''"  >  <a type="button" (click)="logout()"  >LogOut</a> </li>
-                     -->
-               
+                    <li> <a class="d-block mr-md-9"  style="width: 50px;" routerLink="entretien">Entretien</a></li>
+                
                     <li [hidden]="connectedUser"><a  class="btn btn-outline-primary btn-capsule btn-sm border-2x fw-700" href=""  routerLink="registration"  ><strong> Inscription </strong></a></li>
-                    <li><button class="btn btn-outline-warning " type="submit" style="border-radius:50px; height: 35px; margin-left: 50px;"> <h6 style="margin-top:-6px; font-size: 14px;" routerLink="contact"> <strong>Contact</strong> </h6> </button></li>
+                    <li> 
+                        <button  class="btn btn-outline-warning " type="submit" style="border-radius:50px; height: 35px; margin-left: 50px;"> <h6 style="margin-top:-6px; font-size: 14px;" routerLink="contact"> <strong>Contact</strong> </h6> </button></li>
                                 
                 
 
@@ -46,13 +44,14 @@
             
                 
                   <ul *ngIf="connectedUser!=''"   style="margin-left: 210px;margin-top: 10px;" >
-                    <li> <button class="border border-5 rounded-circle" mat-button [matMenuTriggerFor]="afterMenu" type="button"
-                        style="color: white;font-size: xx-large;background-color: rgb(243, 104, 12);border-color: black;margin-left: 80%;height: 50px;">{{first}}</button>
+                    <li> <button class="border border-5 rounded-circle" mat-mini-fab color="warn"  [matMenuTriggerFor]="afterMenu" type="button"
+                        style="color: white;font-size: xx-large;border-width: thick;margin-left: 80%; text-align: center;">{{first}}
+                    </button>
                         <mat-menu #afterMenu="matMenu" xPosition="after" >
                           <button mat-menu-item style="padding: 60px;"><strong>{{connectedUser.email}}</strong> </button>
                           <button mat-menu-item routerLink="espaceClient">Mon espace Client</button>
                           <button mat-menu-item (click)="editUser(connectedUser._id)" >Mes coordonnées</button>
-                          <button mat-menu-item (click)="logout()">Se deconnecter</button>
+                          <button mat-button class="col-12" (click)="logout()" color="warn" >DECONNEXION</button>
                         </mat-menu>
                         
                        </li>
@@ -65,3 +64,4 @@
         </nav>
     </div>
 </div>
+

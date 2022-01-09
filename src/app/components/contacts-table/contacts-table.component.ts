@@ -45,7 +45,7 @@ export class ContactsTableComponent implements OnInit {
   }
 
 
-  valideContact(contact:any){
+  valideContact(contact:any, mail){
       
     console.log(contact);
     
@@ -67,15 +67,15 @@ export class ContactsTableComponent implements OnInit {
     let email  = mail;
 
     
-    // let reqObj = {
-    //   email:email,
-    //   sub : 'RDV-HydroCare',
-    //   resp : 'HydroCare vous informe que votre demande a été confirmé, un conseiller HydroCare vous contactera au date de RDV .'
-    // }
-    // this.emailService.sendMessage(reqObj).subscribe(data=>{
-    //   console.log(data);
-    // })
-//
+    let reqObj = {
+      email:email,
+      sub : 'RDV-HydroCare',
+      resp : 'HydroCare vous informe que votre demande a été confirmé, un conseiller HydroCare vous contactera au date de RDV .'
+    }
+    this.emailService.sendMessage(reqObj).subscribe(data=>{
+      console.log(data);
+    })
+
 
 
 

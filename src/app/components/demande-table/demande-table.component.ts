@@ -61,8 +61,6 @@ export class DemandeTableComponent implements OnInit {
   sendEmail(demande:any,mail:any){
   
     
-    alert("Envoyer");
-
     this.demandeService.updateDemande(demande).subscribe((data)=>{
     
       console.log("update", data);

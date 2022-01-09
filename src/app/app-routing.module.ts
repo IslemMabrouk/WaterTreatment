@@ -19,7 +19,6 @@ import { DashComponent } from './dash/dash.component';
 import { Home2Component } from './home2/home2.component';
 import { NavComponent } from './nav/nav.component';
 import { DisplayContratComponent } from './components/display-contrat/display-contrat.component';
-import { UsersTableComponent } from './users-table/users-table.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { SuiviComponent } from './components/suivi/suivi.component';
 
@@ -66,7 +65,7 @@ children :[
 
   {path: 'addContrat' , component: AddContratComponent},
   {path: 'editContact/:id' , component: ContactComponent},
-
+  {path : 'editMesure/:id', component: AddMesureComponent},
   { path: '**', redirectTo: '' },
 
   ],

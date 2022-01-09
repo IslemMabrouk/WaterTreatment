@@ -15,6 +15,9 @@ export class ViewGraphComponent implements OnInit {
   mesures:any;
   suivi:any=[];
   date:any=[];
+  data : any;
+  highchart : any;
+  
 
   public options: any = {
     chart: {
@@ -27,11 +30,11 @@ export class ViewGraphComponent implements OnInit {
       text: 'Source: WorldClimate.com'
     },
     xAxis: {
-      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+      categories: this.date
     },
     yAxis: {
       title: {
-        text: 'Temperature (°C)'
+        text: 'Concentration (mg/l)'
       }
     },
     plotOptions: {
@@ -44,14 +47,14 @@ export class ViewGraphComponent implements OnInit {
     },
     series: [{
       name: '',
-      data: this.suivi[0]
+      data: this.suivi
+      
     }]
   };
 
   constructor(private mesureService : MesureService) { }
 
   ngOnInit() {
-     Highcharts.chart('container', this.options);
  
  
      this.mesureService.getAllMesures().subscribe(
@@ -60,8 +63,8 @@ export class ViewGraphComponent implements OnInit {
         for (let i = 0; i < this.mesures.length; i++) {
            if (this.mesures[i].role=="suivi") {
              this.date.push(this.mesures[i].date);
-             
-             this.suivi.push( Number (this.mesures[i].chlore))
+             this.suivi.push( Number (this.mesures[i].chlore));
+             Highcharts.chart('container', this.options);
 
            }
           
@@ -74,6 +77,8 @@ export class ViewGraphComponent implements OnInit {
   
 
   });
+  
+
   
  
     }

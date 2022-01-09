@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup ,FormControl } from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import { MesureService } from 'src/app/services/mesure.service';
@@ -25,14 +26,32 @@ export class AddMesureComponent implements OnInit {
   messageadd:any;
   filterValue:any;
   status:any;
+  id:any;
+  title:any;
   constructor( private formbuilder :FormBuilder,
                private mesureService : MesureService,
+               private router : Router,
+               private activatedRoute : ActivatedRoute,
                ) { }
 
   ngOnInit(): void {
 
+    this.id = this.activatedRoute.snapshot.paramMap.get('id');
+    if (this.id) {
+      //edit
+      this.title = 'Edit Mesure';
+
+      this.mesureService.getmesureId(this.id).subscribe((data) => {
+        this.mesure = data.mesure;
+      });
+    } else {
+      //add
+      this.title = 'Ajouter les Mesures';
+    }
+
         this.addMesureForm = this.formbuilder.group({
       region:[''],
+      annee:[''],
       chlore:[''],
       calcaire:[''],
       residu:['']
@@ -70,16 +89,23 @@ selectedclient(event) {
 
 
   addMesure(){
+    if (this.id) {
+      this.mesureService.updateMesure(this.mesure).subscribe(
+        (data) => {
+        console.log(data.message);
+        this.router.navigate([`admin/dash`])
+      });
+    } else {
 this.mesure.region = this.region;
 console.log(this.mesure.region);
    
    this.mesureService.addMesure(this.mesure).subscribe(
      (data) => {
        console.log(data.message);
-     }
-   )
+     })
 
   }
+}
 
   }
 
