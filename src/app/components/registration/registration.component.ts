@@ -72,7 +72,7 @@ login(){
           
           case 'client':
               this.router.navigate(['']);
-              window.location.reload();
+              window.location.replace('');
            
              break;
             
