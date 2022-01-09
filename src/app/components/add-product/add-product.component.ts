@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -16,6 +16,7 @@ export class AddProductComponent implements OnInit {
 product : any={};
 addAdoucisseurForm: FormGroup;
 addPurificateurForm: FormGroup;
+
 id : any;
 users : any;
 title : string;
@@ -24,11 +25,22 @@ imagePreview : any;
 p:any=[];
 
   constructor( private fb : FormBuilder,
-               private productService : ProductService,
+               private productService : ProductService, private router :Router,private activatedRoute :ActivatedRoute
            ) { }
 
   ngOnInit(): void {
+    this.id = this.activatedRoute.snapshot.paramMap.get('id');
+    if (this.id) {
+      //edit
+      this.title = 'Edit Product';
 
+      this.productService.getProdcut(this.id).subscribe((data) => {
+        this.product = data.product;
+      });
+    } else {
+      //add
+      this.title = 'Ajouter un Produit';
+    }
     this.getComposant();
 
     this.addAdoucisseurForm = this.fb.group({
@@ -77,7 +89,17 @@ p:any=[];
 
     
     addAdoucisseur(){    
-           
+      if (this.id && this.product.role=='Adoucisseur' ) {
+        this.productService.editProduct(this.product).subscribe(
+          (data)=>{
+            console.log(data.message);
+            this.messageAdd = data.message;
+          }
+        )
+        
+      } else {
+        
+        
       this.product.role = 'Adoucisseur';
       this.productService.addAdoucisseur(this.product, this.addAdoucisseurForm.value.img).subscribe(
         (data) => {
@@ -85,9 +107,28 @@ p:any=[];
           this.messageAdd = data.message;
         }
       )
-    }
+    }}
 
     addPurificateur(){
+if (this.id && this.product.role=='Purificateur') {
+  this.product.list =this._composantList.filter(x=>x.isselected==true).map(x=>x.name).join(";").toString();
+  this.productService.editProduct(this.product).subscribe(
+    (data)=>{
+      
+
+      console.log(data.message);
+      this.messageAdd = data.message;
+    }
+  )
+
+
+} else {
+  
+}
+
+
+
+
       this.product.list =this._composantList.filter(x=>x.isselected==true).map(x=>x.name).join(";").toString();
 
       this.product.role = 'Purificateur';

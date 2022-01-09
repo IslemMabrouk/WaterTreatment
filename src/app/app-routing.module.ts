@@ -29,6 +29,7 @@ const routes: Routes = [
   component : NavComponent ,
 children :[
   {path: 'addProduct' , component: AddProductComponent },
+  {path: 'editProduct/:id' , component: AddProductComponent },
   
   {path: 'dashboard' , component: DashComponent},
   {path: 'addAdmin' , component: AddAdminComponent},
