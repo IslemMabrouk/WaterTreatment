@@ -62,7 +62,7 @@ export class ViewGraphComponent implements OnInit {
       this.mesures =data.mesures;
         for (let i = 0; i < this.mesures.length; i++) {
            if (this.mesures[i].role=="suivi") {
-             this.date.push(this.mesures[i].date);
+             this.date.push(this.mesures[i].date.split("T")[0]);
              this.suivi.push( Number (this.mesures[i].chlore));
              Highcharts.chart('container', this.options);
 
