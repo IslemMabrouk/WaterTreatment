@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import * as Highcharts from 'highcharts';
 import { MesureService } from '../services/mesure.service';
+import { UserService } from '../services/user.service';
 
 declare var require: any;
 
@@ -13,21 +15,24 @@ declare var require: any;
 export class ViewGraphComponent implements OnInit {
   @Input() title: string;
   mesures:any;
-  suivi:any=[];
+  suiviChlore:any=[];
+  suiviCalcaire:any=[];
+  suiviResidu:any=[];
   date:any=[];
   data : any;
   highchart : any;
-  
+  id:any;
+  user:any;
+  clientName:string;
 
   public options: any = {
     chart: {
       type: 'line'
     },
     title: {
-      text: 'Monthly Average Temperature'
+      text: 'Suivi des Traitements'
     },
     subtitle: {
-      text: 'Source: WorldClimate.com'
     },
     xAxis: {
       categories: this.date
@@ -46,34 +51,51 @@ export class ViewGraphComponent implements OnInit {
       }
     },
     series: [{
-      name: '',
-      data: this.suivi
-      
-    }]
+      name: 'Chlore',
+      data: this.suiviChlore
+  },
+  {
+    name: 'Calcaire',
+    data: this.suiviCalcaire
+    
+  },
+  {
+    name: 'Résidu sec',
+    data: this.suiviResidu
+    
+  }]
   };
 
-  constructor(private mesureService : MesureService) { }
+  constructor(private mesureService : MesureService,
+              private activatedRoute : ActivatedRoute,
+              private userService : UserService) { }
 
   ngOnInit() {
  
- 
+    this.id = this.activatedRoute.snapshot.paramMap.get('id');
+    
+    this.userService.getUserId(this.id).subscribe(
+      (data)=>{
+        this.user = data.user
+        this.clientName = this.user.firstName + ' ' + this.user.lastName
+        Highcharts.chart('container', this.options);
+
+      }
+    )
+
      this.mesureService.getAllMesures().subscribe(
       (data)=>{
       this.mesures =data.mesures;
         for (let i = 0; i < this.mesures.length; i++) {
-           if (this.mesures[i].role=="suivi") {
+           if ((this.mesures[i].role=="suivi") && (this.mesures[i].idClient==this.id) ) {
              this.date.push(this.mesures[i].date.split("T")[0]);
-             this.suivi.push( Number (this.mesures[i].chlore));
-             Highcharts.chart('container', this.options);
-
+             this.suiviChlore.push( Number (this.mesures[i].chlore));
+             this.suiviCalcaire.push( Number (this.mesures[i].calcaire));
+             this.suiviResidu.push( Number (this.mesures[i].residu));
            }
-          
         }
-      
-  console.log( this.suivi);
-  console.log( this.date);
+        Highcharts.chart('container', this.options);
 
-  console.log(this.options.series);
   
 
   });

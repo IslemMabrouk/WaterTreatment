@@ -556,7 +556,8 @@ app.post('/api/mesure', (req,res)=>{
                     calcaire : req.body.calcaire,
                     residu : req.body.residu,
                     role : req.body.role,
-                    idClient : req.body.idClient
+                    idClient : req.body.idClient,
+                    client : req.body.client
 
                 })
                 console.log(mesure);

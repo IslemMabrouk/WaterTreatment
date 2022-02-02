@@ -45,10 +45,13 @@
   <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef> Actions </th>
       <td mat-cell *matCellDef="let element"> 
-        <button mat-mini-fab color="basic" aria-label="Example icon button with a filter list icon" *ngIf="element.role=='admin'"  (click)="editUser(element._id)" style="margin-left: -20px; margin-right: 10px;" >
+        <button mat-mini-fab color="basic" aria-label="Example icon button with a filter list icon" *ngIf="element.role=='admin'"  (click)="editUser(element._id)" style="margin-left: -44px; margin-right: 10px;" >
           <mat-icon type="button"  color="green" >edit</mat-icon>
         </button>
-        <button mat-mini-fab class="vert" aria-label="Example icon button with a filter list icon" *ngIf="element.role=='client'"  (click)="add(element._id)" style="margin-left: -20px; margin-right: 10px;" >
+        <button mat-mini-fab class="yellow" aria-label="Example icon button with a filter list icon" *ngIf="element.role=='client'"  (click)="suivi(element._id)" style="margin-left: -60px; margin-right: 5px;" >
+          <mat-icon type="button"  color="green" >bar_chart</mat-icon>
+        </button>
+        <button mat-mini-fab class="vert" aria-label="Example icon button with a filter list icon" *ngIf="element.role=='client'"  (click)="add(element._id)" style="margin-right: 5px;"  >
           <mat-icon type="button"  color="green" >add</mat-icon>
         </button>
         <button mat-mini-fab color="warn" aria-label="Example icon button with a filter list icon"  (click)="deleteUser(element._id)" >

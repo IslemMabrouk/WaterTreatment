@@ -15,6 +15,8 @@ export class CardComponent implements OnInit {
       ['Eau Douce', 0],
       ['Médiocre', 0],
     ];
+    
+    
   
   
     mesures:any;
@@ -22,6 +24,7 @@ export class CardComponent implements OnInit {
   constructor( private mesureService : MesureService) { }
 
   ngOnInit(): void {
+
     this.mesureService.getAllMesures().subscribe(
       (data) =>{
         console.log('Mesures from data');
@@ -53,6 +56,7 @@ export class CardComponent implements OnInit {
 
       }
     )
+    
   }
 
 }

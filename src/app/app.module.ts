@@ -93,7 +93,11 @@ import { MiniCard3Component } from './mini-card3/mini-card3.component';
 import { MiniCard4Component } from './mini-card4/mini-card4.component';
 import { ViewGraphComponent } from './view-graph/view-graph.component';
 import { SuiviComponent } from './components/suivi/suivi.component';
-
+import { AuthGuard } from './services/authGard';
+import { AuthService } from './services/auth.service';
+import { RoleGuard } from './services/role.guard';
+import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
+import {GoogleLoginProvider,FacebookLoginProvider} from 'angularx-social-login';
 
 
 
@@ -141,8 +145,7 @@ import { SuiviComponent } from './components/suivi/suivi.component';
     MiniCard3Component,
     MiniCard4Component,
     ViewGraphComponent,
-    SuiviComponent,
-
+    SuiviComponent
    
   ],
   imports: [
@@ -196,10 +199,33 @@ import { SuiviComponent } from './components/suivi/suivi.component';
        MatAutocompleteModule,
     HttpClientModule,
     MaterialModule,MatProgressBarModule, MatDividerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    SocialLoginModule
 
   ],
-  providers: [],
+  providers: [AuthGuard,AuthService,RoleGuard,
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '1039286714726-4ft6vjnvmv2usm2ugl9690rv9gbi18hv.apps.googleusercontent.com'
+            )
+          },
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider('clientId')
+          }
+        ],
+        onError: (err) => {
+          console.error(err);
+        }
+      } as SocialAuthServiceConfig,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,6 +4,10 @@ import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { MustMatch } from '../confirmPwd';
 
+//Social Login
+import { SocialAuthService, SocialUser } from "angularx-social-login";
+import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
+
 
 
 @Component({
@@ -19,10 +23,23 @@ export class RegistrationComponent implements OnInit {
   findedUser: any;
   error:any;
   messageAdd:any;
+  userSocial: SocialUser;
+  loggedIn: boolean;
   constructor(private fb :FormBuilder,
-              private userService :UserService, private router : Router) { }
+              private userService :UserService, private router : Router,
+              private authService: SocialAuthService) { }
 
   ngOnInit(): void {
+
+    this.authService.authState.subscribe((user) => {      
+      this.userSocial = user;
+      this.loggedIn = (user != null);
+      console.log(user);
+      localStorage.setItem("connectedUser", JSON.stringify(this.userSocial));
+
+
+    });
+
     this.signupForm = this.fb.group({
       firstName : ['',[Validators.minLength(3),Validators.required]],
       lastName : ['',[Validators.minLength(5),Validators.required]],
@@ -43,6 +60,7 @@ export class RegistrationComponent implements OnInit {
       password: [""],
     }); 
   }
+
   signup(s:any){
   
     s.role="client";
@@ -89,6 +107,24 @@ login(){
   
   }
 
+
+  signInWithGoogle(): void {
+    
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+    this.userService.addUser(GoogleLoginProvider).subscribe(
+      (data)=>{
+        this.messageAdd = data.message;
+        console.log(data);
+      })
+  }
+
+  signInWithFB(): void {
+    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
+  }
+
+  signOut(): void {
+    this.authService.signOut();
+  }
 
 
 }

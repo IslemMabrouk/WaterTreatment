@@ -55,5 +55,8 @@ export class UsersTableComponent implements OnInit {
   this.router.navigate([`admin/suivi/${id}`])
 }
 
+suivi(id:any){
+  this.router.navigate([`admin/viewGraph/${id}`])
+}
 
 }

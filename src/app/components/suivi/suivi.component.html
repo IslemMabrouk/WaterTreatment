@@ -4,7 +4,7 @@
             <div class="col-lg-8">
                 <mat-card>
                 <div class=" border-color-9 p-3 p-sm-6 radius-secondary">
-                    <h3 class="text-center fs-2 fs-md-3">Ajouter les Mesures</h3>
+                    <h3 class="text-center fs-2 fs-md-3">Suivi de traitement</h3>
                     <hr class="short"
                         data-zanim='{"from":{"opacity":0,"width":0},"to":{"opacity":2,"width":"4.20873rem"},"duration":0.8}'
                         data-zanim-trigger="scroll" />
@@ -17,7 +17,7 @@
                                 
                                     <div class="form-group col-md-12">
 
-                                        <mat-form-field>
+                                        <mat-form-field appearance="fill" class="col-md-12">
                                             <mat-label>Date d'analyse</mat-label>
                                             <input matInput [matDatepicker]="dob" [(ngModel)]="date" [ngModelOptions]="{standalone:true}">
                                             <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>

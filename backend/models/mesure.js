@@ -7,7 +7,8 @@ const mesureSchema = mongoose.Schema({
     calcaire : String,
     residu : String,
     role :String,
-    idClient:String
+    idClient:String,
+    client:String
 
 
 });

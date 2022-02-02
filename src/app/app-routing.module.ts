@@ -21,19 +21,27 @@ import { NavComponent } from './nav/nav.component';
 import { DisplayContratComponent } from './components/display-contrat/display-contrat.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { SuiviComponent } from './components/suivi/suivi.component';
+import { ViewGraphComponent } from './view-graph/view-graph.component';
+import { AuthGuard } from './services/authGard';
+import { RoleGuard } from './services/role.guard';
 
 
 const routes: Routes = [
   // {path: '' , component : HomeComponent}  ,
   {path: 'admin' , 
-  component : NavComponent ,
+  component : NavComponent , canActivate: [RoleGuard] ,
 children :[
   {path: 'addProduct' , component: AddProductComponent },
   {path: 'editProduct/:id' , component: AddProductComponent },
   {path: 'suivi/:id' , component: SuiviComponent},
   {path: 'dashboard' , component: DashComponent},
   {path: 'addAdmin' , component: AddAdminComponent},
-  {path: 'addMesure' , component: AddMesureComponent},  
+  {path: 'addMesure' , component: AddMesureComponent},
+  {path : 'editMesure/:id', component: AddMesureComponent},
+  {path: 'viewGraph/:id' , component: ViewGraphComponent},
+  {path: 'addContrat' , component: AddContratComponent},
+  {path: 'editContact/:id' , component: ContactComponent},
+
   { path: '**', redirectTo: '' },
 ], 
 
@@ -52,21 +60,19 @@ children :[
   {path: 'purificateurs' , component: PurificateursComponent},
   {path: 'aboutUs' , component: AboutUsComponent},
   {path: 'entretien' , component: EntretienComponent},
-  {path: 'contact' , component: ContactComponent},
-  {path: 'espaceClient' , component: EspaceClientComponent},  
-  {path: 'emailContact' , component: EmailContactComponent},
+  {path: 'contact' , component: ContactComponent, canActivate: [AuthGuard] },
+  {path: 'espaceClient' , component: EspaceClientComponent, canActivate: [AuthGuard] },  
+  // {path: 'emailContact' , component: EmailContactComponent},
 
 
   //Path Dynamique
-  {path: 'displayProduct/:id' , component: DisplayProductComponent},
+  {path: 'displayProduct/:id' , component: DisplayProductComponent, canActivate: [AuthGuard]},
   { path: 'validation/achat/:id' , component: ValidationDemandeComponent},
   { path: 'validation/devis/:id' , component: ValidationDemandeComponent},
    {path: 'displayContrat/:id' , component:DisplayContratComponent },
    {path: 'editUser/:id', component: AddAdminComponent},
+   {path: 'suviTrait/:id' , component: ViewGraphComponent},
 
-  {path: 'addContrat' , component: AddContratComponent},
-  {path: 'editContact/:id' , component: ContactComponent},
-  {path : 'editMesure/:id', component: AddMesureComponent},
   { path: '**', redirectTo: '' },
 
   ],

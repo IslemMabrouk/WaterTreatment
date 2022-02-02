@@ -21,7 +21,7 @@
 <div class="znav-white znav-container sticky-top navbar-elixir" id="znav-container">
     <div class="container">
         <nav class="navbar navbar-expand-lg"><a class="navbar-brand overflow-hidden pr-3" href="index.html" ><img
-                    src="assets/images/logo-dark.png"  alt="" /></a><button class="navbar-toggler" type="button"
+                    src="assets/images/logo-dark.png" width="130px"  alt="" /></a><button class="navbar-toggler" type="button"
                 data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
                 aria-expanded="false" aria-label="Toggle navigation">
                 
@@ -45,12 +45,13 @@
                 
                   <ul *ngIf="connectedUser!=''"   style="margin-left: 210px;margin-top: 10px;" >
                     <li> <button class="border border-5 rounded-circle" mat-mini-fab color="warn"  [matMenuTriggerFor]="afterMenu" type="button"
-                        style="color: white;font-size: xx-large;border-width: thick;margin-left: 80%; text-align: center;">{{first}}
+                        style="color: white;font-size: large;border-width: thick;margin-left: 80%; text-align: center;">{{first}}
                     </button>
                         <mat-menu #afterMenu="matMenu" xPosition="after" >
                           <button mat-menu-item style="padding: 60px;"><strong>{{connectedUser.email}}</strong> </button>
-                          <button mat-menu-item routerLink="espaceClient">Mon espace Client</button>
-                          <button mat-menu-item (click)="editUser(connectedUser._id)" >Mes coordonnées</button>
+                          <button mat-menu-item routerLink="espaceClient">Mon Espace Client</button>
+                          <button mat-menu-item (click)="editUser(connectedUser._id)" >Mes Coordonnées</button>
+                          <button mat-menu-item (click)="suivi(connectedUser._id)" >Suivi des Traitements</button>
                           <button mat-button class="col-12" (click)="logout()" color="warn" >DECONNEXION</button>
                         </mat-menu>
                         
