@@ -8,8 +8,13 @@
                 <mat-card-title style="margin-top: 25px;">
                  Client : {{clientName}}
                 </mat-card-title>
-                <mat-card-content class="dashboard-card-content"  >
-                  <figure class="highcharts-figure">
+                <mat-card-content class="dashboard-card-content" >
+                 
+                  <div *ngIf="suivi" style="margin-top: 50px; font-size: 17px;">  
+                    Vous n'avez aucun traitement à suivre
+                  </div>
+
+                  <figure *ngIf="!suivi" class="highcharts-figure">
                     <div id="container"></div>
                     <p class="highcharts-description">
                     </p>

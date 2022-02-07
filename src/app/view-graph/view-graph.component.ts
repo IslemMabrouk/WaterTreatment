@@ -18,6 +18,7 @@ export class ViewGraphComponent implements OnInit {
   suiviChlore:any=[];
   suiviCalcaire:any=[];
   suiviResidu:any=[];
+  suivi:any=false;
   date:any=[];
   data : any;
   highchart : any;
@@ -94,7 +95,11 @@ export class ViewGraphComponent implements OnInit {
              this.suiviResidu.push( Number (this.mesures[i].residu));
            }
         }
+        if (this.date.length==0) {
+          this.suivi = !this.suivi;      
+        }
         Highcharts.chart('container', this.options);
+
 
   
 

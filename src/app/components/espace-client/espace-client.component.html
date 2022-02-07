@@ -5,9 +5,14 @@
                 <mat-card style="width: 1200px; margin-left: -130px;">
                 <div class=" border-color-9 p-3 p-sm-6 radius-secondary">
                     <mat-tab-group mat-align-tabs="center" >
+                          
                         <mat-tab label="Demande">
 
-                          <table mat-table [dataSource]="myDemande" class="mat-elevation-z8" style="width:1000px; margin-top: 50px; margin-left: 20px; " >
+                          <div *ngIf="!dmd" style="margin-top: 50px; font-size: 17px;">  
+                            Vous n'avez aucune demande
+                          </div>
+
+                          <table *ngIf="dmd"  mat-table [dataSource]="myDemande" class="mat-elevation-z8" style="width:1000px; margin-top: 50px; margin-left: 20px; " >
 
                             <!--- Note that these columns can be defined in any order.
                                   The actual rendered columns are set as a property on the row definition" -->
@@ -53,13 +58,16 @@
                             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                           </table>
                               
-
                         </mat-tab>
                         <mat-tab label="RDV">  
 
-                          <table mat-table [dataSource]="myContacts" class="mat-elevation-z8" style="width:1000px; margin-top: 50px; margin-left: 20px; " >
+                          <div *ngIf="!rdv" style="margin-top: 50px; font-size: 17px;">  
+                            Vous n'avez aucun RDV
+                          </div>
 
-                            <!--- Note that these columns can be defined in any order.
+                          <table *ngIf="rdv" mat-table [dataSource]="myContacts" class="mat-elevation-z8" style="width:1000px; margin-top: 50px; margin-left: 20px; " >
+
+                            <!--- Note that these columns can be defin=ed in any order.
                                   The actual rendered columns are set as a property on the row definition" -->
                           
                             <!-- Position Column -->
