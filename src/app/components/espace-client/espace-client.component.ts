@@ -25,6 +25,8 @@ export class EspaceClientComponent implements OnInit {
   products:any;
   id:any;
   product:any;
+  rdv:any=false;
+  dmd:any=false;
 
   constructor(private demandeService : DemandeService,
               private productService : ProductService,
@@ -50,7 +52,15 @@ export class EspaceClientComponent implements OnInit {
 
     this.demandeService.getmyDemandes(this.connectedUser._id).subscribe(
       (data)=>{
-    this.myDemande = data.myDemandes
+    this.myDemande = data.myDemandes;
+    console.log(this.myDemande);
+    
+    if (this.myDemande.length==0) {
+      this.dmd = this.dmd;      
+    }else{
+      this.dmd = !this.dmd;      
+    }
+
       })
 
   // this.productService.getAllProducts().subscribe(
@@ -65,6 +75,13 @@ export class EspaceClientComponent implements OnInit {
         console.log('Here data from BE');
         this.myContacts= data.myContacts;
         
+        if (this.myContacts.length==0) {
+          this.rdv = this.rdv;      
+        }else{
+          this.rdv = !this.rdv;      
+        }
+  
+
       })
 
 
