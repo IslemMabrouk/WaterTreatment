@@ -9,12 +9,16 @@ import axios, { Axios } from 'axios';
 export class UserService {
 
  userURL: string = "http://localhost:3000/api/users";
+ userURL2: string = "http://localhost:3000/api/usersgoogle";
  loginURL: string = "http://localhost:3000/api/login";
   
  constructor(private httpClient : HttpClient ) { }
 
  addUser(userObj){ 
 return this.httpClient.post<{message : string}>(this.userURL, userObj);
+ }
+  addUsergoogle(userObj){ 
+return this.httpClient.post<{message : string}>(this.userURL2, userObj);
  }
 
 

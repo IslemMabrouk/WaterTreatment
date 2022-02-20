@@ -349,6 +349,42 @@ app.post('/api/users', (req, res) => {
       
     });
 
+    // traitement create user google
+app.post('/api/usersgoogle', (req, res) => {
+
+   
+    User.findOne({email : req.body.email}).then(
+    (doc) =>{
+        if (doc) {
+            res.status(200).json({message : "user exist"});
+        }else{
+    
+                let user = new User({
+                    firstName: req.body.firstName, 
+                    lastName: req.body.lastName,
+                    email: req.body.email,
+                    role: req.body.role
+            
+                });
+            
+                // etape 2 
+                user.save();
+            
+                // etape 3
+            
+                res.status(200).json({
+                    message: 'User added with sucess'
+                })
+                
+        }
+    }
+    
+    
+    
+    )
+      
+    });
+
 
 //traitement de login
 app.post("/api/login", (req, res) => {

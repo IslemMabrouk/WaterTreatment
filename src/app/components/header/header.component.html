@@ -34,7 +34,7 @@
                     <li> <a href="" style="width: 130px;" routerLink="purificateurs"> Purificateurs </a> </li>
                     <li> <a class="d-block mr-md-9"  style="width: 50px;" routerLink="entretien">Entretien</a></li>
                 
-                    <li [hidden]="connectedUser"><a  class="btn btn-outline-primary btn-capsule btn-sm border-2x fw-700" href=""  routerLink="registration"  ><strong> Inscription </strong></a></li>
+                    <li *ngIf="connectedUser==''"><a  class="btn btn-outline-primary btn-capsule btn-sm border-2x fw-700" href=""  routerLink="registration"  ><strong> Inscription </strong></a></li>
                     <li> 
                         <button  class="btn btn-outline-warning " type="submit" style="border-radius:50px; height: 35px; margin-left: 50px;"> <h6 style="margin-top:-6px; font-size: 14px;" routerLink="contact"> <strong>Contact</strong> </h6> </button></li>
                                 

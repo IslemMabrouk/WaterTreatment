@@ -17,6 +17,7 @@ import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-logi
 })
 export class RegistrationComponent implements OnInit {
   hide = true;
+usergoogle:any;
   signupForm : FormGroup;
   user: any = {};
   loginForm: FormGroup;
@@ -109,13 +110,29 @@ login(){
 
 
   signInWithGoogle(): void {
-    
-    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
-    this.userService.addUser(GoogleLoginProvider).subscribe(
+        this.authService.authState.subscribe((user) => {      
+      this.userSocial = user;
+      console.log("hedha",this.userSocial);
+      
+    });
+
+
+this.usergoogle=this.userSocial;
+
+
+ this.userService.addUsergoogle(this.usergoogle).subscribe(
       (data)=>{
+        
         this.messageAdd = data.message;
         console.log(data);
       })
+ 
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+
+      
+
+   
+      
   }
 
   signInWithFB(): void {
