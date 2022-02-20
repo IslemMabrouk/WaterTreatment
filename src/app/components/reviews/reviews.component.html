@@ -1,49 +1,116 @@
-<section class=" background-white">
+<section class="background-11" style="margin-top: -200px ;">
     <div class="container">
+        <h3 class="text-center fs-2 fs-md-3">
+            Les avis sur les produits HydroCare</h3>
+        <hr class="short"
+            data-zanim='{"from":{"opacity":0,"width":0},"to":{"opacity":1,"width":"4.20873rem"},"duration":0.8}'
+            data-zanim-trigger="scroll" />
+
+    </div>
+
+    <div class="container">
+
+
         <div class="row">
-            <div class="col">
-                <div class="owl-carousel owl-theme owl-dot-round"
-                    data-options='{"nav":true,"dots":false,"loop":true,"autoplay":true,"autoplayHoverPause":true,"items":1}'>
-                    <div class="row px-lg-8">
-                        <div class="col-4 col-md-3 mx-auto"><img class="radius-secondary mx-auto"
-                                src="assets/images/client1.png" alt="Member" style="width: auto" /></div>
-                        <div class="col-md-9 ml-auto mt-4 mt-md-0 px-4 px-sm-3">
-                            <p class="lead fw-400">Their work on our website and Internet marketing has made a
-                                significant different to our business. We’ve seen a 425% increase in quote
-                                requests from the website which has been pretty remarkable – but I’d always like
-                                to see more!</p>
-                            <h6 class="fs-0 mb-1 mt-4">Michael Clarke</h6>
-                            <p class="mb-0 color-7">CEO, A.E.T Institute</p>
+
+            <div class="col-lg-12" style="margin-top: 80px ; margin-bottom: 20px;">
+                <div class="row total_rate">
+                    <div class="col-md-5"></div>
+
+                    <div class="col-md-4" style="margin-left: 20px;">
+                        <h5 class="fs-0 fs-lg-1 overflow-hidden" data-zanim='{"delay":0.1}' style="margin-left: 20px;">
+                            <strong style="font-size: 15px;">Note moyenne</strong>
+                        </h5>
+                        <h4> <strong style="font-size: 40px;margin-left: 30px; ">4.0</strong><strong>/5</strong></h4>
+                        <div style="margin-left: 8px;">
+                            <mat-icon class="size">star</mat-icon>
+                            <mat-icon class="size">star</mat-icon>
+                            <mat-icon class="size">star</mat-icon>
+                            <mat-icon class="size">star</mat-icon>
+                            <mat-icon class="size">star</mat-icon>
                         </div>
+                        <h6 style="margin-left: 20px;">sur <strong style="font-size: 11px;">18 avis vérifiés</strong>
+                        </h6>
                     </div>
-                    <div class="row px-lg-8">
-                        <div class="col-4 col-md-3 mx-auto"><img class="radius-secondary mx-auto"
-                                src="assets/images/client2.png" alt="Member" style="width: auto" /></div>
-                        <div class="col-md-9 ml-auto mt-4 mt-md-0 px-4 px-sm-3">
-                            <p class="lead fw-400">Writing case studies was a daunting task for us. We didn’t
-                                know where to begin or what questions to ask, and clients never seemed to follow
-                                through when we asked. Elixir team did everything – with almost no time or
-                                effort for me!</p>
-                            <h6 class="fs-0 mb-1 mt-4">Maria Sharapova</h6>
-                            <p class="mb-0 color-7">Managing Director, Themewagon Inc.</p>
+                    <div class="col-md-4"></div>
+
+                </div>
+                <hr style="height: 0.08px;">
+
+            </div>
+
+            <div class="col-lg-6">
+                <div class="review_list">
+                    <div class="review_item">
+                        <div class="media">
+                            <div class="d-flex">
+                            </div>
+                            <div class="media-body">
+                                <h4 style="margin-bottom: -2px;"><strong>Blake Ruiz</strong> </h4>
+                                <mat-icon class="star">star</mat-icon>
+                                <mat-icon class="star">star</mat-icon>
+                                <mat-icon class="star">star</mat-icon>
+                                <mat-icon class="star">star</mat-icon>
+                                <mat-icon class="star">star</mat-icon>
+                            </div>
                         </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                            labore et
+                            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                            ut aliquip ex ea
+                            commodo</p>
                     </div>
-                    <div class="row px-lg-8">
-                        <div class="col-4 col-md-3 mx-auto"><img class="radius-secondary mx-auto"
-                                src="assets/images/client3.png" alt="Member" style="width: auto" /></div>
-                        <div class="col-md-9 ml-auto mt-4 mt-md-0 px-4 px-sm-3">
-                            <p class="lead fw-400">As a sales gamification company, we were skeptical to work
-                                with a consultant to optimize our sales emails, but Elixir was highly
-                                recommended by many other Y-Combinator startups we knew. Elixir helped us run a
-                                ~6 week email campaign.</p>
-                            <h6 class="fs-0 mb-1 mt-4">David Beckham</h6>
-                            <p class="mb-0 color-7">Chairman, Harmony Corporation</p>
-                        </div>
-                    </div>
+
                 </div>
             </div>
+
+
+            <div class="col-lg-6">
+                <div class="review_box">
+                    <h5 class="fs-0 fs-lg-1 " data-zanim='{"delay":0.1}' style="margin-left: 20px;">
+                        Partager votre avis</h5>
+                    <div>Your Rating:
+
+                        <button mat-icon-button [color]="color" *ngFor="let ratingId of ratingArr;index as i"
+                            [id]="'star_'+i" (click)="onClick(i+1)" [matTooltip]="ratingId+1"
+                            matTooltipPosition="above">
+                            <mat-icon class="star">
+                                {{showIcon(i)}}
+                            </mat-icon>
+                        </button>
+                        <mat-error *ngIf="starCount == null || starCount == 0">
+                            Star count is <strong>required</strong> and cannot be zero
+                        </mat-error>
+                        <p class="body-2">
+                            Your rated <span class="body-2">{{rating}}</span> / <span
+                                class="body-2">{{starCount}}</span>
+                        </p>
+
+
+                    </div>
+                    <form >
+                        <div class="form-group">
+                            <mat-form-field class="example-full-width col-12" appearance="fill">
+                                <mat-label>Laissez un commentaire</mat-label>
+                                <textarea matInput placeholder="..." [(ngModel)]="review.avis"
+                                    [ngModelOptions]="{standalone:true}" required></textarea>
+                            </mat-form-field>
+                        </div>
+                        <div class="form-group text-center text-md-right mt-3">
+                            <button type="button" class="btn btn-warning mt-3 text-center"
+                                style=" margin: 30px 0px 30px 100px ; font-size: 15px;" (click)="addReview()">
+                                Partager
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+
+
+            </div>
+
         </div>
-        <!--/.row-->
     </div>
-    <!--/.container-->
+
+
 </section>
