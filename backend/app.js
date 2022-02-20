@@ -15,8 +15,8 @@ const app = express();
 
 //import model Contrat
 const Contrat =require('./models/contrat');
-
-
+//import model review
+const Review =require('./models/review');
 // import model User
 const User = require('./models/user');
 //Import model Mesure
@@ -1089,6 +1089,31 @@ app.post('/api/search', (req, res) => {
 
     )
 
+
+})
+
+
+//:::::::::::::::::::::::::::::::::::::::::::::::::://
+//:::::::::::::::::::CRUD Review:::::::::::::::::::://
+//:::::::::::::::::::::::::::::::::::::::::::::::::://
+
+//Traitement add Review
+app.post('/api/rev', (req,res)=>{
+    console.log('Here in add Review');
+
+    let review = new Review({
+        avis : req.body.avis ,
+        idClient : req.body.idClient ,
+        time : req.body.time ,
+        rate : req.body.rate
+    });
+     console.log(review);
+
+     review.save();
+
+     res.status(200).json({
+         message : 'review added with success'
+     })
 
 })
 
