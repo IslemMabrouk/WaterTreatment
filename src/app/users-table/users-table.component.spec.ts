@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UsersTableComponent } from './users-table.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ActivatedRoute } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('UsersTableComponent', () => {
   let component: UsersTableComponent;
@@ -8,7 +11,9 @@ describe('UsersTableComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UsersTableComponent ]
+      declarations: [ UsersTableComponent ],
+      imports: [ RouterTestingModule ],
+      providers: [{provide: ActivatedRoute}]
     })
     .compileComponents();
   });

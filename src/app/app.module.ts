@@ -150,6 +150,7 @@ import {GoogleLoginProvider,FacebookLoginProvider} from 'angularx-social-login';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     FormsModule, //Général filProjet kol yjibhom
     ReactiveFormsModule,
@@ -157,9 +158,8 @@ import {GoogleLoginProvider,FacebookLoginProvider} from 'angularx-social-login';
     MatButtonModule, 
     MatTabsModule,MatSelectModule,MatOptionModule,
     MatFormFieldModule,MatIconModule,
-    HttpClientModule,MatCheckboxModule, MatInputModule,MatCardModule,
+    MatCheckboxModule, MatInputModule,MatCardModule,
     MatAutocompleteModule,
-    HttpClientModule,
     MaterialModule,MatProgressBarModule,
      MatDividerModule, MatTableModule,
     LayoutModule,
@@ -193,11 +193,9 @@ import {GoogleLoginProvider,FacebookLoginProvider} from 'angularx-social-login';
     MatAutocompleteModule,
     CdkStepperModule,    
     MatAutocompleteModule,
-    HttpClientModule,
     MaterialModule,MatProgressBarModule, MatDividerModule,
     GoogleChartsModule.forRoot(),
        MatAutocompleteModule,
-    HttpClientModule,
     MaterialModule,MatProgressBarModule, MatDividerModule,
     MatNativeDateModule,
     SocialLoginModule

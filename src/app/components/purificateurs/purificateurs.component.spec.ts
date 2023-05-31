@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { PurificateursComponent } from './purificateurs.component';
+import { ProductService } from 'src/app/services/product.service';
 
 describe('PurificateursComponent', () => {
   let component: PurificateursComponent;
@@ -8,9 +10,10 @@ describe('PurificateursComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PurificateursComponent ]
-    })
-    .compileComponents();
+      declarations: [PurificateursComponent],
+      imports: [HttpClientTestingModule],
+      providers: [ProductService]
+    }).compileComponents();
   });
 
   beforeEach(() => {

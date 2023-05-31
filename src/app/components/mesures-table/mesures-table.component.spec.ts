@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivatedRoute } from '@angular/router';
 
 import { MesuresTableComponent } from './mesures-table.component';
 
@@ -8,6 +9,12 @@ describe('MesuresTableComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: { snapshot: { data: {} } } // Mock the ActivatedRoute with a simple snapshot
+        }
+      ],
       declarations: [ MesuresTableComponent ]
     })
     .compileComponents();

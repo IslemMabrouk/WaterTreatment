@@ -1,6 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AddAdminComponent } from './add-admin.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MesureService } from 'src/app/services/mesure.service';
+import { ActivatedRoute } from '@angular/router';
 
 describe('AddAdminComponent', () => {
   let component: AddAdminComponent;
@@ -8,7 +12,8 @@ describe('AddAdminComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AddAdminComponent ]
+      declarations: [ AddAdminComponent ],
+      imports: [ReactiveFormsModule, FormsModule, HttpClientTestingModule, ActivatedRoute]
     })
     .compileComponents();
   });
