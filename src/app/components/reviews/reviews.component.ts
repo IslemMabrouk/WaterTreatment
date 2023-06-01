@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { ReviewService } from 'src/app/services/review.service';
@@ -22,11 +22,11 @@ export class ReviewsComponent implements OnInit {
   snackBarDuration: number = 2000;
   ratingArr = [];
 
-  addReviewForm : FormGroup;
+  addReviewForm : UntypedFormGroup;
   review : any = {};
 
   constructor( private snackBar: MatSnackBar,
-               private fb : FormBuilder,
+               private fb : UntypedFormBuilder,
                private revService : ReviewService) { }
 
   ngOnInit(): void {

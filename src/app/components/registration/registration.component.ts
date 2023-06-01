@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { MustMatch } from '../confirmPwd';
@@ -18,15 +18,15 @@ import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-logi
 export class RegistrationComponent implements OnInit {
   hide = true;
 usergoogle:any;
-  signupForm : FormGroup;
+  signupForm : UntypedFormGroup;
   user: any = {};
-  loginForm: FormGroup;
+  loginForm: UntypedFormGroup;
   findedUser: any;
   error:any;
   messageAdd:any;
   userSocial: SocialUser;
   loggedIn: boolean;
-  constructor(private fb :FormBuilder,
+  constructor(private fb :UntypedFormBuilder,
               private userService :UserService, private router : Router,
               private authService: SocialAuthService) { }
 

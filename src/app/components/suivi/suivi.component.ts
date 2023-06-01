@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { MesureService } from 'src/app/services/mesure.service';
 
@@ -9,11 +9,11 @@ import { MesureService } from 'src/app/services/mesure.service';
   styleUrls: ['./suivi.component.css']
 })
 export class SuiviComponent implements OnInit {
-  suiviForm:FormGroup;
+  suiviForm:UntypedFormGroup;
   mesure:any={};
   date:any;
   id:any;
-  constructor(private fB : FormBuilder,
+  constructor(private fB : UntypedFormBuilder,
               private mesureService : MesureService,
               private activatedRoute : ActivatedRoute) { }
 

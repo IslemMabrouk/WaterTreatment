@@ -1,5 +1,5 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { ContactService } from 'src/app/services/contact.service';
@@ -13,13 +13,13 @@ export class ContactComponent implements OnInit {
   @ViewChild('secondDialog') secondDialog: TemplateRef<any>;
   isShown1: boolean = false ;
   isShown2: boolean = false ;
-  contactConsForm: FormGroup;
-  contactClientForm: FormGroup;
+  contactConsForm: UntypedFormGroup;
+  contactClientForm: UntypedFormGroup;
   contact:any={};
   connectedUser:any;
   id:any;
   title:any;
-  constructor( private fb :FormBuilder,
+  constructor( private fb :UntypedFormBuilder,
               private contactService : ContactService,
               private activatedRoute : ActivatedRoute,
               private dialog: MatDialog) { }

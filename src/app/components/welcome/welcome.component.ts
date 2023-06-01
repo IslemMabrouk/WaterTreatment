@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { MesureService } from 'src/app/services/mesure.service';
@@ -11,7 +11,7 @@ import { User } from '../add-mesure/add-mesure.component';
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
-  myControl = new FormControl();
+  myControl = new UntypedFormControl();
   regions: User[] = [{ name: 'Ariana' }, {name: 'Béja'}, {name: 'Ben Arous'}, {name: 'Bizerte' }, {name : 'Gabès'}, {name : 'Gafsa' }, {name : 'Jendouba' }, {name : 'Kairouan'}, {name : 'Kasserine'}, {name : 'Kébili'}, {name : 'Le Kef'}, {name : 'Mahdia'}, {name : 'La Manouba'}, {name : 'Médenine'}, {name : 'Monastir'}, {name : 'Nabeul'}, {name : 'Sfax'}, {name :'Sidi Bouzid'}, {name :'Siliana'} , {name :'Sousse'} , {name :'Tataouine'} , {name :'Tozeur'} , {name :'Tunis'} , {name :'Zaghouan'} ];
   filteredRegions: Observable<User[]>;
   region:any;
@@ -20,7 +20,7 @@ export class WelcomeComponent implements OnInit {
   filterValue:any;
   status:any;
 
-  searchForm: FormGroup;
+  searchForm: UntypedFormGroup;
 mesures : any;
 searchValue:any;
 //::::::::Search::::::::::://
@@ -39,7 +39,7 @@ residuIsMed:any=false;
 
 quality:any=false;
 
-  constructor(  private fb : FormBuilder,
+  constructor(  private fb : UntypedFormBuilder,
                private mesureService : MesureService,
                ) { }
 

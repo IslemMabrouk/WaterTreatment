@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ContactService } from 'src/app/services/contact.service';
 import { EmailService } from 'src/app/services/email.service';
@@ -13,11 +13,11 @@ export class ContactsTableComponent implements OnInit {
   contacts:any=[];
 
   displayedColumns=['client', 'type', 'date','etat','actions'];
-  nodeMailerForm:FormGroup;
+  nodeMailerForm:UntypedFormGroup;
   etat:any=false;
   constructor(private contactService :ContactService,
               private router :Router,
-              private fB : FormBuilder,
+              private fB : UntypedFormBuilder,
               private emailService : EmailService
     ) { }
 

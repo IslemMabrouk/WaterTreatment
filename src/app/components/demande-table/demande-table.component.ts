@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { DemandeService } from 'src/app/services/demande.service';
 import { EmailService } from 'src/app/services/email.service';
 import { ProductService } from 'src/app/services/product.service';
@@ -16,10 +16,10 @@ export class DemandeTableComponent implements OnInit {
   users:any;
   displayedColumns=['validation','client', 'product', 'etat','actions'];
   title = 'nodeMailerApp';
-  nodeMailerForm :FormGroup;
+  nodeMailerForm :UntypedFormGroup;
   etat:any=false;
   constructor(private demandeService : DemandeService,
-    private productService : ProductService,private fB : FormBuilder ,
+    private productService : ProductService,private fB : UntypedFormBuilder ,
     private emailService : EmailService,private userService :UserService) { }
 
 

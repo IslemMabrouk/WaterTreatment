@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { ContratService } from 'src/app/services/contrat.service';
 
 @Component({
@@ -12,9 +12,9 @@ export class AddContratComponent implements OnInit {
  //list of checkBox
  _servicesList:composant[];
 contrat:any={};
-addContratForm :FormGroup;
+addContratForm :UntypedFormGroup;
   constructor(private contratServices : ContratService,
-    private fb :FormBuilder) { }
+    private fb :UntypedFormBuilder) { }
 
 
   ngOnInit(): void {

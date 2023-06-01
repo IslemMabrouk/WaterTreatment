@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -14,8 +14,8 @@ export class AddProductComponent implements OnInit {
 
 //:::::::::::::::
 product : any={};
-addAdoucisseurForm: FormGroup;
-addPurificateurForm: FormGroup;
+addAdoucisseurForm: UntypedFormGroup;
+addPurificateurForm: UntypedFormGroup;
 
 id : any;
 users : any;
@@ -24,7 +24,7 @@ messageAdd : any;
 imagePreview : any;
 p:any=[];
 
-  constructor( private fb : FormBuilder,
+  constructor( private fb : UntypedFormBuilder,
                private productService : ProductService, private router :Router,private activatedRoute :ActivatedRoute
            ) { }
 

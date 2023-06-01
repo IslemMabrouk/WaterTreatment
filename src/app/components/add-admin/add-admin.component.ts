@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
@@ -12,10 +12,10 @@ export class AddAdminComponent implements OnInit {
   id: any;
   title: any;
   user: any = {};
-  addAdminForm: FormGroup;
+  addAdminForm: UntypedFormGroup;
   users: any;
   constructor(
-    private formbuilder: FormBuilder,
+    private formbuilder: UntypedFormBuilder,
     private activatedRoute: ActivatedRoute,
     private userService: UserService,
     private router:Router

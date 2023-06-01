@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup ,FormControl } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup ,UntypedFormControl } from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -17,18 +17,18 @@ export interface User {
   styleUrls: ['./add-mesure.component.css']
 })
 export class AddMesureComponent implements OnInit {
-  myControl = new FormControl();
+  myControl = new UntypedFormControl();
   regions: User[] = [{ name: 'Ariana' }, {name: 'Béja'}, {name: 'Ben Arous'}, {name: 'Bizerte' }, {name : 'Gabès'}, {name : 'Gafsa' }, {name : 'Jendouba' }, {name : 'Kairouan'}, {name : 'Kasserine'}, {name : 'Kébili'}, {name : 'Le Kef'}, {name : 'Mahdia'}, {name : 'La Manouba'}, {name : 'Médenine'}, {name : 'Monastir'}, {name : 'Nabeul'}, {name : 'Sfax'}, {name :'Sidi Bouzid'}, {name :'Siliana'} , {name :'Sousse'} , {name :'Tataouine'} , {name :'Tozeur'} , {name :'Tunis'} , {name :'Zaghouan'} ];
   filteredRegions: Observable<User[]>;
   region:any;
   mesure:any={}; 
-  addMesureForm : FormGroup;
+  addMesureForm : UntypedFormGroup;
   messageadd:any;
   filterValue:any;
   status:any;
   id:any;
   title:any;
-  constructor( private formbuilder :FormBuilder,
+  constructor( private formbuilder :UntypedFormBuilder,
                private mesureService : MesureService,
                private router : Router,
                private activatedRoute : ActivatedRoute,

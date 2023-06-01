@@ -1,5 +1,5 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DemandeService } from 'src/app/services/demande.service';
@@ -18,7 +18,7 @@ export class ValidationDemandeComponent implements OnInit {
   _demande:any;
   demande:any={};
   devis:any;
-  validationForm:FormGroup;
+  validationForm:UntypedFormGroup;
   @ViewChild('secondDialog') secondDialog: TemplateRef<any>;
 
 
@@ -26,7 +26,7 @@ export class ValidationDemandeComponent implements OnInit {
               private demandeService :DemandeService,
               private activatedRoute : ActivatedRoute,
               private router : Router,
-              private formBuilder : FormBuilder,
+              private formBuilder : UntypedFormBuilder,
               private dialog: MatDialog) {
                 let URL = this.router.url;
                 let URL_demande = URL.split('/');
